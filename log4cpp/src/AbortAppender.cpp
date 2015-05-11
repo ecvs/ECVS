@@ -15,6 +15,9 @@
 
 namespace log4cpp {
 
+
+
+
     AbortAppender::AbortAppender(const std::string& name) : 
         AppenderSkeleton(name) {
     }
