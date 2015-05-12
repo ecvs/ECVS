@@ -19,6 +19,17 @@ CToolInput::CToolInput(const CToolInput &rhs) : m_Value(rhs.m_Value), m_strInfo(
 
 }
 
+
+CToolInput& CToolInput::operator = (const CToolInput& rhs)
+{
+	if (this != &rhs)
+	{
+		m_strInfo = rhs.m_strInfo; 
+		m_Value = rhs.m_Value;
+	}
+	return *this;
+}
+
 CToolInput::~CToolInput()
 {
 }

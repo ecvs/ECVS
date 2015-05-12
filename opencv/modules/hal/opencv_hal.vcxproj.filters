@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Project ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="..\..\sources\modules\hal\src\arithm.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\sources\modules\hal\src\color.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\sources\modules\hal\src\filter.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\sources\modules\hal\src\mathfuncs.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\sources\modules\hal\src\matrix.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\sources\modules\hal\src\resize.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\sources\modules\hal\src\stat.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\sources\modules\hal\src\warp.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="opencv_hal_pch.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\sources\modules\hal\include\opencv2\hal.hpp">
+      <Filter>Include\opencv2</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\sources\modules\hal\include\opencv2\hal\intrin.hpp">
+      <Filter>Include\opencv2\hal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\sources\modules\hal\include\opencv2\hal\intrin_cpp.hpp">
+      <Filter>Include\opencv2\hal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\sources\modules\hal\include\opencv2\hal\intrin_neon.hpp">
+      <Filter>Include\opencv2\hal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\sources\modules\hal\include\opencv2\hal\intrin_sse.hpp">
+      <Filter>Include\opencv2\hal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\sources\modules\hal\include\opencv2\hal\defs.h">
+      <Filter>Include\opencv2\hal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\sources\modules\hal\src\precomp.hpp">
+      <Filter>Src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\cvconfig.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\opencv2\opencv_modules.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="..\..\sources\modules\hal\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Include\opencv2\hal">
+      <UniqueIdentifier>{5A41DF17-8166-4087-96FB-5274ABE27014}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Include\opencv2">
+      <UniqueIdentifier>{DEB30847-EAE4-4168-8D59-8B8D4E435460}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{BA340DBB-835D-449C-A7B2-5CF6D613B5FA}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{F72F5855-E98D-43FA-92C0-54779C12B134}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src">
+      <UniqueIdentifier>{684358A7-E10E-424F-AD6B-3EF8AE7F4512}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Include">
+      <UniqueIdentifier>{C8A323D2-2B61-4152-BAAB-60386897AF7D}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

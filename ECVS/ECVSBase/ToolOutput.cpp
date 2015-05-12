@@ -10,7 +10,7 @@
 #include "ToolOutput.h"
 
 
-CToolOutput::CToolOutput(DataType dataType, string strInfo = "") :m_Value(dataType), m_strInfo(strInfo)
+CToolOutput::CToolOutput(DataType dataType, string strInfo/* = ""*/) :m_Value(dataType), m_strInfo(strInfo)
 {
 }
 
@@ -51,4 +51,14 @@ void CToolOutput::SetStringInfo(string strInfo)
 string CToolOutput::GetStringInfo()
 {
 	return m_strInfo;
+}
+
+CToolOutput& CToolOutput::operator = (const CToolOutput& rhs)
+{
+	if (this != &rhs)
+	{
+		m_strInfo = rhs.m_strInfo;
+		m_Value = rhs.m_Value;
+	}
+	return *this;
 }

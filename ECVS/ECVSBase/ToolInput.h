@@ -15,6 +15,8 @@ public:
 	CToolInput(DataType dataType, string strInfo = "");
 	//复制构造函数
 	CToolInput(const CToolInput &rhs);
+	//赋值操作符
+	CToolInput& operator=(const CToolInput&);
 	~CToolInput();
 	//设置值
 	bool SetInputValue(const CInputOutputInfo&rhs);
@@ -27,7 +29,7 @@ private:
 	CInputOutputInfo	m_Value;
 	string				m_strInfo;   //对于该字段的说明文字, 比如 “输入图像” 、"偏移X"
 
-	CToolInput& operator=(const CToolInput&);
+	
 
 };
 

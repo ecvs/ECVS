@@ -1,0 +1,238 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGUID>{F6F7528B-F973-41F6-AE8D-6007EAB0BC87}</ProjectGUID>
+    <Keyword>Win32Proj</Keyword>
+    <Platform>Win32</Platform>
+    <ProjectName>opencv_test_objdetect</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v120</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v120</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+    <PropertyGroup>
+      <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+      <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">F:\ECVS\opencv\bin\Debug\</OutDir>
+      <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">opencv_test_objdetect.dir\Debug\</IntDir>
+      <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">opencv_test_objdetectd</TargetName>
+      <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.exe</TargetExt>
+      <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</LinkIncremental>
+      <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</GenerateManifest>
+      <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">F:\ECVS\opencv\bin\Release\</OutDir>
+      <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">opencv_test_objdetect.dir\Release\</IntDir>
+      <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">opencv_test_objdetect</TargetName>
+      <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.exe</TargetExt>
+      <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
+      <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</GenerateManifest>
+    </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <AdditionalOptions> /bigobj %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalIncludeDirectories>F:\ECVS\opencv\sources\3rdparty\include\opencl\1.2;F:\ECVS\opencv\sources\3rdparty\ippicv\unpack\ippicv_win\include;F:\ECVS\opencv;F:\ECVS\opencv\sources\modules\ts\include;F:\ECVS\opencv\sources\modules\objdetect\include;F:\ECVS\opencv\sources\modules\imgcodecs\include;F:\ECVS\opencv\sources\modules\videoio\include;F:\ECVS\opencv\sources\modules\hal\include;F:\ECVS\opencv\sources\modules\core\include;F:\ECVS\opencv\sources\modules\imgproc\include;F:\ECVS\opencv\sources\modules\ml\include;F:\ECVS\opencv\sources\modules\highgui\include;F:\ECVS\opencv\sources\modules\objdetect\test;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>Debug/</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4251;4324</DisableSpecificWarnings>
+      <EnableEnhancedInstructionSet>StreamingSIMDExtensions2</EnableEnhancedInstructionSet>
+      <ExceptionHandling>Async</ExceptionHandling>
+      <FloatingPointModel>Fast</FloatingPointModel>
+      <ForcedIncludeFiles>F:/ECVS/opencv/sources/modules/objdetect/test/test_precomp.hpp</ForcedIncludeFiles>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>F:/ECVS/opencv/sources/modules/objdetect/test/test_precomp.hpp</PrecompiledHeaderFile>
+      <ProcessorNumber>4</ProcessorNumber>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <WarningLevel>Level4</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_SCL_SECURE_NO_WARNINGS;_DEBUG;_VARIADIC_MAX=10;__OPENCV_BUILD=1;CMAKE_INTDIR="Debug";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_SCL_SECURE_NO_WARNINGS;_DEBUG;_VARIADIC_MAX=10;__OPENCV_BUILD=1;CMAKE_INTDIR=\"Debug\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>F:\ECVS\opencv\sources\3rdparty\include\opencl\1.2;F:\ECVS\opencv\sources\3rdparty\ippicv\unpack\ippicv_win\include;F:\ECVS\opencv;F:\ECVS\opencv\sources\modules\ts\include;F:\ECVS\opencv\sources\modules\objdetect\include;F:\ECVS\opencv\sources\modules\imgcodecs\include;F:\ECVS\opencv\sources\modules\videoio\include;F:\ECVS\opencv\sources\modules\hal\include;F:\ECVS\opencv\sources\modules\core\include;F:\ECVS\opencv\sources\modules\imgproc\include;F:\ECVS\opencv\sources\modules\ml\include;F:\ECVS\opencv\sources\modules\highgui\include;F:\ECVS\opencv\sources\modules\objdetect\test;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>F:\ECVS\opencv\sources\3rdparty\include\opencl\1.2;F:\ECVS\opencv\sources\3rdparty\ippicv\unpack\ippicv_win\include;F:\ECVS\opencv;F:\ECVS\opencv\sources\modules\ts\include;F:\ECVS\opencv\sources\modules\objdetect\include;F:\ECVS\opencv\sources\modules\imgcodecs\include;F:\ECVS\opencv\sources\modules\videoio\include;F:\ECVS\opencv\sources\modules\hal\include;F:\ECVS\opencv\sources\modules\core\include;F:\ECVS\opencv\sources\modules\imgproc\include;F:\ECVS\opencv\sources\modules\ml\include;F:\ECVS\opencv\sources\modules\highgui\include;F:\ECVS\opencv\sources\modules\objdetect\test;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalOptions> /machine:X86 /debug %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib;..\..\lib\Debug\opencv_ts300d.lib;..\..\lib\Debug\opencv_objdetect300d.lib;..\..\lib\Debug\opencv_hal300d.lib;..\..\lib\Debug\opencv_hal300d.lib;..\..\lib\Debug\opencv_hal300d.lib;..\..\lib\Debug\opencv_ml300d.lib;..\..\lib\Debug\opencv_highgui300d.lib;..\..\sources\3rdparty\ippicv\unpack\ippicv_win\lib\ia32\ippicvmt.lib;..\..\lib\Debug\opencv_videoio300d.lib;..\..\lib\Debug\opencv_imgcodecs300d.lib;..\..\lib\Debug\opencv_imgproc300d.lib;..\..\lib\Debug\opencv_core300d.lib;..\..\lib\Debug\opencv_hal300d.lib;..\..\sources\3rdparty\ippicv\unpack\ippicv_win\lib\ia32\ippicvmt.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>F:/ECVS/opencv/bin/Debug/opencv_test_objdetectd.lib</ImportLibrary>
+      <ProgramDataBaseFile>F:/ECVS/opencv/bin/Debug/opencv_test_objdetectd.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+      <Version></Version>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <AdditionalOptions> /bigobj %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalIncludeDirectories>F:\ECVS\opencv\sources\3rdparty\include\opencl\1.2;F:\ECVS\opencv\sources\3rdparty\ippicv\unpack\ippicv_win\include;F:\ECVS\opencv;F:\ECVS\opencv\sources\modules\ts\include;F:\ECVS\opencv\sources\modules\objdetect\include;F:\ECVS\opencv\sources\modules\imgcodecs\include;F:\ECVS\opencv\sources\modules\videoio\include;F:\ECVS\opencv\sources\modules\hal\include;F:\ECVS\opencv\sources\modules\core\include;F:\ECVS\opencv\sources\modules\imgproc\include;F:\ECVS\opencv\sources\modules\ml\include;F:\ECVS\opencv\sources\modules\highgui\include;F:\ECVS\opencv\sources\modules\objdetect\test;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>Release/</AssemblerListingLocation>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4251;4324</DisableSpecificWarnings>
+      <EnableEnhancedInstructionSet>StreamingSIMDExtensions2</EnableEnhancedInstructionSet>
+      <ExceptionHandling>Async</ExceptionHandling>
+      <FloatingPointModel>Fast</FloatingPointModel>
+      <ForcedIncludeFiles>F:/ECVS/opencv/sources/modules/objdetect/test/test_precomp.hpp</ForcedIncludeFiles>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>F:/ECVS/opencv/sources/modules/objdetect/test/test_precomp.hpp</PrecompiledHeaderFile>
+      <ProcessorNumber>4</ProcessorNumber>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <WarningLevel>Level4</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_SCL_SECURE_NO_WARNINGS;NDEBUG;_VARIADIC_MAX=10;__OPENCV_BUILD=1;CMAKE_INTDIR="Release";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_SCL_SECURE_NO_WARNINGS;NDEBUG;_VARIADIC_MAX=10;__OPENCV_BUILD=1;CMAKE_INTDIR=\"Release\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>F:\ECVS\opencv\sources\3rdparty\include\opencl\1.2;F:\ECVS\opencv\sources\3rdparty\ippicv\unpack\ippicv_win\include;F:\ECVS\opencv;F:\ECVS\opencv\sources\modules\ts\include;F:\ECVS\opencv\sources\modules\objdetect\include;F:\ECVS\opencv\sources\modules\imgcodecs\include;F:\ECVS\opencv\sources\modules\videoio\include;F:\ECVS\opencv\sources\modules\hal\include;F:\ECVS\opencv\sources\modules\core\include;F:\ECVS\opencv\sources\modules\imgproc\include;F:\ECVS\opencv\sources\modules\ml\include;F:\ECVS\opencv\sources\modules\highgui\include;F:\ECVS\opencv\sources\modules\objdetect\test;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>F:\ECVS\opencv\sources\3rdparty\include\opencl\1.2;F:\ECVS\opencv\sources\3rdparty\ippicv\unpack\ippicv_win\include;F:\ECVS\opencv;F:\ECVS\opencv\sources\modules\ts\include;F:\ECVS\opencv\sources\modules\objdetect\include;F:\ECVS\opencv\sources\modules\imgcodecs\include;F:\ECVS\opencv\sources\modules\videoio\include;F:\ECVS\opencv\sources\modules\hal\include;F:\ECVS\opencv\sources\modules\core\include;F:\ECVS\opencv\sources\modules\imgproc\include;F:\ECVS\opencv\sources\modules\ml\include;F:\ECVS\opencv\sources\modules\highgui\include;F:\ECVS\opencv\sources\modules\objdetect\test;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalOptions> /machine:X86 /debug %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib;..\..\lib\Release\opencv_ts300.lib;..\..\lib\Release\opencv_objdetect300.lib;..\..\lib\Release\opencv_hal300.lib;..\..\lib\Release\opencv_hal300.lib;..\..\lib\Release\opencv_hal300.lib;..\..\lib\Release\opencv_ml300.lib;..\..\lib\Release\opencv_highgui300.lib;..\..\sources\3rdparty\ippicv\unpack\ippicv_win\lib\ia32\ippicvmt.lib;..\..\lib\Release\opencv_videoio300.lib;..\..\lib\Release\opencv_imgcodecs300.lib;..\..\lib\Release\opencv_imgproc300.lib;..\..\lib\Release\opencv_core300.lib;..\..\lib\Release\opencv_hal300.lib;..\..\sources\3rdparty\ippicv\unpack\ippicv_win\lib\ia32\ippicvmt.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>F:/ECVS/opencv/bin/Release/opencv_test_objdetect.lib</ImportLibrary>
+      <ProgramDataBaseFile>F:/ECVS/opencv/bin/Release/opencv_test_objdetect.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+      <Version></Version>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="..\..\sources\modules\objdetect\CMakeLists.txt">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Building Custom Rule F:/ECVS/opencv/sources/modules/objdetect/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -H../../sources -B../.. --check-stamp-file F:\ECVS\opencv\modules\objdetect\CMakeFiles\generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">F:/ECVS/opencv/sources/modules/objdetect/CMakeLists.txt;F:\ECVS\opencv\sources\modules\objdetect\CMakeLists.txt;F:\ECVS\opencv\sources\modules\objdetect\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">F:\ECVS\opencv\modules\objdetect\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Building Custom Rule F:/ECVS/opencv/sources/modules/objdetect/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -H../../sources -B../.. --check-stamp-file F:\ECVS\opencv\modules\objdetect\CMakeFiles\generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">F:/ECVS/opencv/sources/modules/objdetect/CMakeLists.txt;F:\ECVS\opencv\sources\modules\objdetect\CMakeLists.txt;F:\ECVS\opencv\sources\modules\objdetect\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">F:\ECVS\opencv\modules\objdetect\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\sources\modules\objdetect\test\test_precomp.hpp" />
+    <ClCompile Include="..\..\sources\modules\objdetect\test\opencl\test_hogdetector.cpp"  />
+    <ClCompile Include="..\..\sources\modules\objdetect\test\test_cascadeandhog.cpp"  />
+    <ClCompile Include="..\..\sources\modules\objdetect\test\test_main.cpp"  />
+    <ClCompile Include="opencv_test_objdetect_pch.cpp" >
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">F:/ECVS/opencv/sources/modules/objdetect/test/test_precomp.hpp</PrecompiledHeaderFile>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">F:/ECVS/opencv/sources/modules/objdetect/test/test_precomp.hpp</PrecompiledHeaderFile>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="F:/ECVS/opencv/ZERO_CHECK.vcxproj">
+      <Project>ADC3491A-646D-4389-B4ED-CF57629CB948</Project>
+    </ProjectReference>
+    <ProjectReference Include="F:/ECVS/opencv/modules/core/opencv_core.vcxproj">
+      <Project>AE884E84-CE09-4AB0-AA5F-06F152BF50F5</Project>
+    </ProjectReference>
+    <ProjectReference Include="F:/ECVS/opencv/modules/hal/opencv_hal.vcxproj">
+      <Project>982A551E-C956-4D4A-82E6-1E03FA93EDEC</Project>
+    </ProjectReference>
+    <ProjectReference Include="F:/ECVS/opencv/modules/highgui/opencv_highgui.vcxproj">
+      <Project>E7778EE4-D3F5-4EB5-A918-4446615AD72D</Project>
+    </ProjectReference>
+    <ProjectReference Include="F:/ECVS/opencv/modules/imgcodecs/opencv_imgcodecs.vcxproj">
+      <Project>6750C61B-2842-470D-83D1-9A4843F7F6A6</Project>
+    </ProjectReference>
+    <ProjectReference Include="F:/ECVS/opencv/modules/imgproc/opencv_imgproc.vcxproj">
+      <Project>EA4D857B-4AD4-47D1-A124-864A6D976BEB</Project>
+    </ProjectReference>
+    <ProjectReference Include="F:/ECVS/opencv/modules/ml/opencv_ml.vcxproj">
+      <Project>70AB8C07-A375-4365-BF33-F82F31E6A0C9</Project>
+    </ProjectReference>
+    <ProjectReference Include="F:/ECVS/opencv/modules/objdetect/opencv_objdetect.vcxproj">
+      <Project>EAAA8CF4-63CD-4D39-AE84-985536FD7111</Project>
+    </ProjectReference>
+    <ProjectReference Include="F:/ECVS/opencv/modules/ts/opencv_ts.vcxproj">
+      <Project>991E01F4-126B-4640-B9BF-3DEE9466207F</Project>
+    </ProjectReference>
+    <ProjectReference Include="F:/ECVS/opencv/modules/videoio/opencv_videoio.vcxproj">
+      <Project>8119B77A-BD93-4609-91C8-0BD1F5483888</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

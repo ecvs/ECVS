@@ -14,7 +14,7 @@ public:
 	CToolOutput(DataType dataType, string strInfo = "");
 	~CToolOutput();
 	CToolOutput(const CToolOutput &rhs);
-
+	CToolOutput& operator=(const CToolOutput&);
 	//设置值
 	bool SetInputValue(const CInputOutputInfo&rhs);
 
@@ -27,6 +27,6 @@ private:
 	CInputOutputInfo	m_Value;
 	string				m_strInfo;   //对于该字段的说明文字, 比如 “输入图像” 、"偏移X"
 
-	CToolOutput& operator=(const CToolOutput&);
+	
 };
 
