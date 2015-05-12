@@ -2656,6 +2656,7 @@ error:
 
 static short slotoffsets[] = {
     -1, /* invalid slot */
+/*#include "typeslots.inc"*/
 #include "typeslots.inc"
 };
 

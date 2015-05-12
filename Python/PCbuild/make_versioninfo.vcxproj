@@ -142,9 +142,9 @@ make_versioninfo.exe &gt; ..\PC\python_nt.h
     <CustomBuildStep>
       <Message>Build PC/pythonnt_rc(_d).h</Message>
       <Command>cd $(SolutionDir)
-make_versioninfo_d.exe &gt; ..\PC\pythonnt_rc_d.h
+make_versioninfo_d.exe &gt; ..\Python\PC\pythonnt_rc_d.h
 </Command>
-      <Outputs>$(SolutionDir)..\PC\pythonnt_rc_d.h;%(Outputs)</Outputs>
+      <Outputs>$(SolutionDir)..\Python\PC\pythonnt_rc_d.h;%(Outputs)</Outputs>
       <Inputs>$(SolutionDir)make_versioninfo_d.exe</Inputs>
     </CustomBuildStep>
     <ClCompile>
