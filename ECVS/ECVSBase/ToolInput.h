@@ -1,0 +1,33 @@
+#pragma once
+/*
+* ToolInput.h
+*
+* 创建于 2015-5-12  李春峰
+*
+* 对CInputOutputInfo的封装，专门做Input
+*
+*/
+
+#include "InputOutputInfo.h"
+class ECVS_EXPORT CToolInput
+{
+public:
+	CToolInput(DataType dataType, string strInfo = "");
+	//复制构造函数
+	CToolInput(const CToolInput &rhs);
+	~CToolInput();
+	//设置值
+	bool SetInputValue(const CInputOutputInfo&rhs);
+
+	const CInputOutputInfo& GetValue();
+	//设置和获取说明文字
+	void SetStringInfo(string strInfo);
+	string GetStringInfo();
+private:
+	CInputOutputInfo	m_Value;
+	string				m_strInfo;   //对于该字段的说明文字, 比如 “输入图像” 、"偏移X"
+
+	CToolInput& operator=(const CToolInput&);
+
+};
+
