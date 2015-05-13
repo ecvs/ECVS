@@ -19,6 +19,7 @@ public:
 	bool SetInputValue(const CInputOutputInfo&rhs);
 
 	const CInputOutputInfo& GetValue();
+	const CInputOutputInfo& GetValue() const;
 	//设置和获取说明文字
 	void SetStringInfo(string strInfo);
 	string GetStringInfo();

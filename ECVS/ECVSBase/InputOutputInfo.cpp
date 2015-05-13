@@ -104,6 +104,15 @@ bool  CInputOutputInfo::IsVector()
 	return false;
 }
 
+bool CInputOutputInfo::IsSameType(const CInputOutputInfo& rhs) const
+{
+	return ::IsSameType(m_dataType, rhs.m_dataType);
+}
+
+bool CInputOutputInfo::IsSameType(const CInputOutputInfo& rhs)
+{
+	return ::IsSameType(m_dataType, rhs.m_dataType);
+}
 
 //以下一系列函数为设置和获取数据值的函数，如果尝试获取或设置不同类型的值那么返回false
 bool CInputOutputInfo::GetIntValue(int& nValue)
@@ -211,4 +220,15 @@ bool CInputOutputInfo::SetVecStrValue(const vector<string>& strValue)
 		return true;
 	}
 	return false;
+}
+
+
+//两个全局函数
+bool IsVector(DataType dt) //判断dt是否是vector类型
+{
+	return ((dt&DATA_TYPE_VEC_BASE) == DATA_TYPE_VEC_BASE);
+}
+bool IsSameType(DataType dt1, DataType dt2)// 判断dt1和 dt2是否为同一种类型 比如vector<int> 和int是同一种类型
+{
+	 return ( (dt1 ^ dt2) &0x00FF == 0);
 }

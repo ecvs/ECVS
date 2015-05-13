@@ -42,6 +42,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
     <OutDir>..\..\EasyComputerVisionSystem\bin\Debug</OutDir>
+    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);..\..\opencv\sources\include;</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
@@ -52,7 +53,7 @@
       </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;ECVSBASE_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;ECVSBASE_EXPORTS;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
     </ClCompile>
     <Link>
@@ -81,12 +82,14 @@
   <ItemGroup>
     <ClInclude Include="AlgrithmBase.h" />
     <ClInclude Include="ECVSBase.h" />
+    <ClInclude Include="FlowProcess.h" />
     <ClInclude Include="InputOutputInfo.h" />
     <ClInclude Include="ToolInput.h" />
     <ClInclude Include="ToolOutput.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AlgrithmBase.cpp" />
+    <ClCompile Include="FlowProcess.cpp" />
     <ClCompile Include="InputOutputInfo.cpp" />
     <ClCompile Include="ToolInput.cpp" />
     <ClCompile Include="ToolOutput.cpp" />

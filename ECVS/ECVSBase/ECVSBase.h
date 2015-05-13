@@ -12,3 +12,42 @@
 #else
 #define  ECVS_EXPORT
 #endif
+
+
+#define  ECVSString string;
+
+//类型的定义
+
+//普通数据的起始定义
+#define DATA_TYPE_BASE		0x0F00
+//数据类型是vector的起始定义
+#define DATA_TYPE_VEC_BASE	0xFF00
+
+#define DATA_TYPE_INT		0x01
+#define  DATA_TYPE_DOUBLE	0x02
+#define DATA_TYPE_STRING	0x03
+#define  DATA_TYPE_POINT	0x04
+#define  DATA_TYPE_POINT2F  0x05
+#define  DATA_TYPE_IMAGE	0x06
+enum DataType
+{
+	TYPE_INT = DATA_TYPE_BASE + DATA_TYPE_INT,				//整型
+	TYPE_DOUBLE = DATA_TYPE_BASE + DATA_TYPE_DOUBLE,			//浮点型
+	TYPE_STRING = DATA_TYPE_BASE + DATA_TYPE_STRING,			//字符串类型
+	TYPE_POINT = DATA_TYPE_BASE + DATA_TYPE_POINT,				//CV::Point类型
+	TYPE_POINT2F = DATA_TYPE_BASE + DATA_TYPE_POINT2F,			//CV::Point2F类型
+	TYPE_IMAGE = DATA_TYPE_BASE + DATA_TYPE_IMAGE,				//CV::Mat 类型
+	//下面的字段都是上面的Vector类型
+	TYPE_INT_VECTOR = DATA_TYPE_VEC_BASE + DATA_TYPE_INT,
+	TYPE_DOUBLE_VECTOR = DATA_TYPE_VEC_BASE + DATA_TYPE_DOUBLE,
+	TYPE_STRING_VECTOR = DATA_TYPE_VEC_BASE + DATA_TYPE_STRING,
+	TYPE_POINT_VECTOR = DATA_TYPE_VEC_BASE + DATA_TYPE_POINT,
+	TYPE_POINT2F_VECTOR = DATA_TYPE_VEC_BASE + DATA_TYPE_POINT2F,
+	TYPE_IMAGE_VECTOR = DATA_TYPE_VEC_BASE + DATA_TYPE_IMAGE
+
+
+};
+
+
+bool IsVector(DataType dt); //判断dt是否是vector类型
+bool IsSameType(DataType dt1, DataType dt2);// 判断dt1和 dt2是否为同一种类型 比如vector<int> 和int是同一种类型

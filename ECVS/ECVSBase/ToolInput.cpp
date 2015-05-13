@@ -53,6 +53,10 @@ const CInputOutputInfo& CToolInput::GetValue()
 {
 	return m_Value;
 }
+const CInputOutputInfo& CToolInput::GetValue() const
+{
+	return m_Value;
+}
 //设置和获取说明文字
 void CToolInput::SetStringInfo(string strInfo)
 {

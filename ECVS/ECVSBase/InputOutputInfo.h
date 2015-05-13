@@ -16,29 +16,11 @@ using std::string;
 using std::vector;
 //CInputOutputInfo 的数据类型
 
-//普通数据的起始定义
-#define DATA_TYPE_BASE  0x0F00
-//数据类型是vector的起始定义
-#define DATA_TYPE_VEC_BASE 0xFF00
-
-enum DataType
-{
-	TYPE_INT		= DATA_TYPE_BASE,				//整型
-	TYPE_DOUBLE		= DATA_TYPE_BASE + 1,			//浮点型
-	TYPE_STRING		= DATA_TYPE_BASE + 2,			//字符串类型
-	TYPE_POINT		= DATA_TYPE_BASE + 3,				//CV::Point类型
-	TYPE_POINT2F	= DATA_TYPE_BASE + 4,			//CV::Point2F类型
-	TYPE_IMAGE		= DATA_TYPE_BASE + 5,				//CV::Mat 类型
-	//下面的字段都是上面的Vector类型
-	TYPE_INT_VECTOR		= DATA_TYPE_VEC_BASE,
-	TYPE_DOUBLE_VECTOR	= DATA_TYPE_VEC_BASE + 1,
-	TYPE_STRING_VECTOR	= DATA_TYPE_VEC_BASE + 2,
-	TYPE_POINT_VECTOR	= DATA_TYPE_VEC_BASE + 3,
-	TYPE_POINT2F_VECTOR = DATA_TYPE_VEC_BASE + 4,
-	TYPE_IMAGE_VECTOR	= DATA_TYPE_VEC_BASE + 5
 
 
-};
+
+
+
 
 //代表输入输出的数据类型，里面包含大部分数据类型
 
@@ -56,8 +38,8 @@ public:
 	const DataType GetDataType() const;
 	//判断是否是列表类型
 	bool  IsVector();
-
-
+	bool IsSameType(const CInputOutputInfo& rhs); //判断两个对象是否是同一种数据类型 同一种数据类型(int == int || vector<int> == int)
+	bool IsSameType(const CInputOutputInfo& rhs) const;
 
 	//以下一系列函数为设置和获取数据值的函数，如果尝试获取或设置不同类型的值那么返回false
 	bool GetIntValue(int& nValue);

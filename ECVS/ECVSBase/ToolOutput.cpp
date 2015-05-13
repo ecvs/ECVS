@@ -39,6 +39,12 @@ bool CToolOutput::SetInputValue(const CInputOutputInfo&rhs)
 
 }
 
+
+const CInputOutputInfo& CToolOutput::GetValue() const
+{
+	return m_Value;
+}
+
 const CInputOutputInfo& CToolOutput::GetValue()
 {
 	return m_Value;
