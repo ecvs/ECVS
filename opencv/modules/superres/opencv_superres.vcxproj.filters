@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="..\..\sources\modules\superres\src\btv_l1.cpp">
@@ -53,7 +53,6 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="..\..\sources\modules\superres\CMakeLists.txt" />
     <CustomBuild Include="..\..\CMakeFiles\76e7da0e56ae3a357fa584a8a6e3a019\opencl_kernels_superres.cpp.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>

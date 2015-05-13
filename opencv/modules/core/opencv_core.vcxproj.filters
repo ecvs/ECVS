@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="..\..\sources\modules\core\src\algorithm.cpp">
@@ -365,7 +365,6 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="..\..\sources\modules\core\CMakeLists.txt" />
     <CustomBuild Include="..\..\CMakeFiles\1a2c0573fe24e94e0433d4837d96387d\opencl_kernels_core.cpp.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>

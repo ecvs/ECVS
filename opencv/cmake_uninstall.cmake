@@ -2,11 +2,11 @@
 # File that provides "make uninstall" target
 #  We use the file 'install_manifest.txt'
 # -----------------------------------------------
-IF(NOT EXISTS "F:/ECVS/opencv/install_manifest.txt")
-  MESSAGE(FATAL_ERROR "Cannot find install manifest: \"F:/ECVS/opencv/install_manifest.txt\"")
-ENDIF(NOT EXISTS "F:/ECVS/opencv/install_manifest.txt")
+IF(NOT EXISTS "G:/Learn/GitRepos/ECVS/opencv/install_manifest.txt")
+  MESSAGE(FATAL_ERROR "Cannot find install manifest: \"G:/Learn/GitRepos/ECVS/opencv/install_manifest.txt\"")
+ENDIF(NOT EXISTS "G:/Learn/GitRepos/ECVS/opencv/install_manifest.txt")
 
-FILE(READ "F:/ECVS/opencv/install_manifest.txt" files)
+FILE(READ "G:/Learn/GitRepos/ECVS/opencv/install_manifest.txt" files)
 STRING(REGEX REPLACE "\n" ";" files "${files}")
 FOREACH(file ${files})
   MESSAGE(STATUS "Uninstalling \"$ENV{DESTDIR}${file}\"")

@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -36,21 +36,21 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
-    <PropertyGroup>
-      <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
-      <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">F:\ECVS\opencv\3rdparty\lib\Debug\</OutDir>
-      <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">libjpeg.dir\Debug\</IntDir>
-      <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">libjpegd</TargetName>
-      <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.lib</TargetExt>
-      <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">F:\ECVS\opencv\3rdparty\lib\Release\</OutDir>
-      <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">libjpeg.dir\Release\</IntDir>
-      <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">libjpeg</TargetName>
-      <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.lib</TargetExt>
-    </PropertyGroup>
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">../..\3rdparty\lib\Debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">libjpeg.dir\Debug\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">libjpegd</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.lib</TargetExt>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">../..\3rdparty\lib\Release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">libjpeg.dir\Release\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">libjpeg</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.lib</TargetExt>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <AdditionalOptions> /bigobj %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalIncludeDirectories>F:\ECVS\opencv\sources\3rdparty\libjpeg;F:\ECVS\opencv;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../..\sources\3rdparty\libjpeg;../..;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>Debug/</AssemblerListingLocation>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <CompileAs>CompileAsC</CompileAs>
@@ -74,10 +74,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>WIN32;_WINDOWS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_SCL_SECURE_NO_WARNINGS;_DEBUG;_VARIADIC_MAX=10;CMAKE_INTDIR=\"Debug\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>F:\ECVS\opencv\sources\3rdparty\libjpeg;F:\ECVS\opencv;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../..\sources\3rdparty\libjpeg;../..;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>F:\ECVS\opencv\sources\3rdparty\libjpeg;F:\ECVS\opencv;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../..\sources\3rdparty\libjpeg;../..;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -88,7 +88,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
       <AdditionalOptions> /bigobj %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalIncludeDirectories>F:\ECVS\opencv\sources\3rdparty\libjpeg;F:\ECVS\opencv;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../..\sources\3rdparty\libjpeg;../..;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>Release/</AssemblerListingLocation>
       <CompileAs>CompileAsC</CompileAs>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
@@ -111,10 +111,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>WIN32;_WINDOWS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_SCL_SECURE_NO_WARNINGS;NDEBUG;_VARIADIC_MAX=10;CMAKE_INTDIR=\"Release\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>F:\ECVS\opencv\sources\3rdparty\libjpeg;F:\ECVS\opencv;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../..\sources\3rdparty\libjpeg;../..;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>F:\ECVS\opencv\sources\3rdparty\libjpeg;F:\ECVS\opencv;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../..\sources\3rdparty\libjpeg;../..;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -122,36 +122,6 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <CustomBuild Include="..\..\sources\3rdparty\libjpeg\CMakeLists.txt">
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Building Custom Rule F:/ECVS/opencv/sources/3rdparty/libjpeg/CMakeLists.txt</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
-"C:\Program Files (x86)\CMake\bin\cmake.exe" -H../../sources -B../.. --check-stamp-file F:\ECVS\opencv\3rdparty\libjpeg\CMakeFiles\generate.stamp
-if %errorlevel% neq 0 goto :cmEnd
-:cmEnd
-endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
-:cmErrorLevel
-exit /b %1
-:cmDone
-if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">F:/ECVS/opencv/sources/3rdparty/libjpeg/CMakeLists.txt;F:\ECVS\opencv\sources\3rdparty\libjpeg\CMakeLists.txt;F:\ECVS\opencv\sources\3rdparty\libjpeg\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">F:\ECVS\opencv\3rdparty\libjpeg\CMakeFiles\generate.stamp</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Building Custom Rule F:/ECVS/opencv/sources/3rdparty/libjpeg/CMakeLists.txt</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
-"C:\Program Files (x86)\CMake\bin\cmake.exe" -H../../sources -B../.. --check-stamp-file F:\ECVS\opencv\3rdparty\libjpeg\CMakeFiles\generate.stamp
-if %errorlevel% neq 0 goto :cmEnd
-:cmEnd
-endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
-:cmErrorLevel
-exit /b %1
-:cmDone
-if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">F:/ECVS/opencv/sources/3rdparty/libjpeg/CMakeLists.txt;F:\ECVS\opencv\sources\3rdparty\libjpeg\CMakeLists.txt;F:\ECVS\opencv\sources\3rdparty\libjpeg\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">F:\ECVS\opencv\3rdparty\libjpeg\CMakeFiles\generate.stamp</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkObjects>
-    </CustomBuild>
-  </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\sources\3rdparty\libjpeg\jconfig.h" />
     <ClInclude Include="..\..\sources\3rdparty\libjpeg\jdct.h" />
@@ -162,55 +132,55 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClInclude Include="..\..\sources\3rdparty\libjpeg\jpegint.h" />
     <ClInclude Include="..\..\sources\3rdparty\libjpeg\jpeglib.h" />
     <ClInclude Include="..\..\sources\3rdparty\libjpeg\jversion.h" />
-    <ClCompile Include="..\..\sources\3rdparty\libjpeg\jaricom.c"  />
-    <ClCompile Include="..\..\sources\3rdparty\libjpeg\jcapimin.c"  />
-    <ClCompile Include="..\..\sources\3rdparty\libjpeg\jcapistd.c"  />
-    <ClCompile Include="..\..\sources\3rdparty\libjpeg\jcarith.c"  />
-    <ClCompile Include="..\..\sources\3rdparty\libjpeg\jccoefct.c"  />
-    <ClCompile Include="..\..\sources\3rdparty\libjpeg\jccolor.c"  />
-    <ClCompile Include="..\..\sources\3rdparty\libjpeg\jcdctmgr.c"  />
-    <ClCompile Include="..\..\sources\3rdparty\libjpeg\jchuff.c"  />
-    <ClCompile Include="..\..\sources\3rdparty\libjpeg\jcinit.c"  />
-    <ClCompile Include="..\..\sources\3rdparty\libjpeg\jcmainct.c"  />
-    <ClCompile Include="..\..\sources\3rdparty\libjpeg\jcmarker.c"  />
-    <ClCompile Include="..\..\sources\3rdparty\libjpeg\jcmaster.c"  />
-    <ClCompile Include="..\..\sources\3rdparty\libjpeg\jcomapi.c"  />
-    <ClCompile Include="..\..\sources\3rdparty\libjpeg\jcparam.c"  />
-    <ClCompile Include="..\..\sources\3rdparty\libjpeg\jcprepct.c"  />
-    <ClCompile Include="..\..\sources\3rdparty\libjpeg\jcsample.c"  />
-    <ClCompile Include="..\..\sources\3rdparty\libjpeg\jctrans.c"  />
-    <ClCompile Include="..\..\sources\3rdparty\libjpeg\jdapimin.c"  />
-    <ClCompile Include="..\..\sources\3rdparty\libjpeg\jdapistd.c"  />
-    <ClCompile Include="..\..\sources\3rdparty\libjpeg\jdarith.c"  />
-    <ClCompile Include="..\..\sources\3rdparty\libjpeg\jdatadst.c"  />
-    <ClCompile Include="..\..\sources\3rdparty\libjpeg\jdatasrc.c"  />
-    <ClCompile Include="..\..\sources\3rdparty\libjpeg\jdcoefct.c"  />
-    <ClCompile Include="..\..\sources\3rdparty\libjpeg\jdcolor.c"  />
-    <ClCompile Include="..\..\sources\3rdparty\libjpeg\jddctmgr.c"  />
-    <ClCompile Include="..\..\sources\3rdparty\libjpeg\jdhuff.c"  />
-    <ClCompile Include="..\..\sources\3rdparty\libjpeg\jdinput.c"  />
-    <ClCompile Include="..\..\sources\3rdparty\libjpeg\jdmainct.c"  />
-    <ClCompile Include="..\..\sources\3rdparty\libjpeg\jdmarker.c"  />
-    <ClCompile Include="..\..\sources\3rdparty\libjpeg\jdmaster.c"  />
-    <ClCompile Include="..\..\sources\3rdparty\libjpeg\jdmerge.c"  />
-    <ClCompile Include="..\..\sources\3rdparty\libjpeg\jdpostct.c"  />
-    <ClCompile Include="..\..\sources\3rdparty\libjpeg\jdsample.c"  />
-    <ClCompile Include="..\..\sources\3rdparty\libjpeg\jdtrans.c"  />
-    <ClCompile Include="..\..\sources\3rdparty\libjpeg\jerror.c"  />
-    <ClCompile Include="..\..\sources\3rdparty\libjpeg\jfdctflt.c"  />
-    <ClCompile Include="..\..\sources\3rdparty\libjpeg\jfdctfst.c"  />
-    <ClCompile Include="..\..\sources\3rdparty\libjpeg\jfdctint.c"  />
-    <ClCompile Include="..\..\sources\3rdparty\libjpeg\jidctflt.c"  />
-    <ClCompile Include="..\..\sources\3rdparty\libjpeg\jidctfst.c"  />
-    <ClCompile Include="..\..\sources\3rdparty\libjpeg\jidctint.c"  />
-    <ClCompile Include="..\..\sources\3rdparty\libjpeg\jmemansi.c"  />
-    <ClCompile Include="..\..\sources\3rdparty\libjpeg\jmemmgr.c"  />
-    <ClCompile Include="..\..\sources\3rdparty\libjpeg\jquant1.c"  />
-    <ClCompile Include="..\..\sources\3rdparty\libjpeg\jquant2.c"  />
-    <ClCompile Include="..\..\sources\3rdparty\libjpeg\jutils.c"  />
+    <ClCompile Include="..\..\sources\3rdparty\libjpeg\jaricom.c" />
+    <ClCompile Include="..\..\sources\3rdparty\libjpeg\jcapimin.c" />
+    <ClCompile Include="..\..\sources\3rdparty\libjpeg\jcapistd.c" />
+    <ClCompile Include="..\..\sources\3rdparty\libjpeg\jcarith.c" />
+    <ClCompile Include="..\..\sources\3rdparty\libjpeg\jccoefct.c" />
+    <ClCompile Include="..\..\sources\3rdparty\libjpeg\jccolor.c" />
+    <ClCompile Include="..\..\sources\3rdparty\libjpeg\jcdctmgr.c" />
+    <ClCompile Include="..\..\sources\3rdparty\libjpeg\jchuff.c" />
+    <ClCompile Include="..\..\sources\3rdparty\libjpeg\jcinit.c" />
+    <ClCompile Include="..\..\sources\3rdparty\libjpeg\jcmainct.c" />
+    <ClCompile Include="..\..\sources\3rdparty\libjpeg\jcmarker.c" />
+    <ClCompile Include="..\..\sources\3rdparty\libjpeg\jcmaster.c" />
+    <ClCompile Include="..\..\sources\3rdparty\libjpeg\jcomapi.c" />
+    <ClCompile Include="..\..\sources\3rdparty\libjpeg\jcparam.c" />
+    <ClCompile Include="..\..\sources\3rdparty\libjpeg\jcprepct.c" />
+    <ClCompile Include="..\..\sources\3rdparty\libjpeg\jcsample.c" />
+    <ClCompile Include="..\..\sources\3rdparty\libjpeg\jctrans.c" />
+    <ClCompile Include="..\..\sources\3rdparty\libjpeg\jdapimin.c" />
+    <ClCompile Include="..\..\sources\3rdparty\libjpeg\jdapistd.c" />
+    <ClCompile Include="..\..\sources\3rdparty\libjpeg\jdarith.c" />
+    <ClCompile Include="..\..\sources\3rdparty\libjpeg\jdatadst.c" />
+    <ClCompile Include="..\..\sources\3rdparty\libjpeg\jdatasrc.c" />
+    <ClCompile Include="..\..\sources\3rdparty\libjpeg\jdcoefct.c" />
+    <ClCompile Include="..\..\sources\3rdparty\libjpeg\jdcolor.c" />
+    <ClCompile Include="..\..\sources\3rdparty\libjpeg\jddctmgr.c" />
+    <ClCompile Include="..\..\sources\3rdparty\libjpeg\jdhuff.c" />
+    <ClCompile Include="..\..\sources\3rdparty\libjpeg\jdinput.c" />
+    <ClCompile Include="..\..\sources\3rdparty\libjpeg\jdmainct.c" />
+    <ClCompile Include="..\..\sources\3rdparty\libjpeg\jdmarker.c" />
+    <ClCompile Include="..\..\sources\3rdparty\libjpeg\jdmaster.c" />
+    <ClCompile Include="..\..\sources\3rdparty\libjpeg\jdmerge.c" />
+    <ClCompile Include="..\..\sources\3rdparty\libjpeg\jdpostct.c" />
+    <ClCompile Include="..\..\sources\3rdparty\libjpeg\jdsample.c" />
+    <ClCompile Include="..\..\sources\3rdparty\libjpeg\jdtrans.c" />
+    <ClCompile Include="..\..\sources\3rdparty\libjpeg\jerror.c" />
+    <ClCompile Include="..\..\sources\3rdparty\libjpeg\jfdctflt.c" />
+    <ClCompile Include="..\..\sources\3rdparty\libjpeg\jfdctfst.c" />
+    <ClCompile Include="..\..\sources\3rdparty\libjpeg\jfdctint.c" />
+    <ClCompile Include="..\..\sources\3rdparty\libjpeg\jidctflt.c" />
+    <ClCompile Include="..\..\sources\3rdparty\libjpeg\jidctfst.c" />
+    <ClCompile Include="..\..\sources\3rdparty\libjpeg\jidctint.c" />
+    <ClCompile Include="..\..\sources\3rdparty\libjpeg\jmemansi.c" />
+    <ClCompile Include="..\..\sources\3rdparty\libjpeg\jmemmgr.c" />
+    <ClCompile Include="..\..\sources\3rdparty\libjpeg\jquant1.c" />
+    <ClCompile Include="..\..\sources\3rdparty\libjpeg\jquant2.c" />
+    <ClCompile Include="..\..\sources\3rdparty\libjpeg\jutils.c" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="F:/ECVS/opencv/ZERO_CHECK.vcxproj">
+    <ProjectReference Include="../../ZERO_CHECK.vcxproj">
       <Project>ADC3491A-646D-4389-B4ED-CF57629CB948</Project>
     </ProjectReference>
   </ItemGroup>

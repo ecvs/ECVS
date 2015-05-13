@@ -1,6 +1,6 @@
 # Package Information for pkg-config
 
-prefix=F:/ECVS/opencv/install
+prefix=../../install
 exec_prefix=${prefix}
 libdir=
 includedir_old=${prefix}/include/opencv

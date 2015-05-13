@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -36,21 +36,21 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
-    <PropertyGroup>
-      <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
-      <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">F:\ECVS\opencv\lib\Debug\</OutDir>
-      <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">opencv_hal.dir\Debug\</IntDir>
-      <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">opencv_hal300d</TargetName>
-      <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.lib</TargetExt>
-      <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">F:\ECVS\opencv\lib\Release\</OutDir>
-      <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">opencv_hal.dir\Release\</IntDir>
-      <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">opencv_hal300</TargetName>
-      <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.lib</TargetExt>
-    </PropertyGroup>
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\..\..\EasyComputerVisionSystem\bin\Debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">opencv_hal.dir\Debug\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">opencv_hal300d</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.lib</TargetExt>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">../..\lib\Release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">opencv_hal.dir\Release\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">opencv_hal300</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.lib</TargetExt>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <AdditionalOptions> /bigobj %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalIncludeDirectories>F:\ECVS\opencv\sources\3rdparty\ippicv\unpack\ippicv_win\include;F:\ECVS\opencv;F:\ECVS\opencv\sources\modules\hal\include;F:\ECVS\opencv\sources\modules\hal\src;F:\ECVS\opencv\modules\hal;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../..\sources\3rdparty\ippicv\unpack\ippicv_win\include;../..;../..\sources\modules\hal\include;../..\sources\modules\hal\src;../..\modules\hal;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>Debug/</AssemblerListingLocation>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <CompileAs>CompileAsCpp</CompileAs>
@@ -59,14 +59,14 @@
       <EnableEnhancedInstructionSet>StreamingSIMDExtensions2</EnableEnhancedInstructionSet>
       <ExceptionHandling>Async</ExceptionHandling>
       <FloatingPointModel>Fast</FloatingPointModel>
-      <ForcedIncludeFiles>F:/ECVS/opencv/sources/modules/hal/src/precomp.hpp</ForcedIncludeFiles>
+      <ForcedIncludeFiles>../../sources/modules/hal/src/precomp.hpp</ForcedIncludeFiles>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <Optimization>Disabled</Optimization>
       <PrecompiledHeader>Use</PrecompiledHeader>
-      <PrecompiledHeaderFile>F:/ECVS/opencv/sources/modules/hal/src/precomp.hpp</PrecompiledHeaderFile>
+      <PrecompiledHeaderFile>../../sources/modules/hal/src/precomp.hpp</PrecompiledHeaderFile>
       <ProcessorNumber>4</ProcessorNumber>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
@@ -76,10 +76,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>WIN32;_WINDOWS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_SCL_SECURE_NO_WARNINGS;_DEBUG;_VARIADIC_MAX=10;__OPENCV_BUILD=1;CMAKE_INTDIR=\"Debug\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>F:\ECVS\opencv\sources\3rdparty\ippicv\unpack\ippicv_win\include;F:\ECVS\opencv;F:\ECVS\opencv\sources\modules\hal\include;F:\ECVS\opencv\sources\modules\hal\src;F:\ECVS\opencv\modules\hal;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../..\sources\3rdparty\ippicv\unpack\ippicv_win\include;../..;../..\sources\modules\hal\include;../..\sources\modules\hal\src;../..\modules\hal;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>F:\ECVS\opencv\sources\3rdparty\ippicv\unpack\ippicv_win\include;F:\ECVS\opencv;F:\ECVS\opencv\sources\modules\hal\include;F:\ECVS\opencv\sources\modules\hal\src;F:\ECVS\opencv\modules\hal;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../..\sources\3rdparty\ippicv\unpack\ippicv_win\include;../..;../..\sources\modules\hal\include;../..\sources\modules\hal\src;../..\modules\hal;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -90,7 +90,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
       <AdditionalOptions> /bigobj %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalIncludeDirectories>F:\ECVS\opencv\sources\3rdparty\ippicv\unpack\ippicv_win\include;F:\ECVS\opencv;F:\ECVS\opencv\sources\modules\hal\include;F:\ECVS\opencv\sources\modules\hal\src;F:\ECVS\opencv\modules\hal;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../..\sources\3rdparty\ippicv\unpack\ippicv_win\include;../..;../..\sources\modules\hal\include;../..\sources\modules\hal\src;../..\modules\hal;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>Release/</AssemblerListingLocation>
       <CompileAs>CompileAsCpp</CompileAs>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
@@ -98,14 +98,14 @@
       <EnableEnhancedInstructionSet>StreamingSIMDExtensions2</EnableEnhancedInstructionSet>
       <ExceptionHandling>Async</ExceptionHandling>
       <FloatingPointModel>Fast</FloatingPointModel>
-      <ForcedIncludeFiles>F:/ECVS/opencv/sources/modules/hal/src/precomp.hpp</ForcedIncludeFiles>
+      <ForcedIncludeFiles>../../sources/modules/hal/src/precomp.hpp</ForcedIncludeFiles>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <Optimization>MaxSpeed</Optimization>
       <PrecompiledHeader>Use</PrecompiledHeader>
-      <PrecompiledHeaderFile>F:/ECVS/opencv/sources/modules/hal/src/precomp.hpp</PrecompiledHeaderFile>
+      <PrecompiledHeaderFile>../../sources/modules/hal/src/precomp.hpp</PrecompiledHeaderFile>
       <ProcessorNumber>4</ProcessorNumber>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
@@ -115,10 +115,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>WIN32;_WINDOWS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_SCL_SECURE_NO_WARNINGS;NDEBUG;_VARIADIC_MAX=10;__OPENCV_BUILD=1;CMAKE_INTDIR=\"Release\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>F:\ECVS\opencv\sources\3rdparty\ippicv\unpack\ippicv_win\include;F:\ECVS\opencv;F:\ECVS\opencv\sources\modules\hal\include;F:\ECVS\opencv\sources\modules\hal\src;F:\ECVS\opencv\modules\hal;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../..\sources\3rdparty\ippicv\unpack\ippicv_win\include;../..;../..\sources\modules\hal\include;../..\sources\modules\hal\src;../..\modules\hal;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>F:\ECVS\opencv\sources\3rdparty\ippicv\unpack\ippicv_win\include;F:\ECVS\opencv;F:\ECVS\opencv\sources\modules\hal\include;F:\ECVS\opencv\sources\modules\hal\src;F:\ECVS\opencv\modules\hal;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../..\sources\3rdparty\ippicv\unpack\ippicv_win\include;../..;../..\sources\modules\hal\include;../..\sources\modules\hal\src;../..\modules\hal;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -126,36 +126,6 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <CustomBuild Include="..\..\sources\modules\hal\CMakeLists.txt">
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Building Custom Rule F:/ECVS/opencv/sources/modules/hal/CMakeLists.txt</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
-"C:\Program Files (x86)\CMake\bin\cmake.exe" -H../../sources -B../.. --check-stamp-file F:\ECVS\opencv\modules\hal\CMakeFiles\generate.stamp
-if %errorlevel% neq 0 goto :cmEnd
-:cmEnd
-endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
-:cmErrorLevel
-exit /b %1
-:cmDone
-if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">F:/ECVS/opencv/sources/modules/hal/CMakeLists.txt;F:\ECVS\opencv\sources\modules\hal\CMakeLists.txt;F:\ECVS\opencv\sources\modules\hal\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">F:\ECVS\opencv\modules\hal\CMakeFiles\generate.stamp</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Building Custom Rule F:/ECVS/opencv/sources/modules/hal/CMakeLists.txt</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
-"C:\Program Files (x86)\CMake\bin\cmake.exe" -H../../sources -B../.. --check-stamp-file F:\ECVS\opencv\modules\hal\CMakeFiles\generate.stamp
-if %errorlevel% neq 0 goto :cmEnd
-:cmEnd
-endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
-:cmErrorLevel
-exit /b %1
-:cmDone
-if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">F:/ECVS/opencv/sources/modules/hal/CMakeLists.txt;F:\ECVS\opencv\sources\modules\hal\CMakeLists.txt;F:\ECVS\opencv\sources\modules\hal\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">F:\ECVS\opencv\modules\hal\CMakeFiles\generate.stamp</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkObjects>
-    </CustomBuild>
-  </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\sources\modules\hal\include\opencv2\hal.hpp" />
     <ClInclude Include="..\..\sources\modules\hal\include\opencv2\hal\intrin.hpp" />
@@ -166,23 +136,23 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClInclude Include="..\..\sources\modules\hal\src\precomp.hpp" />
     <ClInclude Include="..\..\cvconfig.h" />
     <ClInclude Include="..\..\opencv2\opencv_modules.hpp" />
-    <ClCompile Include="..\..\sources\modules\hal\src\arithm.cpp"  />
-    <ClCompile Include="..\..\sources\modules\hal\src\color.cpp"  />
-    <ClCompile Include="..\..\sources\modules\hal\src\filter.cpp"  />
-    <ClCompile Include="..\..\sources\modules\hal\src\mathfuncs.cpp"  />
-    <ClCompile Include="..\..\sources\modules\hal\src\matrix.cpp"  />
-    <ClCompile Include="..\..\sources\modules\hal\src\resize.cpp"  />
-    <ClCompile Include="..\..\sources\modules\hal\src\stat.cpp"  />
-    <ClCompile Include="..\..\sources\modules\hal\src\warp.cpp"  />
-    <ClCompile Include="opencv_hal_pch.cpp" >
+    <ClCompile Include="..\..\sources\modules\hal\src\arithm.cpp" />
+    <ClCompile Include="..\..\sources\modules\hal\src\color.cpp" />
+    <ClCompile Include="..\..\sources\modules\hal\src\filter.cpp" />
+    <ClCompile Include="..\..\sources\modules\hal\src\mathfuncs.cpp" />
+    <ClCompile Include="..\..\sources\modules\hal\src\matrix.cpp" />
+    <ClCompile Include="..\..\sources\modules\hal\src\resize.cpp" />
+    <ClCompile Include="..\..\sources\modules\hal\src\stat.cpp" />
+    <ClCompile Include="..\..\sources\modules\hal\src\warp.cpp" />
+    <ClCompile Include="opencv_hal_pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
-      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">F:/ECVS/opencv/sources/modules/hal/src/precomp.hpp</PrecompiledHeaderFile>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">../../sources/modules/hal/src/precomp.hpp</PrecompiledHeaderFile>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
-      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">F:/ECVS/opencv/sources/modules/hal/src/precomp.hpp</PrecompiledHeaderFile>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">../../sources/modules/hal/src/precomp.hpp</PrecompiledHeaderFile>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="F:/ECVS/opencv/ZERO_CHECK.vcxproj">
+    <ProjectReference Include="../../ZERO_CHECK.vcxproj">
       <Project>ADC3491A-646D-4389-B4ED-CF57629CB948</Project>
     </ProjectReference>
   </ItemGroup>

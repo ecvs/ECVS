@@ -66,11 +66,11 @@ endif()
 
 if("TRUE" STREQUAL "TRUE") # value is defined by package builder (use STREQUAL to comply new CMake policy CMP0012)
   if(NOT TARGET ippicv)
-    if(EXISTS "${CMAKE_CURRENT_LIST_DIR}/../staticlib/ippicvmt.lib")
+    if(EXISTS "${CMAKE_CURRENT_LIST_DIR}/sources/3rdparty/ippicv/unpack/ippicv_win/lib/ia32/ippicvmt.lib")
       add_library(ippicv STATIC IMPORTED)
       set_target_properties(ippicv PROPERTIES
         IMPORTED_LINK_INTERFACE_LIBRARIES ""
-        IMPORTED_LOCATION "${CMAKE_CURRENT_LIST_DIR}/../staticlib/ippicvmt.lib"
+        IMPORTED_LOCATION "${CMAKE_CURRENT_LIST_DIR}/sources/3rdparty/ippicv/unpack/ippicv_win/lib/ia32/ippicvmt.lib"
       )
     endif()
   endif()

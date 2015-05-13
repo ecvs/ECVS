@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -36,21 +36,21 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
-    <PropertyGroup>
-      <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
-      <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">F:\ECVS\opencv\3rdparty\lib\Debug\</OutDir>
-      <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">libjasper.dir\Debug\</IntDir>
-      <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">libjasperd</TargetName>
-      <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.lib</TargetExt>
-      <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">F:\ECVS\opencv\3rdparty\lib\Release\</OutDir>
-      <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">libjasper.dir\Release\</IntDir>
-      <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">libjasper</TargetName>
-      <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.lib</TargetExt>
-    </PropertyGroup>
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">../..\3rdparty\lib\Debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">libjasper.dir\Debug\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">libjasperd</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.lib</TargetExt>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">../..\3rdparty\lib\Release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">libjasper.dir\Release\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">libjasper</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.lib</TargetExt>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <AdditionalOptions> /bigobj %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalIncludeDirectories>F:\ECVS\opencv\sources\3rdparty\libjasper;F:\ECVS\opencv;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../..\sources\3rdparty\libjasper;../..;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>Debug/</AssemblerListingLocation>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <CompileAs>CompileAsC</CompileAs>
@@ -74,10 +74,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>WIN32;_WINDOWS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_SCL_SECURE_NO_WARNINGS;_DEBUG;_VARIADIC_MAX=10;EXCLUDE_MIF_SUPPORT;EXCLUDE_PNM_SUPPORT;EXCLUDE_BMP_SUPPORT;EXCLUDE_RAS_SUPPORT;EXCLUDE_JPG_SUPPORT;EXCLUDE_PGX_SUPPORT;JAS_WIN_MSVC_BUILD;CMAKE_INTDIR=\"Debug\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>F:\ECVS\opencv\sources\3rdparty\libjasper;F:\ECVS\opencv;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../..\sources\3rdparty\libjasper;../..;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>F:\ECVS\opencv\sources\3rdparty\libjasper;F:\ECVS\opencv;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../..\sources\3rdparty\libjasper;../..;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -88,7 +88,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
       <AdditionalOptions> /bigobj %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalIncludeDirectories>F:\ECVS\opencv\sources\3rdparty\libjasper;F:\ECVS\opencv;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../..\sources\3rdparty\libjasper;../..;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>Release/</AssemblerListingLocation>
       <CompileAs>CompileAsC</CompileAs>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
@@ -111,10 +111,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>WIN32;_WINDOWS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_SCL_SECURE_NO_WARNINGS;NDEBUG;_VARIADIC_MAX=10;EXCLUDE_MIF_SUPPORT;EXCLUDE_PNM_SUPPORT;EXCLUDE_BMP_SUPPORT;EXCLUDE_RAS_SUPPORT;EXCLUDE_JPG_SUPPORT;EXCLUDE_PGX_SUPPORT;JAS_WIN_MSVC_BUILD;CMAKE_INTDIR=\"Release\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>F:\ECVS\opencv\sources\3rdparty\libjasper;F:\ECVS\opencv;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../..\sources\3rdparty\libjasper;../..;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>F:\ECVS\opencv\sources\3rdparty\libjasper;F:\ECVS\opencv;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../..\sources\3rdparty\libjasper;../..;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -122,36 +122,6 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <CustomBuild Include="..\..\sources\3rdparty\libjasper\CMakeLists.txt">
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Building Custom Rule F:/ECVS/opencv/sources/3rdparty/libjasper/CMakeLists.txt</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
-"C:\Program Files (x86)\CMake\bin\cmake.exe" -H../../sources -B../.. --check-stamp-file F:\ECVS\opencv\3rdparty\libjasper\CMakeFiles\generate.stamp
-if %errorlevel% neq 0 goto :cmEnd
-:cmEnd
-endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
-:cmErrorLevel
-exit /b %1
-:cmDone
-if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">F:/ECVS/opencv/sources/3rdparty/libjasper/CMakeLists.txt;F:\ECVS\opencv\sources\3rdparty\libjasper\CMakeLists.txt;F:\ECVS\opencv\sources\3rdparty\libjasper\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">F:\ECVS\opencv\3rdparty\libjasper\CMakeFiles\generate.stamp</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Building Custom Rule F:/ECVS/opencv/sources/3rdparty/libjasper/CMakeLists.txt</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
-"C:\Program Files (x86)\CMake\bin\cmake.exe" -H../../sources -B../.. --check-stamp-file F:\ECVS\opencv\3rdparty\libjasper\CMakeFiles\generate.stamp
-if %errorlevel% neq 0 goto :cmEnd
-:cmEnd
-endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
-:cmErrorLevel
-exit /b %1
-:cmDone
-if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">F:/ECVS/opencv/sources/3rdparty/libjasper/CMakeLists.txt;F:\ECVS\opencv\sources\3rdparty\libjasper\CMakeLists.txt;F:\ECVS\opencv\sources\3rdparty\libjasper\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">F:\ECVS\opencv\3rdparty\libjasper\CMakeFiles\generate.stamp</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkObjects>
-    </CustomBuild>
-  </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\sources\3rdparty\libjasper\jp2_cod.h" />
     <ClInclude Include="..\..\sources\3rdparty\libjasper\jp2_dec.h" />
@@ -196,45 +166,45 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClInclude Include="..\..\sources\3rdparty\libjasper\jasper\jas_tvp.h" />
     <ClInclude Include="..\..\sources\3rdparty\libjasper\jasper\jas_types.h" />
     <ClInclude Include="..\..\sources\3rdparty\libjasper\jasper\jas_version.h" />
-    <ClCompile Include="..\..\sources\3rdparty\libjasper\jas_cm.c"  />
-    <ClCompile Include="..\..\sources\3rdparty\libjasper\jas_debug.c"  />
-    <ClCompile Include="..\..\sources\3rdparty\libjasper\jas_getopt.c"  />
-    <ClCompile Include="..\..\sources\3rdparty\libjasper\jas_icc.c"  />
-    <ClCompile Include="..\..\sources\3rdparty\libjasper\jas_iccdata.c"  />
-    <ClCompile Include="..\..\sources\3rdparty\libjasper\jas_image.c"  />
-    <ClCompile Include="..\..\sources\3rdparty\libjasper\jas_init.c"  />
-    <ClCompile Include="..\..\sources\3rdparty\libjasper\jas_malloc.c"  />
-    <ClCompile Include="..\..\sources\3rdparty\libjasper\jas_seq.c"  />
-    <ClCompile Include="..\..\sources\3rdparty\libjasper\jas_stream.c"  />
-    <ClCompile Include="..\..\sources\3rdparty\libjasper\jas_string.c"  />
-    <ClCompile Include="..\..\sources\3rdparty\libjasper\jas_tmr.c"  />
-    <ClCompile Include="..\..\sources\3rdparty\libjasper\jas_tvp.c"  />
-    <ClCompile Include="..\..\sources\3rdparty\libjasper\jas_version.c"  />
-    <ClCompile Include="..\..\sources\3rdparty\libjasper\jp2_cod.c"  />
-    <ClCompile Include="..\..\sources\3rdparty\libjasper\jp2_dec.c"  />
-    <ClCompile Include="..\..\sources\3rdparty\libjasper\jp2_enc.c"  />
-    <ClCompile Include="..\..\sources\3rdparty\libjasper\jpc_bs.c"  />
-    <ClCompile Include="..\..\sources\3rdparty\libjasper\jpc_cs.c"  />
-    <ClCompile Include="..\..\sources\3rdparty\libjasper\jpc_dec.c"  />
-    <ClCompile Include="..\..\sources\3rdparty\libjasper\jpc_enc.c"  />
-    <ClCompile Include="..\..\sources\3rdparty\libjasper\jpc_math.c"  />
-    <ClCompile Include="..\..\sources\3rdparty\libjasper\jpc_mct.c"  />
-    <ClCompile Include="..\..\sources\3rdparty\libjasper\jpc_mqcod.c"  />
-    <ClCompile Include="..\..\sources\3rdparty\libjasper\jpc_mqdec.c"  />
-    <ClCompile Include="..\..\sources\3rdparty\libjasper\jpc_mqenc.c"  />
-    <ClCompile Include="..\..\sources\3rdparty\libjasper\jpc_qmfb.c"  />
-    <ClCompile Include="..\..\sources\3rdparty\libjasper\jpc_t1cod.c"  />
-    <ClCompile Include="..\..\sources\3rdparty\libjasper\jpc_t1dec.c"  />
-    <ClCompile Include="..\..\sources\3rdparty\libjasper\jpc_t1enc.c"  />
-    <ClCompile Include="..\..\sources\3rdparty\libjasper\jpc_t2cod.c"  />
-    <ClCompile Include="..\..\sources\3rdparty\libjasper\jpc_t2dec.c"  />
-    <ClCompile Include="..\..\sources\3rdparty\libjasper\jpc_t2enc.c"  />
-    <ClCompile Include="..\..\sources\3rdparty\libjasper\jpc_tagtree.c"  />
-    <ClCompile Include="..\..\sources\3rdparty\libjasper\jpc_tsfb.c"  />
-    <ClCompile Include="..\..\sources\3rdparty\libjasper\jpc_util.c"  />
+    <ClCompile Include="..\..\sources\3rdparty\libjasper\jas_cm.c" />
+    <ClCompile Include="..\..\sources\3rdparty\libjasper\jas_debug.c" />
+    <ClCompile Include="..\..\sources\3rdparty\libjasper\jas_getopt.c" />
+    <ClCompile Include="..\..\sources\3rdparty\libjasper\jas_icc.c" />
+    <ClCompile Include="..\..\sources\3rdparty\libjasper\jas_iccdata.c" />
+    <ClCompile Include="..\..\sources\3rdparty\libjasper\jas_image.c" />
+    <ClCompile Include="..\..\sources\3rdparty\libjasper\jas_init.c" />
+    <ClCompile Include="..\..\sources\3rdparty\libjasper\jas_malloc.c" />
+    <ClCompile Include="..\..\sources\3rdparty\libjasper\jas_seq.c" />
+    <ClCompile Include="..\..\sources\3rdparty\libjasper\jas_stream.c" />
+    <ClCompile Include="..\..\sources\3rdparty\libjasper\jas_string.c" />
+    <ClCompile Include="..\..\sources\3rdparty\libjasper\jas_tmr.c" />
+    <ClCompile Include="..\..\sources\3rdparty\libjasper\jas_tvp.c" />
+    <ClCompile Include="..\..\sources\3rdparty\libjasper\jas_version.c" />
+    <ClCompile Include="..\..\sources\3rdparty\libjasper\jp2_cod.c" />
+    <ClCompile Include="..\..\sources\3rdparty\libjasper\jp2_dec.c" />
+    <ClCompile Include="..\..\sources\3rdparty\libjasper\jp2_enc.c" />
+    <ClCompile Include="..\..\sources\3rdparty\libjasper\jpc_bs.c" />
+    <ClCompile Include="..\..\sources\3rdparty\libjasper\jpc_cs.c" />
+    <ClCompile Include="..\..\sources\3rdparty\libjasper\jpc_dec.c" />
+    <ClCompile Include="..\..\sources\3rdparty\libjasper\jpc_enc.c" />
+    <ClCompile Include="..\..\sources\3rdparty\libjasper\jpc_math.c" />
+    <ClCompile Include="..\..\sources\3rdparty\libjasper\jpc_mct.c" />
+    <ClCompile Include="..\..\sources\3rdparty\libjasper\jpc_mqcod.c" />
+    <ClCompile Include="..\..\sources\3rdparty\libjasper\jpc_mqdec.c" />
+    <ClCompile Include="..\..\sources\3rdparty\libjasper\jpc_mqenc.c" />
+    <ClCompile Include="..\..\sources\3rdparty\libjasper\jpc_qmfb.c" />
+    <ClCompile Include="..\..\sources\3rdparty\libjasper\jpc_t1cod.c" />
+    <ClCompile Include="..\..\sources\3rdparty\libjasper\jpc_t1dec.c" />
+    <ClCompile Include="..\..\sources\3rdparty\libjasper\jpc_t1enc.c" />
+    <ClCompile Include="..\..\sources\3rdparty\libjasper\jpc_t2cod.c" />
+    <ClCompile Include="..\..\sources\3rdparty\libjasper\jpc_t2dec.c" />
+    <ClCompile Include="..\..\sources\3rdparty\libjasper\jpc_t2enc.c" />
+    <ClCompile Include="..\..\sources\3rdparty\libjasper\jpc_tagtree.c" />
+    <ClCompile Include="..\..\sources\3rdparty\libjasper\jpc_tsfb.c" />
+    <ClCompile Include="..\..\sources\3rdparty\libjasper\jpc_util.c" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="F:/ECVS/opencv/ZERO_CHECK.vcxproj">
+    <ProjectReference Include="../../ZERO_CHECK.vcxproj">
       <Project>ADC3491A-646D-4389-B4ED-CF57629CB948</Project>
     </ProjectReference>
   </ItemGroup>

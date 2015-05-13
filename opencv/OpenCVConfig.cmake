@@ -128,7 +128,7 @@ set(OpenCV_HAVE_ANDROID_CAMERA OFF)
 # ======================================================
 
 # Provide the include directories to the caller
-set(OpenCV_INCLUDE_DIRS "F:/ECVS/opencv" "F:/ECVS/opencv/sources/include" "F:/ECVS/opencv/sources/include/opencv")
+set(OpenCV_INCLUDE_DIRS "../.." "G:/Learn/GitRepos/ECVS/opencv/sources/include" "G:/Learn/GitRepos/ECVS/opencv/sources/include/opencv")
 
 # ======================================================
 # Link directories to add to the user project:
@@ -161,7 +161,7 @@ SET(OpenCV_WORLD_COMPONENTS )
 # ==============================================================
 #  Extra include directories, needed by OpenCV 2 new structure
 # ==============================================================
-SET(OpenCV2_INCLUDE_DIRS F:/ECVS/opencv/sources/modules/hal/include;F:/ECVS/opencv/sources/modules/core/include;F:/ECVS/opencv/sources/modules/flann/include;F:/ECVS/opencv/sources/modules/imgproc/include;F:/ECVS/opencv/sources/modules/ml/include;F:/ECVS/opencv/sources/modules/photo/include;F:/ECVS/opencv/sources/modules/video/include;F:/ECVS/opencv/sources/modules/imgcodecs/include;F:/ECVS/opencv/sources/modules/shape/include;F:/ECVS/opencv/sources/modules/videoio/include;F:/ECVS/opencv/sources/modules/highgui/include;F:/ECVS/opencv/sources/modules/objdetect/include;F:/ECVS/opencv/sources/modules/superres/include;F:/ECVS/opencv/sources/modules/ts/include;F:/ECVS/opencv/sources/modules/features2d/include;F:/ECVS/opencv/sources/modules/calib3d/include;F:/ECVS/opencv/sources/modules/stitching/include;F:/ECVS/opencv/sources/modules/videostab/include)
+SET(OpenCV2_INCLUDE_DIRS G:/Learn/GitRepos/ECVS/opencv/sources/modules/hal/include;G:/Learn/GitRepos/ECVS/opencv/sources/modules/core/include;G:/Learn/GitRepos/ECVS/opencv/sources/modules/flann/include;G:/Learn/GitRepos/ECVS/opencv/sources/modules/imgproc/include;G:/Learn/GitRepos/ECVS/opencv/sources/modules/ml/include;G:/Learn/GitRepos/ECVS/opencv/sources/modules/photo/include;G:/Learn/GitRepos/ECVS/opencv/sources/modules/video/include;G:/Learn/GitRepos/ECVS/opencv/sources/modules/imgcodecs/include;G:/Learn/GitRepos/ECVS/opencv/sources/modules/shape/include;G:/Learn/GitRepos/ECVS/opencv/sources/modules/videoio/include;G:/Learn/GitRepos/ECVS/opencv/sources/modules/highgui/include;G:/Learn/GitRepos/ECVS/opencv/sources/modules/objdetect/include;G:/Learn/GitRepos/ECVS/opencv/sources/modules/superres/include;G:/Learn/GitRepos/ECVS/opencv/sources/modules/ts/include;G:/Learn/GitRepos/ECVS/opencv/sources/modules/features2d/include;G:/Learn/GitRepos/ECVS/opencv/sources/modules/calib3d/include;G:/Learn/GitRepos/ECVS/opencv/sources/modules/stitching/include;G:/Learn/GitRepos/ECVS/opencv/sources/modules/videostab/include)
 if(OpenCV2_INCLUDE_DIRS)
   list(APPEND OpenCV_INCLUDE_DIRS ${OpenCV2_INCLUDE_DIRS})
 
