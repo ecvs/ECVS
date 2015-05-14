@@ -16,14 +16,18 @@ private:
 		IGNORED, //忽略
 		STEPTO,  //跳转
 	};
-	//算法间的相互关系
-	struct AlgrithmRelateship
+	//算法间输入输出之间的关系
+	struct InputOutputRelateship  
 	{
 		string m_strWitchParam; //为算法的哪一个参数的关联值
 		int nIndex;				//为关联到哪一个算法
 		string m_strDestParam;  //取目标算法的哪一个字段
 		vector<int>	m_vecIndex;  //取目标算法的哪些值，如果目标为非vector 该值为空，如果是序列按照该vector取值
+	};
 
+	struct  AlgrithmRelateship
+	{
+		vector<InputOutputRelateship*> m_relationShip;
 		RunFaildProcess m_FalidProcess; //运行错误处理流程 默认停止运行
 		int m_nStep2Index;				//如果是跳转，那么跳转到哪一步
 		AlgrithmRelateship()
@@ -33,7 +37,6 @@ private:
 		}
 
 	};
-
 	
 
 public:
@@ -51,7 +54,8 @@ public:
 
 private: 
 	vector<CAlgrithmBase*> m_pAlgrithms;   // 流程中的算法集合
-	vector< vector<AlgrithmRelateship*> >m_vecRalationSheep;  //算法间的相互关系
+	//vector< vector<AlgrithmRelateship*> >m_vecRalationSheep;  //算法间的相互关系
+	vector<AlgrithmRelateship*> m_vecRalationSheep;  //算法间的相互关系
 	vector< vector<CToolOutput*> >  m_pOutput; // 执行过程中每个算法的输出值
 
 

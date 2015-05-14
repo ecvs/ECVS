@@ -12,8 +12,13 @@
 #include "ECVSBase.h"
 #include <string>
 #include <vector>
+#include <cxcore.h>
 using std::string;
 using std::vector;
+using cv::Mat;
+using cv::Point;
+using cv::Point2f;
+
 //CInputOutputInfo 的数据类型
 
 
@@ -38,6 +43,8 @@ public:
 	const DataType GetDataType() const;
 	//判断是否是列表类型
 	bool  IsVector();
+	bool  IsVector() const;
+
 	bool IsSameType(const CInputOutputInfo& rhs); //判断两个对象是否是同一种数据类型 同一种数据类型(int == int || vector<int> == int)
 	bool IsSameType(const CInputOutputInfo& rhs) const;
 
@@ -48,13 +55,44 @@ public:
 	bool GetVectIntValue(vector<int>& vecInt);
 	bool GetVectDoubleValue(vector<double>& vecDouble);
 	bool GetVecStrValue(vector<string>& strValue);
+	//基于const重载
+	bool GetIntValue(int& nValue) const;
+	bool GetDoubleValue(double& dbValue) const;
+	bool GetStringValue(string& strValue) const;
+	bool GetVectIntValue(vector<int>& vecInt) const;
+	bool GetVectDoubleValue(vector<double>& vecDouble) const;
+	bool GetVecStrValue(vector<string>& strValue) const;
+
+	//2015-5-14 导入OpenCV数据类型
 	bool SetIntValue(const int& nValue);
 	bool SetDoubleValue(const double& dbValue);
 	bool SetStringValue(const string& strValue);
 	bool SetVectIntValue(const vector<int>& vecInt);
 	bool SetVectDoubleValue(const vector<double>& vecDouble);
 	bool SetVecStrValue(const vector<string>& strValue);
-	//opencv还没导入，暂时只实现标准数据类型
+	bool SetPointValue(const Point & ptPos);
+	bool SetPointFValue(const Point2f& ptPos);
+	bool SetImageValue(const Mat& mat);
+	bool SetVecPointValue(const vector<Point>& vecPoint);
+	bool SetVecPointFValue(const vector<Point2f>& vecPoint2f);
+	bool SetVecImageValue(const vector<Mat>& vecImage);
+
+
+	bool GetPointValue(Point& ptPos);
+	bool GetPointValue(Point& ptPos) const;
+	bool GetPointFValue(Point2f& ptPos) ;
+	bool GetPointFValue(Point2f& ptPos)const;
+	bool GetImageValue(Mat & img) ;
+	bool GetImageValue(Mat & img)const;
+	bool GetVecPointValue(vector<Point>& vecPts);
+	bool GetVecPointValue(vector<Point>& vecPts)const;
+	bool GetVecPointFValue(vector<Point2f>& vecPts);
+	bool GetVecPointFValue(vector<Point2f>& vecPts) const;
+	bool GetVecImageValue(vector<Mat>& vecImage);
+	bool GetVecImageValue(vector<Mat>& vecImage) const;
+
+
+
 
 private:
 	DataType	m_dataType;  //该对象的数据类型
@@ -66,16 +104,16 @@ private:
 	double		m_dbValue;   //为TYPE_DOUBLE的值
 	string		m_strValue;	 //为TYPE_STRING时的值
 	//以下变量的意思依次类推
-// 	Point		m_ptValue;   
-// 	PointF		m_ptFValue;
-// 	Mat			m_Image;
+	Point		m_ptValue;   
+	Point2f		m_ptFValue;
+	Mat			m_Image;
 
 	vector<int>		m_vecIntValue;
 	vector<double>	m_vecDoubleValue;
 	vector<string>	m_vecStrValue;
-// 	vector<Point>	m_vecPTValue;
-// 	vector<PointF>	m_vecPTFValue;
-// 	vector<Mat>		m_vecImage;
+	vector<Point>	m_vecPTValue;
+	vector<Point2f>	m_vecPTFValue;
+	vector<Mat>		m_vecImage;
 
 	//私有方法
 private:

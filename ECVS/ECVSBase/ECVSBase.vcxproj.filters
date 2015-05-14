@@ -50,5 +50,8 @@
     <ClCompile Include="FlowProcess.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="ECVSBase.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

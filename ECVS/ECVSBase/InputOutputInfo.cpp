@@ -104,6 +104,18 @@ bool  CInputOutputInfo::IsVector()
 	return false;
 }
 
+//判断数据类型是否是Vector类型如果是返回true，否则false
+bool  CInputOutputInfo::IsVector() const
+{
+	if ((m_dataType & DATA_TYPE_VEC_BASE) == DATA_TYPE_VEC_BASE)
+	{
+		return true;
+	}
+	return false;
+}
+
+
+
 bool CInputOutputInfo::IsSameType(const CInputOutputInfo& rhs) const
 {
 	return ::IsSameType(m_dataType, rhs.m_dataType);
@@ -124,6 +136,17 @@ bool CInputOutputInfo::GetIntValue(int& nValue)
 	}
 	return false;
 }
+//以下一系列函数为设置和获取数据值的函数，如果尝试获取或设置不同类型的值那么返回false
+bool CInputOutputInfo::GetIntValue(int& nValue) const
+{
+	if (m_dataType == DataType::TYPE_INT)
+	{
+		nValue = m_nIntValue;
+		return true;
+	}
+	return false;
+}
+
 bool CInputOutputInfo::GetDoubleValue(double& dbValue)
 {
 	if (m_dataType == DataType::TYPE_DOUBLE)
@@ -133,6 +156,17 @@ bool CInputOutputInfo::GetDoubleValue(double& dbValue)
 	}
 	return false;
 }
+bool CInputOutputInfo::GetDoubleValue(double& dbValue) const
+{
+	if (m_dataType == DataType::TYPE_DOUBLE)
+	{
+		dbValue = m_dbValue;
+		return true;
+	}
+	return false;
+}
+
+
 bool CInputOutputInfo::GetStringValue(string& strValue)
 {
 	if (m_dataType == DataType::TYPE_STRING)
@@ -142,6 +176,16 @@ bool CInputOutputInfo::GetStringValue(string& strValue)
 	}
 	return false;
 }
+bool CInputOutputInfo::GetStringValue(string& strValue) const
+{
+	if (m_dataType == DataType::TYPE_STRING)
+	{
+		strValue = m_strValue;
+		return true;
+	}
+	return false;
+}
+
 bool CInputOutputInfo::GetVectIntValue(vector<int>& vecInt)
 {
 	if (m_dataType == DataType::TYPE_INT_VECTOR)
@@ -150,6 +194,16 @@ bool CInputOutputInfo::GetVectIntValue(vector<int>& vecInt)
 	}
 	return false;
 }
+bool CInputOutputInfo::GetVectIntValue(vector<int>& vecInt) const
+{
+	if (m_dataType == DataType::TYPE_INT_VECTOR)
+	{
+		vecInt = m_vecIntValue;
+	}
+	return false;
+}
+
+
 bool CInputOutputInfo::GetVectDoubleValue(vector<double>& vecDouble)
 {
 	if (m_dataType == DataType::TYPE_DOUBLE_VECTOR)
@@ -159,6 +213,16 @@ bool CInputOutputInfo::GetVectDoubleValue(vector<double>& vecDouble)
 	}
 	return false;
 }
+bool CInputOutputInfo::GetVectDoubleValue(vector<double>& vecDouble) const
+{
+	if (m_dataType == DataType::TYPE_DOUBLE_VECTOR)
+	{
+		vecDouble = m_vecDoubleValue;
+		return true;
+	}
+	return false;
+}
+
 bool CInputOutputInfo::GetVecStrValue(vector<string>& strValue)
 {
 	if (m_dataType == DataType::TYPE_STRING_VECTOR)
@@ -168,15 +232,28 @@ bool CInputOutputInfo::GetVecStrValue(vector<string>& strValue)
 	}
 	return false;
 }
-bool CInputOutputInfo::SetIntValue(const int& nValue)
+bool CInputOutputInfo::GetVecStrValue(vector<string>& strValue) const
 {
-	if (m_dataType == DataType::TYPE_INT)
+	if (m_dataType == DataType::TYPE_STRING_VECTOR)
 	{
-		m_dbValue = nValue;
+		strValue = m_vecStrValue;
 		return true;
 	}
 	return false;
 }
+
+
+bool CInputOutputInfo::SetIntValue(const int& nValue)
+{
+	if (m_dataType == DataType::TYPE_INT)
+	{
+		m_nIntValue = nValue;
+		return true;
+	}
+	return false;
+}
+
+
 bool CInputOutputInfo::SetDoubleValue(const double& dbValue)
 {
 	if (m_dataType == DataType::TYPE_DOUBLE)
@@ -221,6 +298,179 @@ bool CInputOutputInfo::SetVecStrValue(const vector<string>& strValue)
 	}
 	return false;
 }
+
+
+
+bool CInputOutputInfo::SetPointValue(const Point & ptPos)
+{
+	if (m_dataType == DataType::TYPE_POINT)
+	{
+		m_ptValue = ptPos;
+		return true;
+	}
+	return false;
+}
+bool CInputOutputInfo::SetPointFValue(const Point2f& ptPos)
+{
+	if (m_dataType == DataType::TYPE_POINT2F)
+	{
+		m_ptFValue = ptPos;
+		return true;
+	}
+	return false;
+}
+bool CInputOutputInfo::SetImageValue(const Mat& mat)
+{
+	if (m_dataType == DataType::TYPE_IMAGE)
+	{
+		m_Image = mat;
+		return true;
+	}
+	return false;
+}
+bool CInputOutputInfo::SetVecPointValue(const vector<Point>& vecPoint)
+{
+	if (m_dataType == DataType::TYPE_POINT_VECTOR)
+	{
+		m_vecPTValue = vecPoint;
+		return true; 
+	}
+	return false;
+}
+bool CInputOutputInfo::SetVecPointFValue(const vector<Point2f>& vecPoint2f)
+{
+	if (m_dataType == DataType::TYPE_POINT2F_VECTOR)
+	{
+		m_vecPTFValue = vecPoint2f;
+		return true;
+	}
+	return false;
+}
+bool CInputOutputInfo::SetVecImageValue(const vector<Mat>& vecImage)
+{
+	if (m_dataType == DataType::TYPE_IMAGE_VECTOR)
+	{
+		m_vecImage = vecImage;
+		return true;
+	}
+	return false;
+}
+
+
+
+
+bool CInputOutputInfo::GetPointValue(Point& ptPos)
+{
+	if (m_dataType == DataType::TYPE_POINT)
+	{
+		ptPos = m_ptValue;
+		return true;
+	}
+	return false;
+}
+bool CInputOutputInfo::GetPointValue(Point& ptPos) const
+{
+	if (m_dataType == DataType::TYPE_POINT)
+	{
+		ptPos = m_ptValue;
+		return true;
+	}
+	return false;
+}
+bool CInputOutputInfo::GetPointFValue(Point2f& ptPos)
+{
+	if (m_dataType == DataType::TYPE_POINT2F)
+	{
+		ptPos = m_ptFValue;
+		return true;
+	}
+	return false;
+}
+bool CInputOutputInfo::GetPointFValue(Point2f& ptPos)const
+{
+	if (m_dataType == DataType::TYPE_POINT2F)
+	{
+		ptPos = m_ptFValue;
+		return true;
+	}
+	return false;
+}
+bool CInputOutputInfo::GetImageValue(Mat & img)
+{
+	if (m_dataType == DataType::TYPE_IMAGE)
+	{
+		img = m_Image;
+		return true;
+	}
+	return false;
+}
+bool CInputOutputInfo::GetImageValue(Mat & img)const
+{
+	if (m_dataType == DataType::TYPE_IMAGE)
+	{
+		img = m_Image;
+		return true;
+	}
+	return false;
+}
+bool CInputOutputInfo::GetVecPointValue(vector<Point>& vecPts)
+{
+	if (m_dataType == DataType::TYPE_POINT_VECTOR)
+	{
+		vecPts = m_vecPTValue;
+		return true;
+	}
+	return false;
+}
+bool CInputOutputInfo::GetVecPointValue(vector<Point>& vecPts)const
+{
+	if (m_dataType == DataType::TYPE_POINT_VECTOR)
+	{
+		vecPts = m_vecPTValue;
+		return true;
+	}
+	return false;
+}
+bool CInputOutputInfo::GetVecPointFValue(vector<Point2f>& vecPts)
+{
+	if (m_dataType == DataType::TYPE_POINT2F_VECTOR)
+	{
+		vecPts = m_vecPTFValue;
+		return true;
+	}
+
+	return false;
+}
+bool CInputOutputInfo::GetVecPointFValue(vector<Point2f>& vecPts) const
+{
+	if (m_dataType == DataType::TYPE_POINT2F_VECTOR)
+	{
+		vecPts = m_vecPTFValue;
+		return true;
+	}
+
+	return false;
+}
+bool CInputOutputInfo::GetVecImageValue(vector<Mat>& vecImage)
+{
+	if (m_dataType == DataType::TYPE_IMAGE)
+	{
+		vecImage = m_vecImage;
+		return true;
+	}
+	return false;
+}
+bool CInputOutputInfo::GetVecImageValue(vector<Mat>& vecImage) const
+{
+	if (m_dataType == DataType::TYPE_IMAGE)
+	{
+		vecImage = m_vecImage;
+		return true;
+	}
+	return false;
+}
+
+
 
 
 //两个全局函数

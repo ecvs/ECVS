@@ -49,5 +49,10 @@ enum DataType
 };
 
 
+
+
+//错误定义
+#define  ECVS_ERROR_NO_ERROR 0
+
 bool IsVector(DataType dt); //判断dt是否是vector类型
 bool IsSameType(DataType dt1, DataType dt2);// 判断dt1和 dt2是否为同一种类型 比如vector<int> 和int是同一种类型
