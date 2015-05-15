@@ -1,0 +1,1133 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGUID>{1CDD41F0-F3C0-4F7A-B51C-F6379DF96F45}</ProjectGUID>
+    <Keyword>Win32Proj</Keyword>
+    <Platform>Win32</Platform>
+    <ProjectName>opencv_world</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v120</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v120</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\..\..\..\EasyComputerVisionSystem\bin\Debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">opencv_world.dir\Debug\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">opencv_world300d</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.dll</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\..\build\bin\Release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">opencv_world.dir\Release\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">opencv_world300</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.dll</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</GenerateManifest>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <AdditionalOptions> /bigobj %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalIncludeDirectories>..\..\..\3rdparty\include\opencl\1.2;..\..\..\3rdparty\libjasper;..\..\..\build\3rdparty\libtiff;..\..\..\3rdparty\libtiff;..\..\..\3rdparty\libpng;..\..\..\3rdparty\libwebp;..\..\..\3rdparty\libjpeg;..\..\..\build\3rdparty\zlib;..\..\..\3rdparty\zlib;..\..\..\3rdparty\ippicv\unpack\ippicv_win\include;..\..\..\build;..\..\..\3rdparty\openexr\Half;..\..\..\3rdparty\openexr\Iex;..\..\..\3rdparty\openexr\IlmThread;..\..\..\3rdparty\openexr\Imath;..\..\..\3rdparty\openexr\IlmImf;..\..\..\3rdparty\include;..\..\..\3rdparty\include\ffmpeg_;..\..\..\modules\hal\include;..\..\..\modules\hal\src;..\..\..\build\modules\world;..\..\..\modules\core\include;..\..\..\modules\core\src;..\..\..\modules\flann\include;..\..\..\modules\flann\src;..\..\..\modules\imgproc\include;..\..\..\modules\imgproc\src;..\..\..\modules\ml\include;..\..\..\modules\ml\src;..\..\..\modules\photo\include;..\..\..\modules\photo\src;..\..\..\modules\video\include;..\..\..\modules\video\src;..\..\..\modules\imgcodecs\include;..\..\..\modules\imgcodecs\src;..\..\..\modules\shape\include;..\..\..\modules\shape\src;..\..\..\modules\videoio\include;..\..\..\modules\videoio\src;..\..\..\modules\highgui\include;..\..\..\modules\highgui\src;..\..\..\modules\objdetect\include;..\..\..\modules\objdetect\src;..\..\..\modules\superres\include;..\..\..\modules\superres\src;..\..\..\modules\features2d\include;..\..\..\modules\features2d\src;..\..\..\modules\calib3d\include;..\..\..\modules\calib3d\src;..\..\..\modules\stitching\include;..\..\..\modules\stitching\src;..\..\..\modules\videostab\include;..\..\..\modules\videostab\src;..\..\..\modules\world\include;..\..\..\modules\world\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>Debug/</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4251;4324</DisableSpecificWarnings>
+      <EnableEnhancedInstructionSet>StreamingSIMDExtensions2</EnableEnhancedInstructionSet>
+      <ExceptionHandling>Async</ExceptionHandling>
+      <FloatingPointModel>Fast</FloatingPointModel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <ProcessorNumber>4</ProcessorNumber>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <WarningLevel>Level4</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_SCL_SECURE_NO_WARNINGS;_DEBUG;CVAPI_EXPORTS;_VARIADIC_MAX=10;__OPENCV_BUILD=1;HAVE_WEBP;IMGCODECS_EXPORTS;VIDEOIO_EXPORTS;HIGHGUI_EXPORTS;CMAKE_INTDIR="Debug";CVAPI_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_SCL_SECURE_NO_WARNINGS;_DEBUG;CVAPI_EXPORTS;_VARIADIC_MAX=10;__OPENCV_BUILD=1;HAVE_WEBP;IMGCODECS_EXPORTS;VIDEOIO_EXPORTS;HIGHGUI_EXPORTS;CMAKE_INTDIR=\"Debug\";CVAPI_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\..\..\3rdparty\include\opencl\1.2;..\..\..\3rdparty\libjasper;..\..\..\build\3rdparty\libtiff;..\..\..\3rdparty\libtiff;..\..\..\3rdparty\libpng;..\..\..\3rdparty\libwebp;..\..\..\3rdparty\libjpeg;..\..\..\build\3rdparty\zlib;..\..\..\3rdparty\zlib;..\..\..\3rdparty\ippicv\unpack\ippicv_win\include;..\..\..\build;..\..\..\3rdparty\openexr\Half;..\..\..\3rdparty\openexr\Iex;..\..\..\3rdparty\openexr\IlmThread;..\..\..\3rdparty\openexr\Imath;..\..\..\3rdparty\openexr\IlmImf;..\..\..\3rdparty\include;..\..\..\3rdparty\include\ffmpeg_;..\..\..\modules\hal\include;..\..\..\modules\hal\src;..\..\..\build\modules\world;..\..\..\modules\core\include;..\..\..\modules\core\src;..\..\..\modules\flann\include;..\..\..\modules\flann\src;..\..\..\modules\imgproc\include;..\..\..\modules\imgproc\src;..\..\..\modules\ml\include;..\..\..\modules\ml\src;..\..\..\modules\photo\include;..\..\..\modules\photo\src;..\..\..\modules\video\include;..\..\..\modules\video\src;..\..\..\modules\imgcodecs\include;..\..\..\modules\imgcodecs\src;..\..\..\modules\shape\include;..\..\..\modules\shape\src;..\..\..\modules\videoio\include;..\..\..\modules\videoio\src;..\..\..\modules\highgui\include;..\..\..\modules\highgui\src;..\..\..\modules\objdetect\include;..\..\..\modules\objdetect\src;..\..\..\modules\superres\include;..\..\..\modules\superres\src;..\..\..\modules\features2d\include;..\..\..\modules\features2d\src;..\..\..\modules\calib3d\include;..\..\..\modules\calib3d\src;..\..\..\modules\stitching\include;..\..\..\modules\stitching\src;..\..\..\modules\videostab\include;..\..\..\modules\videostab\src;..\..\..\modules\world\include;..\..\..\modules\world\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>..\..\..\3rdparty\include\opencl\1.2;..\..\..\3rdparty\libjasper;..\..\..\build\3rdparty\libtiff;..\..\..\3rdparty\libtiff;..\..\..\3rdparty\libpng;..\..\..\3rdparty\libwebp;..\..\..\3rdparty\libjpeg;..\..\..\build\3rdparty\zlib;..\..\..\3rdparty\zlib;..\..\..\3rdparty\ippicv\unpack\ippicv_win\include;..\..\..\build;..\..\..\3rdparty\openexr\Half;..\..\..\3rdparty\openexr\Iex;..\..\..\3rdparty\openexr\IlmThread;..\..\..\3rdparty\openexr\Imath;..\..\..\3rdparty\openexr\IlmImf;..\..\..\3rdparty\include;..\..\..\3rdparty\include\ffmpeg_;..\..\..\modules\hal\include;..\..\..\modules\hal\src;..\..\..\build\modules\world;..\..\..\modules\core\include;..\..\..\modules\core\src;..\..\..\modules\flann\include;..\..\..\modules\flann\src;..\..\..\modules\imgproc\include;..\..\..\modules\imgproc\src;..\..\..\modules\ml\include;..\..\..\modules\ml\src;..\..\..\modules\photo\include;..\..\..\modules\photo\src;..\..\..\modules\video\include;..\..\..\modules\video\src;..\..\..\modules\imgcodecs\include;..\..\..\modules\imgcodecs\src;..\..\..\modules\shape\include;..\..\..\modules\shape\src;..\..\..\modules\videoio\include;..\..\..\modules\videoio\src;..\..\..\modules\highgui\include;..\..\..\modules\highgui\src;..\..\..\modules\objdetect\include;..\..\..\modules\objdetect\src;..\..\..\modules\superres\include;..\..\..\modules\superres\src;..\..\..\modules\features2d\include;..\..\..\modules\features2d\src;..\..\..\modules\calib3d\include;..\..\..\modules\calib3d\src;..\..\..\modules\stitching\include;..\..\..\modules\stitching\src;..\..\..\modules\videostab\include;..\..\..\modules\videostab\src;..\..\..\modules\world\include;..\..\..\modules\world\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <PostBuildEvent>
+      <Message>Copying ../../../3rdparty/ffmpeg/opencv_ffmpeg.dll to the output directory</Message>
+      <Command>setlocal
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E copy ../../../3rdparty/ffmpeg/opencv_ffmpeg.dll ../../../build/bin/Release/opencv_ffmpeg300.dll
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E copy ../../../3rdparty/ffmpeg/opencv_ffmpeg.dll ../../../build/bin/Debug/opencv_ffmpeg300.dll
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+    </PostBuildEvent>
+    <Link>
+      <AdditionalOptions> /machine:X86 /debug %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib;..\..\3rdparty\lib\Debug\zlibd.lib;..\..\..\3rdparty\ippicv\unpack\ippicv_win\lib\ia32\ippicvmt.lib;..\..\3rdparty\lib\Debug\zlibd.lib;..\..\3rdparty\lib\Debug\libjpegd.lib;..\..\3rdparty\lib\Debug\libwebpd.lib;..\..\3rdparty\lib\Debug\libpngd.lib;..\..\3rdparty\lib\Debug\libtiffd.lib;..\..\3rdparty\lib\Debug\libjasperd.lib;..\..\3rdparty\lib\Debug\IlmImfd.lib;vfw32.lib;comctl32.lib;gdi32.lib;ole32.lib;setupapi.lib;ws2_32.lib;..\..\3rdparty\lib\Debug\zlibd.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>../../../3rdparty/lib;../../../3rdparty/lib/$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>atlthunk.lib;atlsd.lib;libcmt.lib;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>../../../build/lib/Debug/opencv_world300d.lib</ImportLibrary>
+      <ProgramDataBaseFile>../../../build/bin/Debug/opencv_world300d.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+      <Version>
+      </Version>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <AdditionalOptions> /bigobj %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalIncludeDirectories>..\..\..\3rdparty\include\opencl\1.2;..\..\..\3rdparty\libjasper;..\..\..\build\3rdparty\libtiff;..\..\..\3rdparty\libtiff;..\..\..\3rdparty\libpng;..\..\..\3rdparty\libwebp;..\..\..\3rdparty\libjpeg;..\..\..\build\3rdparty\zlib;..\..\..\3rdparty\zlib;..\..\..\3rdparty\ippicv\unpack\ippicv_win\include;..\..\..\build;..\..\..\3rdparty\openexr\Half;..\..\..\3rdparty\openexr\Iex;..\..\..\3rdparty\openexr\IlmThread;..\..\..\3rdparty\openexr\Imath;..\..\..\3rdparty\openexr\IlmImf;..\..\..\3rdparty\include;..\..\..\3rdparty\include\ffmpeg_;..\..\..\modules\hal\include;..\..\..\modules\hal\src;..\..\..\build\modules\world;..\..\..\modules\core\include;..\..\..\modules\core\src;..\..\..\modules\flann\include;..\..\..\modules\flann\src;..\..\..\modules\imgproc\include;..\..\..\modules\imgproc\src;..\..\..\modules\ml\include;..\..\..\modules\ml\src;..\..\..\modules\photo\include;..\..\..\modules\photo\src;..\..\..\modules\video\include;..\..\..\modules\video\src;..\..\..\modules\imgcodecs\include;..\..\..\modules\imgcodecs\src;..\..\..\modules\shape\include;..\..\..\modules\shape\src;..\..\..\modules\videoio\include;..\..\..\modules\videoio\src;..\..\..\modules\highgui\include;..\..\..\modules\highgui\src;..\..\..\modules\objdetect\include;..\..\..\modules\objdetect\src;..\..\..\modules\superres\include;..\..\..\modules\superres\src;..\..\..\modules\features2d\include;..\..\..\modules\features2d\src;..\..\..\modules\calib3d\include;..\..\..\modules\calib3d\src;..\..\..\modules\stitching\include;..\..\..\modules\stitching\src;..\..\..\modules\videostab\include;..\..\..\modules\videostab\src;..\..\..\modules\world\include;..\..\..\modules\world\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>Release/</AssemblerListingLocation>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4251;4324</DisableSpecificWarnings>
+      <EnableEnhancedInstructionSet>StreamingSIMDExtensions2</EnableEnhancedInstructionSet>
+      <ExceptionHandling>Async</ExceptionHandling>
+      <FloatingPointModel>Fast</FloatingPointModel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <ProcessorNumber>4</ProcessorNumber>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <WarningLevel>Level4</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_SCL_SECURE_NO_WARNINGS;NDEBUG;CVAPI_EXPORTS;_VARIADIC_MAX=10;__OPENCV_BUILD=1;HAVE_WEBP;IMGCODECS_EXPORTS;VIDEOIO_EXPORTS;HIGHGUI_EXPORTS;CMAKE_INTDIR="Release";CVAPI_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_SCL_SECURE_NO_WARNINGS;NDEBUG;CVAPI_EXPORTS;_VARIADIC_MAX=10;__OPENCV_BUILD=1;HAVE_WEBP;IMGCODECS_EXPORTS;VIDEOIO_EXPORTS;HIGHGUI_EXPORTS;CMAKE_INTDIR=\"Release\";CVAPI_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\..\..\3rdparty\include\opencl\1.2;..\..\..\3rdparty\libjasper;..\..\..\build\3rdparty\libtiff;..\..\..\3rdparty\libtiff;..\..\..\3rdparty\libpng;..\..\..\3rdparty\libwebp;..\..\..\3rdparty\libjpeg;..\..\..\build\3rdparty\zlib;..\..\..\3rdparty\zlib;..\..\..\3rdparty\ippicv\unpack\ippicv_win\include;..\..\..\build;..\..\..\3rdparty\openexr\Half;..\..\..\3rdparty\openexr\Iex;..\..\..\3rdparty\openexr\IlmThread;..\..\..\3rdparty\openexr\Imath;..\..\..\3rdparty\openexr\IlmImf;..\..\..\3rdparty\include;..\..\..\3rdparty\include\ffmpeg_;..\..\..\modules\hal\include;..\..\..\modules\hal\src;..\..\..\build\modules\world;..\..\..\modules\core\include;..\..\..\modules\core\src;..\..\..\modules\flann\include;..\..\..\modules\flann\src;..\..\..\modules\imgproc\include;..\..\..\modules\imgproc\src;..\..\..\modules\ml\include;..\..\..\modules\ml\src;..\..\..\modules\photo\include;..\..\..\modules\photo\src;..\..\..\modules\video\include;..\..\..\modules\video\src;..\..\..\modules\imgcodecs\include;..\..\..\modules\imgcodecs\src;..\..\..\modules\shape\include;..\..\..\modules\shape\src;..\..\..\modules\videoio\include;..\..\..\modules\videoio\src;..\..\..\modules\highgui\include;..\..\..\modules\highgui\src;..\..\..\modules\objdetect\include;..\..\..\modules\objdetect\src;..\..\..\modules\superres\include;..\..\..\modules\superres\src;..\..\..\modules\features2d\include;..\..\..\modules\features2d\src;..\..\..\modules\calib3d\include;..\..\..\modules\calib3d\src;..\..\..\modules\stitching\include;..\..\..\modules\stitching\src;..\..\..\modules\videostab\include;..\..\..\modules\videostab\src;..\..\..\modules\world\include;..\..\..\modules\world\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>..\..\..\3rdparty\include\opencl\1.2;..\..\..\3rdparty\libjasper;..\..\..\build\3rdparty\libtiff;..\..\..\3rdparty\libtiff;..\..\..\3rdparty\libpng;..\..\..\3rdparty\libwebp;..\..\..\3rdparty\libjpeg;..\..\..\build\3rdparty\zlib;..\..\..\3rdparty\zlib;..\..\..\3rdparty\ippicv\unpack\ippicv_win\include;..\..\..\build;..\..\..\3rdparty\openexr\Half;..\..\..\3rdparty\openexr\Iex;..\..\..\3rdparty\openexr\IlmThread;..\..\..\3rdparty\openexr\Imath;..\..\..\3rdparty\openexr\IlmImf;..\..\..\3rdparty\include;..\..\..\3rdparty\include\ffmpeg_;..\..\..\modules\hal\include;..\..\..\modules\hal\src;..\..\..\build\modules\world;..\..\..\modules\core\include;..\..\..\modules\core\src;..\..\..\modules\flann\include;..\..\..\modules\flann\src;..\..\..\modules\imgproc\include;..\..\..\modules\imgproc\src;..\..\..\modules\ml\include;..\..\..\modules\ml\src;..\..\..\modules\photo\include;..\..\..\modules\photo\src;..\..\..\modules\video\include;..\..\..\modules\video\src;..\..\..\modules\imgcodecs\include;..\..\..\modules\imgcodecs\src;..\..\..\modules\shape\include;..\..\..\modules\shape\src;..\..\..\modules\videoio\include;..\..\..\modules\videoio\src;..\..\..\modules\highgui\include;..\..\..\modules\highgui\src;..\..\..\modules\objdetect\include;..\..\..\modules\objdetect\src;..\..\..\modules\superres\include;..\..\..\modules\superres\src;..\..\..\modules\features2d\include;..\..\..\modules\features2d\src;..\..\..\modules\calib3d\include;..\..\..\modules\calib3d\src;..\..\..\modules\stitching\include;..\..\..\modules\stitching\src;..\..\..\modules\videostab\include;..\..\..\modules\videostab\src;..\..\..\modules\world\include;..\..\..\modules\world\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <PostBuildEvent>
+      <Message>Copying ../../../3rdparty/ffmpeg/opencv_ffmpeg.dll to the output directory</Message>
+      <Command>setlocal
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E copy ../../../3rdparty/ffmpeg/opencv_ffmpeg.dll ../../../build/bin/Release/opencv_ffmpeg300.dll
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E copy ../../../3rdparty/ffmpeg/opencv_ffmpeg.dll ../../../build/bin/Debug/opencv_ffmpeg300.dll
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+    </PostBuildEvent>
+    <Link>
+      <AdditionalOptions> /machine:X86 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib;..\..\3rdparty\lib\Release\zlib.lib;..\..\..\3rdparty\ippicv\unpack\ippicv_win\lib\ia32\ippicvmt.lib;..\..\3rdparty\lib\Release\zlib.lib;..\..\3rdparty\lib\Release\libjpeg.lib;..\..\3rdparty\lib\Release\libwebp.lib;..\..\3rdparty\lib\Release\libpng.lib;..\..\3rdparty\lib\Release\libtiff.lib;..\..\3rdparty\lib\Release\libjasper.lib;..\..\3rdparty\lib\Release\IlmImf.lib;vfw32.lib;comctl32.lib;gdi32.lib;ole32.lib;setupapi.lib;ws2_32.lib;..\..\3rdparty\lib\Release\zlib.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>../../../3rdparty/lib;../../../3rdparty/lib/$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>atlthunk.lib;atlsd.lib;libcmt.lib;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>../../../build/lib/Release/opencv_world300.lib</ImportLibrary>
+      <ProgramDataBaseFile>../../../build/bin/Release/opencv_world300.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+      <Version>
+      </Version>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="..\..\..\modules\world\CMakeLists.txt">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Building Custom Rule ../../../modules/world/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -H../../.. -B../.. --check-stamp-file ..\..\..\build\modules\world\CMakeFiles\generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">../../../modules/world/CMakeLists.txt;..\..\..\modules\world\CMakeLists.txt;..\..\..\modules\hal\CMakeLists.txt;..\..\..\modules\core\CMakeLists.txt;..\..\..\modules\flann\CMakeLists.txt;..\..\..\modules\imgproc\CMakeLists.txt;..\..\..\modules\ml\CMakeLists.txt;..\..\..\modules\photo\CMakeLists.txt;..\..\..\modules\video\CMakeLists.txt;..\..\..\modules\imgcodecs\CMakeLists.txt;..\..\..\modules\shape\CMakeLists.txt;..\..\..\modules\videoio\CMakeLists.txt;..\..\..\modules\highgui\CMakeLists.txt;..\..\..\modules\objdetect\CMakeLists.txt;..\..\..\modules\superres\CMakeLists.txt;..\..\..\modules\features2d\CMakeLists.txt;..\..\..\modules\calib3d\CMakeLists.txt;..\..\..\modules\stitching\CMakeLists.txt;..\..\..\modules\videostab\CMakeLists.txt;..\..\..\modules\world\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\..\..\build\modules\world\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Building Custom Rule ../../../modules/world/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -H../../.. -B../.. --check-stamp-file ..\..\..\build\modules\world\CMakeFiles\generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">../../../modules/world/CMakeLists.txt;..\..\..\modules\world\CMakeLists.txt;..\..\..\modules\hal\CMakeLists.txt;..\..\..\modules\core\CMakeLists.txt;..\..\..\modules\flann\CMakeLists.txt;..\..\..\modules\imgproc\CMakeLists.txt;..\..\..\modules\ml\CMakeLists.txt;..\..\..\modules\photo\CMakeLists.txt;..\..\..\modules\video\CMakeLists.txt;..\..\..\modules\imgcodecs\CMakeLists.txt;..\..\..\modules\shape\CMakeLists.txt;..\..\..\modules\videoio\CMakeLists.txt;..\..\..\modules\highgui\CMakeLists.txt;..\..\..\modules\objdetect\CMakeLists.txt;..\..\..\modules\superres\CMakeLists.txt;..\..\..\modules\features2d\CMakeLists.txt;..\..\..\modules\calib3d\CMakeLists.txt;..\..\..\modules\stitching\CMakeLists.txt;..\..\..\modules\videostab\CMakeLists.txt;..\..\..\modules\world\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\..\build\modules\world\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="..\..\CMakeFiles\7e258d3b87c3c653e4d2cfa35ba2a483\opencl_kernels_core.cpp.rule">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Generating opencl_kernels_core.cpp, opencl_kernels_core.hpp</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -DMODULE_NAME="core" -DCL_DIR="../../../modules/core/src/opencl" -DOUTPUT="../../../build/modules/world/opencl_kernels_core.cpp" -P ../../../cmake/cl2cpp.cmake
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">../../../build/CMakeFiles/7e258d3b87c3c653e4d2cfa35ba2a483/opencl_kernels_core.cpp.rule;..\..\..\modules\core\src\opencl\arithm.cl;..\..\..\modules\core\src\opencl\convert.cl;..\..\..\modules\core\src\opencl\copymakeborder.cl;..\..\..\modules\core\src\opencl\copyset.cl;..\..\..\modules\core\src\opencl\fft.cl;..\..\..\modules\core\src\opencl\flip.cl;..\..\..\modules\core\src\opencl\gemm.cl;..\..\..\modules\core\src\opencl\inrange.cl;..\..\..\modules\core\src\opencl\lut.cl;..\..\..\modules\core\src\opencl\meanstddev.cl;..\..\..\modules\core\src\opencl\minmaxloc.cl;..\..\..\modules\core\src\opencl\mixchannels.cl;..\..\..\modules\core\src\opencl\mulspectrums.cl;..\..\..\modules\core\src\opencl\normalize.cl;..\..\..\modules\core\src\opencl\reduce.cl;..\..\..\modules\core\src\opencl\reduce2.cl;..\..\..\modules\core\src\opencl\repeat.cl;..\..\..\modules\core\src\opencl\set_identity.cl;..\..\..\modules\core\src\opencl\split_merge.cl;..\..\..\modules\core\src\opencl\transpose.cl;..\..\..\cmake\cl2cpp.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\..\..\build\modules\world\opencl_kernels_core.cpp;..\..\..\build\modules\world\opencl_kernels_core.hpp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Generating opencl_kernels_core.cpp, opencl_kernels_core.hpp</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -DMODULE_NAME="core" -DCL_DIR="../../../modules/core/src/opencl" -DOUTPUT="../../../build/modules/world/opencl_kernels_core.cpp" -P ../../../cmake/cl2cpp.cmake
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">../../../build/CMakeFiles/7e258d3b87c3c653e4d2cfa35ba2a483/opencl_kernels_core.cpp.rule;..\..\..\modules\core\src\opencl\arithm.cl;..\..\..\modules\core\src\opencl\convert.cl;..\..\..\modules\core\src\opencl\copymakeborder.cl;..\..\..\modules\core\src\opencl\copyset.cl;..\..\..\modules\core\src\opencl\fft.cl;..\..\..\modules\core\src\opencl\flip.cl;..\..\..\modules\core\src\opencl\gemm.cl;..\..\..\modules\core\src\opencl\inrange.cl;..\..\..\modules\core\src\opencl\lut.cl;..\..\..\modules\core\src\opencl\meanstddev.cl;..\..\..\modules\core\src\opencl\minmaxloc.cl;..\..\..\modules\core\src\opencl\mixchannels.cl;..\..\..\modules\core\src\opencl\mulspectrums.cl;..\..\..\modules\core\src\opencl\normalize.cl;..\..\..\modules\core\src\opencl\reduce.cl;..\..\..\modules\core\src\opencl\reduce2.cl;..\..\..\modules\core\src\opencl\repeat.cl;..\..\..\modules\core\src\opencl\set_identity.cl;..\..\..\modules\core\src\opencl\split_merge.cl;..\..\..\modules\core\src\opencl\transpose.cl;..\..\..\cmake\cl2cpp.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\..\build\modules\world\opencl_kernels_core.cpp;..\..\..\build\modules\world\opencl_kernels_core.hpp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="..\..\CMakeFiles\7e258d3b87c3c653e4d2cfa35ba2a483\opencl_kernels_imgproc.cpp.rule">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Generating opencl_kernels_imgproc.cpp, opencl_kernels_imgproc.hpp</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -DMODULE_NAME="imgproc" -DCL_DIR="../../../modules/imgproc/src/opencl" -DOUTPUT="../../../build/modules/world/opencl_kernels_imgproc.cpp" -P ../../../cmake/cl2cpp.cmake
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">../../../build/CMakeFiles/7e258d3b87c3c653e4d2cfa35ba2a483/opencl_kernels_imgproc.cpp.rule;..\..\..\modules\imgproc\src\opencl\accumulate.cl;..\..\..\modules\imgproc\src\opencl\bilateral.cl;..\..\..\modules\imgproc\src\opencl\blend_linear.cl;..\..\..\modules\imgproc\src\opencl\boxFilter.cl;..\..\..\modules\imgproc\src\opencl\calc_back_project.cl;..\..\..\modules\imgproc\src\opencl\canny.cl;..\..\..\modules\imgproc\src\opencl\clahe.cl;..\..\..\modules\imgproc\src\opencl\corner.cl;..\..\..\modules\imgproc\src\opencl\covardata.cl;..\..\..\modules\imgproc\src\opencl\cvtcolor.cl;..\..\..\modules\imgproc\src\opencl\filter2D.cl;..\..\..\modules\imgproc\src\opencl\filter2DSmall.cl;..\..\..\modules\imgproc\src\opencl\filterSepCol.cl;..\..\..\modules\imgproc\src\opencl\filterSepRow.cl;..\..\..\modules\imgproc\src\opencl\filterSep_singlePass.cl;..\..\..\modules\imgproc\src\opencl\filterSmall.cl;..\..\..\modules\imgproc\src\opencl\gftt.cl;..\..\..\modules\imgproc\src\opencl\histogram.cl;..\..\..\modules\imgproc\src\opencl\hough_lines.cl;..\..\..\modules\imgproc\src\opencl\integral_sum.cl;..\..\..\modules\imgproc\src\opencl\laplacian5.cl;..\..\..\modules\imgproc\src\opencl\match_template.cl;..\..\..\modules\imgproc\src\opencl\medianFilter.cl;..\..\..\modules\imgproc\src\opencl\moments.cl;..\..\..\modules\imgproc\src\opencl\morph.cl;..\..\..\modules\imgproc\src\opencl\precornerdetect.cl;..\..\..\modules\imgproc\src\opencl\pyr_down.cl;..\..\..\modules\imgproc\src\opencl\pyr_up.cl;..\..\..\modules\imgproc\src\opencl\remap.cl;..\..\..\modules\imgproc\src\opencl\resize.cl;..\..\..\modules\imgproc\src\opencl\threshold.cl;..\..\..\modules\imgproc\src\opencl\warp_affine.cl;..\..\..\modules\imgproc\src\opencl\warp_perspective.cl;..\..\..\cmake\cl2cpp.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\..\..\build\modules\world\opencl_kernels_imgproc.cpp;..\..\..\build\modules\world\opencl_kernels_imgproc.hpp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Generating opencl_kernels_imgproc.cpp, opencl_kernels_imgproc.hpp</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -DMODULE_NAME="imgproc" -DCL_DIR="../../../modules/imgproc/src/opencl" -DOUTPUT="../../../build/modules/world/opencl_kernels_imgproc.cpp" -P ../../../cmake/cl2cpp.cmake
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">../../../build/CMakeFiles/7e258d3b87c3c653e4d2cfa35ba2a483/opencl_kernels_imgproc.cpp.rule;..\..\..\modules\imgproc\src\opencl\accumulate.cl;..\..\..\modules\imgproc\src\opencl\bilateral.cl;..\..\..\modules\imgproc\src\opencl\blend_linear.cl;..\..\..\modules\imgproc\src\opencl\boxFilter.cl;..\..\..\modules\imgproc\src\opencl\calc_back_project.cl;..\..\..\modules\imgproc\src\opencl\canny.cl;..\..\..\modules\imgproc\src\opencl\clahe.cl;..\..\..\modules\imgproc\src\opencl\corner.cl;..\..\..\modules\imgproc\src\opencl\covardata.cl;..\..\..\modules\imgproc\src\opencl\cvtcolor.cl;..\..\..\modules\imgproc\src\opencl\filter2D.cl;..\..\..\modules\imgproc\src\opencl\filter2DSmall.cl;..\..\..\modules\imgproc\src\opencl\filterSepCol.cl;..\..\..\modules\imgproc\src\opencl\filterSepRow.cl;..\..\..\modules\imgproc\src\opencl\filterSep_singlePass.cl;..\..\..\modules\imgproc\src\opencl\filterSmall.cl;..\..\..\modules\imgproc\src\opencl\gftt.cl;..\..\..\modules\imgproc\src\opencl\histogram.cl;..\..\..\modules\imgproc\src\opencl\hough_lines.cl;..\..\..\modules\imgproc\src\opencl\integral_sum.cl;..\..\..\modules\imgproc\src\opencl\laplacian5.cl;..\..\..\modules\imgproc\src\opencl\match_template.cl;..\..\..\modules\imgproc\src\opencl\medianFilter.cl;..\..\..\modules\imgproc\src\opencl\moments.cl;..\..\..\modules\imgproc\src\opencl\morph.cl;..\..\..\modules\imgproc\src\opencl\precornerdetect.cl;..\..\..\modules\imgproc\src\opencl\pyr_down.cl;..\..\..\modules\imgproc\src\opencl\pyr_up.cl;..\..\..\modules\imgproc\src\opencl\remap.cl;..\..\..\modules\imgproc\src\opencl\resize.cl;..\..\..\modules\imgproc\src\opencl\threshold.cl;..\..\..\modules\imgproc\src\opencl\warp_affine.cl;..\..\..\modules\imgproc\src\opencl\warp_perspective.cl;..\..\..\cmake\cl2cpp.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\..\build\modules\world\opencl_kernels_imgproc.cpp;..\..\..\build\modules\world\opencl_kernels_imgproc.hpp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="..\..\CMakeFiles\7e258d3b87c3c653e4d2cfa35ba2a483\opencl_kernels_photo.cpp.rule">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Generating opencl_kernels_photo.cpp, opencl_kernels_photo.hpp</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -DMODULE_NAME="photo" -DCL_DIR="../../../modules/photo/src/opencl" -DOUTPUT="../../../build/modules/world/opencl_kernels_photo.cpp" -P ../../../cmake/cl2cpp.cmake
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">../../../build/CMakeFiles/7e258d3b87c3c653e4d2cfa35ba2a483/opencl_kernels_photo.cpp.rule;..\..\..\modules\photo\src\opencl\nlmeans.cl;..\..\..\cmake\cl2cpp.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\..\..\build\modules\world\opencl_kernels_photo.cpp;..\..\..\build\modules\world\opencl_kernels_photo.hpp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Generating opencl_kernels_photo.cpp, opencl_kernels_photo.hpp</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -DMODULE_NAME="photo" -DCL_DIR="../../../modules/photo/src/opencl" -DOUTPUT="../../../build/modules/world/opencl_kernels_photo.cpp" -P ../../../cmake/cl2cpp.cmake
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">../../../build/CMakeFiles/7e258d3b87c3c653e4d2cfa35ba2a483/opencl_kernels_photo.cpp.rule;..\..\..\modules\photo\src\opencl\nlmeans.cl;..\..\..\cmake\cl2cpp.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\..\build\modules\world\opencl_kernels_photo.cpp;..\..\..\build\modules\world\opencl_kernels_photo.hpp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="..\..\CMakeFiles\7e258d3b87c3c653e4d2cfa35ba2a483\opencl_kernels_video.cpp.rule">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Generating opencl_kernels_video.cpp, opencl_kernels_video.hpp</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -DMODULE_NAME="video" -DCL_DIR="../../../modules/video/src/opencl" -DOUTPUT="../../../build/modules/world/opencl_kernels_video.cpp" -P ../../../cmake/cl2cpp.cmake
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">../../../build/CMakeFiles/7e258d3b87c3c653e4d2cfa35ba2a483/opencl_kernels_video.cpp.rule;..\..\..\modules\video\src\opencl\bgfg_mog2.cl;..\..\..\modules\video\src\opencl\optical_flow_farneback.cl;..\..\..\modules\video\src\opencl\optical_flow_tvl1.cl;..\..\..\modules\video\src\opencl\pyrlk.cl;..\..\..\cmake\cl2cpp.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\..\..\build\modules\world\opencl_kernels_video.cpp;..\..\..\build\modules\world\opencl_kernels_video.hpp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Generating opencl_kernels_video.cpp, opencl_kernels_video.hpp</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -DMODULE_NAME="video" -DCL_DIR="../../../modules/video/src/opencl" -DOUTPUT="../../../build/modules/world/opencl_kernels_video.cpp" -P ../../../cmake/cl2cpp.cmake
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">../../../build/CMakeFiles/7e258d3b87c3c653e4d2cfa35ba2a483/opencl_kernels_video.cpp.rule;..\..\..\modules\video\src\opencl\bgfg_mog2.cl;..\..\..\modules\video\src\opencl\optical_flow_farneback.cl;..\..\..\modules\video\src\opencl\optical_flow_tvl1.cl;..\..\..\modules\video\src\opencl\pyrlk.cl;..\..\..\cmake\cl2cpp.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\..\build\modules\world\opencl_kernels_video.cpp;..\..\..\build\modules\world\opencl_kernels_video.hpp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="..\..\CMakeFiles\7e258d3b87c3c653e4d2cfa35ba2a483\opencl_kernels_objdetect.cpp.rule">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Generating opencl_kernels_objdetect.cpp, opencl_kernels_objdetect.hpp</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -DMODULE_NAME="objdetect" -DCL_DIR="../../../modules/objdetect/src/opencl" -DOUTPUT="../../../build/modules/world/opencl_kernels_objdetect.cpp" -P ../../../cmake/cl2cpp.cmake
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">../../../build/CMakeFiles/7e258d3b87c3c653e4d2cfa35ba2a483/opencl_kernels_objdetect.cpp.rule;..\..\..\modules\objdetect\src\opencl\cascadedetect.cl;..\..\..\modules\objdetect\src\opencl\objdetect_hog.cl;..\..\..\cmake\cl2cpp.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\..\..\build\modules\world\opencl_kernels_objdetect.cpp;..\..\..\build\modules\world\opencl_kernels_objdetect.hpp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Generating opencl_kernels_objdetect.cpp, opencl_kernels_objdetect.hpp</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -DMODULE_NAME="objdetect" -DCL_DIR="../../../modules/objdetect/src/opencl" -DOUTPUT="../../../build/modules/world/opencl_kernels_objdetect.cpp" -P ../../../cmake/cl2cpp.cmake
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">../../../build/CMakeFiles/7e258d3b87c3c653e4d2cfa35ba2a483/opencl_kernels_objdetect.cpp.rule;..\..\..\modules\objdetect\src\opencl\cascadedetect.cl;..\..\..\modules\objdetect\src\opencl\objdetect_hog.cl;..\..\..\cmake\cl2cpp.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\..\build\modules\world\opencl_kernels_objdetect.cpp;..\..\..\build\modules\world\opencl_kernels_objdetect.hpp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="..\..\CMakeFiles\7e258d3b87c3c653e4d2cfa35ba2a483\opencl_kernels_superres.cpp.rule">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Generating opencl_kernels_superres.cpp, opencl_kernels_superres.hpp</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -DMODULE_NAME="superres" -DCL_DIR="../../../modules/superres/src/opencl" -DOUTPUT="../../../build/modules/world/opencl_kernels_superres.cpp" -P ../../../cmake/cl2cpp.cmake
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">../../../build/CMakeFiles/7e258d3b87c3c653e4d2cfa35ba2a483/opencl_kernels_superres.cpp.rule;..\..\..\modules\superres\src\opencl\superres_btvl1.cl;..\..\..\cmake\cl2cpp.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\..\..\build\modules\world\opencl_kernels_superres.cpp;..\..\..\build\modules\world\opencl_kernels_superres.hpp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Generating opencl_kernels_superres.cpp, opencl_kernels_superres.hpp</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -DMODULE_NAME="superres" -DCL_DIR="../../../modules/superres/src/opencl" -DOUTPUT="../../../build/modules/world/opencl_kernels_superres.cpp" -P ../../../cmake/cl2cpp.cmake
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">../../../build/CMakeFiles/7e258d3b87c3c653e4d2cfa35ba2a483/opencl_kernels_superres.cpp.rule;..\..\..\modules\superres\src\opencl\superres_btvl1.cl;..\..\..\cmake\cl2cpp.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\..\build\modules\world\opencl_kernels_superres.cpp;..\..\..\build\modules\world\opencl_kernels_superres.hpp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="..\..\CMakeFiles\7e258d3b87c3c653e4d2cfa35ba2a483\opencl_kernels_features2d.cpp.rule">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Generating opencl_kernels_features2d.cpp, opencl_kernels_features2d.hpp</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -DMODULE_NAME="features2d" -DCL_DIR="../../../modules/features2d/src/opencl" -DOUTPUT="../../../build/modules/world/opencl_kernels_features2d.cpp" -P ../../../cmake/cl2cpp.cmake
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">../../../build/CMakeFiles/7e258d3b87c3c653e4d2cfa35ba2a483/opencl_kernels_features2d.cpp.rule;..\..\..\modules\features2d\src\opencl\brute_force_match.cl;..\..\..\modules\features2d\src\opencl\fast.cl;..\..\..\modules\features2d\src\opencl\orb.cl;..\..\..\cmake\cl2cpp.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\..\..\build\modules\world\opencl_kernels_features2d.cpp;..\..\..\build\modules\world\opencl_kernels_features2d.hpp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Generating opencl_kernels_features2d.cpp, opencl_kernels_features2d.hpp</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -DMODULE_NAME="features2d" -DCL_DIR="../../../modules/features2d/src/opencl" -DOUTPUT="../../../build/modules/world/opencl_kernels_features2d.cpp" -P ../../../cmake/cl2cpp.cmake
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">../../../build/CMakeFiles/7e258d3b87c3c653e4d2cfa35ba2a483/opencl_kernels_features2d.cpp.rule;..\..\..\modules\features2d\src\opencl\brute_force_match.cl;..\..\..\modules\features2d\src\opencl\fast.cl;..\..\..\modules\features2d\src\opencl\orb.cl;..\..\..\cmake\cl2cpp.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\..\build\modules\world\opencl_kernels_features2d.cpp;..\..\..\build\modules\world\opencl_kernels_features2d.hpp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="..\..\CMakeFiles\7e258d3b87c3c653e4d2cfa35ba2a483\opencl_kernels_calib3d.cpp.rule">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Generating opencl_kernels_calib3d.cpp, opencl_kernels_calib3d.hpp</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -DMODULE_NAME="calib3d" -DCL_DIR="../../../modules/calib3d/src/opencl" -DOUTPUT="../../../build/modules/world/opencl_kernels_calib3d.cpp" -P ../../../cmake/cl2cpp.cmake
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">../../../build/CMakeFiles/7e258d3b87c3c653e4d2cfa35ba2a483/opencl_kernels_calib3d.cpp.rule;..\..\..\modules\calib3d\src\opencl\stereobm.cl;..\..\..\cmake\cl2cpp.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\..\..\build\modules\world\opencl_kernels_calib3d.cpp;..\..\..\build\modules\world\opencl_kernels_calib3d.hpp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Generating opencl_kernels_calib3d.cpp, opencl_kernels_calib3d.hpp</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -DMODULE_NAME="calib3d" -DCL_DIR="../../../modules/calib3d/src/opencl" -DOUTPUT="../../../build/modules/world/opencl_kernels_calib3d.cpp" -P ../../../cmake/cl2cpp.cmake
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">../../../build/CMakeFiles/7e258d3b87c3c653e4d2cfa35ba2a483/opencl_kernels_calib3d.cpp.rule;..\..\..\modules\calib3d\src\opencl\stereobm.cl;..\..\..\cmake\cl2cpp.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\..\build\modules\world\opencl_kernels_calib3d.cpp;..\..\..\build\modules\world\opencl_kernels_calib3d.hpp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="..\..\CMakeFiles\7e258d3b87c3c653e4d2cfa35ba2a483\opencl_kernels_stitching.cpp.rule">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Generating opencl_kernels_stitching.cpp, opencl_kernels_stitching.hpp</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -DMODULE_NAME="stitching" -DCL_DIR="../../../modules/stitching/src/opencl" -DOUTPUT="../../../build/modules/world/opencl_kernels_stitching.cpp" -P ../../../cmake/cl2cpp.cmake
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">../../../build/CMakeFiles/7e258d3b87c3c653e4d2cfa35ba2a483/opencl_kernels_stitching.cpp.rule;..\..\..\modules\stitching\src\opencl\multibandblend.cl;..\..\..\modules\stitching\src\opencl\warpers.cl;..\..\..\cmake\cl2cpp.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\..\..\build\modules\world\opencl_kernels_stitching.cpp;..\..\..\build\modules\world\opencl_kernels_stitching.hpp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Generating opencl_kernels_stitching.cpp, opencl_kernels_stitching.hpp</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -DMODULE_NAME="stitching" -DCL_DIR="../../../modules/stitching/src/opencl" -DOUTPUT="../../../build/modules/world/opencl_kernels_stitching.cpp" -P ../../../cmake/cl2cpp.cmake
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">../../../build/CMakeFiles/7e258d3b87c3c653e4d2cfa35ba2a483/opencl_kernels_stitching.cpp.rule;..\..\..\modules\stitching\src\opencl\multibandblend.cl;..\..\..\modules\stitching\src\opencl\warpers.cl;..\..\..\cmake\cl2cpp.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\..\build\modules\world\opencl_kernels_stitching.cpp;..\..\..\build\modules\world\opencl_kernels_stitching.hpp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\modules\hal\include\opencv2\hal.hpp" />
+    <ClInclude Include="..\..\..\modules\hal\include\opencv2\hal\intrin.hpp" />
+    <ClInclude Include="..\..\..\modules\hal\include\opencv2\hal\intrin_cpp.hpp" />
+    <ClInclude Include="..\..\..\modules\hal\include\opencv2\hal\intrin_neon.hpp" />
+    <ClInclude Include="..\..\..\modules\hal\include\opencv2\hal\intrin_sse.hpp" />
+    <ClInclude Include="..\..\..\modules\hal\include\opencv2\hal\defs.h" />
+    <ClInclude Include="..\..\..\modules\core\include\opencv2\core.hpp" />
+    <ClInclude Include="..\..\..\modules\core\include\opencv2\core\affine.hpp" />
+    <ClInclude Include="..\..\..\modules\core\include\opencv2\core\base.hpp" />
+    <ClInclude Include="..\..\..\modules\core\include\opencv2\core\bufferpool.hpp" />
+    <ClInclude Include="..\..\..\modules\core\include\opencv2\core\core.hpp" />
+    <ClInclude Include="..\..\..\modules\core\include\opencv2\core\cuda.hpp" />
+    <ClInclude Include="..\..\..\modules\core\include\opencv2\core\cuda.inl.hpp" />
+    <ClInclude Include="..\..\..\modules\core\include\opencv2\core\cuda_stream_accessor.hpp" />
+    <ClInclude Include="..\..\..\modules\core\include\opencv2\core\cuda_types.hpp" />
+    <ClInclude Include="..\..\..\modules\core\include\opencv2\core\cvstd.hpp" />
+    <ClInclude Include="..\..\..\modules\core\include\opencv2\core\cvstd.inl.hpp" />
+    <ClInclude Include="..\..\..\modules\core\include\opencv2\core\directx.hpp" />
+    <ClInclude Include="..\..\..\modules\core\include\opencv2\core\eigen.hpp" />
+    <ClInclude Include="..\..\..\modules\core\include\opencv2\core\ippasync.hpp" />
+    <ClInclude Include="..\..\..\modules\core\include\opencv2\core\mat.hpp" />
+    <ClInclude Include="..\..\..\modules\core\include\opencv2\core\mat.inl.hpp" />
+    <ClInclude Include="..\..\..\modules\core\include\opencv2\core\matx.hpp" />
+    <ClInclude Include="..\..\..\modules\core\include\opencv2\core\ocl.hpp" />
+    <ClInclude Include="..\..\..\modules\core\include\opencv2\core\ocl_genbase.hpp" />
+    <ClInclude Include="..\..\..\modules\core\include\opencv2\core\opengl.hpp" />
+    <ClInclude Include="..\..\..\modules\core\include\opencv2\core\operations.hpp" />
+    <ClInclude Include="..\..\..\modules\core\include\opencv2\core\optim.hpp" />
+    <ClInclude Include="..\..\..\modules\core\include\opencv2\core\persistence.hpp" />
+    <ClInclude Include="..\..\..\modules\core\include\opencv2\core\private.cuda.hpp" />
+    <ClInclude Include="..\..\..\modules\core\include\opencv2\core\private.hpp" />
+    <ClInclude Include="..\..\..\modules\core\include\opencv2\core\ptr.inl.hpp" />
+    <ClInclude Include="..\..\..\modules\core\include\opencv2\core\sse_utils.hpp" />
+    <ClInclude Include="..\..\..\modules\core\include\opencv2\core\traits.hpp" />
+    <ClInclude Include="..\..\..\modules\core\include\opencv2\core\types.hpp" />
+    <ClInclude Include="..\..\..\modules\core\include\opencv2\core\utility.hpp" />
+    <ClInclude Include="..\..\..\modules\core\include\opencv2\core\version.hpp" />
+    <ClInclude Include="..\..\..\modules\core\include\opencv2\core\wimage.hpp" />
+    <ClInclude Include="..\..\..\modules\core\include\opencv2\core\core_c.h" />
+    <ClInclude Include="..\..\..\modules\core\include\opencv2\core\cvdef.h" />
+    <ClInclude Include="..\..\..\modules\core\include\opencv2\core\types_c.h" />
+    <ClInclude Include="..\..\..\modules\flann\include\opencv2\flann.hpp" />
+    <ClInclude Include="..\..\..\modules\flann\include\opencv2\flann\flann.hpp" />
+    <ClInclude Include="..\..\..\modules\flann\include\opencv2\flann\flann_base.hpp" />
+    <ClInclude Include="..\..\..\modules\flann\include\opencv2\flann\miniflann.hpp" />
+    <ClInclude Include="..\..\..\modules\flann\include\opencv2\flann\allocator.h" />
+    <ClInclude Include="..\..\..\modules\flann\include\opencv2\flann\all_indices.h" />
+    <ClInclude Include="..\..\..\modules\flann\include\opencv2\flann\any.h" />
+    <ClInclude Include="..\..\..\modules\flann\include\opencv2\flann\autotuned_index.h" />
+    <ClInclude Include="..\..\..\modules\flann\include\opencv2\flann\composite_index.h" />
+    <ClInclude Include="..\..\..\modules\flann\include\opencv2\flann\config.h" />
+    <ClInclude Include="..\..\..\modules\flann\include\opencv2\flann\defines.h" />
+    <ClInclude Include="..\..\..\modules\flann\include\opencv2\flann\dist.h" />
+    <ClInclude Include="..\..\..\modules\flann\include\opencv2\flann\dummy.h" />
+    <ClInclude Include="..\..\..\modules\flann\include\opencv2\flann\dynamic_bitset.h" />
+    <ClInclude Include="..\..\..\modules\flann\include\opencv2\flann\general.h" />
+    <ClInclude Include="..\..\..\modules\flann\include\opencv2\flann\ground_truth.h" />
+    <ClInclude Include="..\..\..\modules\flann\include\opencv2\flann\hdf5.h" />
+    <ClInclude Include="..\..\..\modules\flann\include\opencv2\flann\heap.h" />
+    <ClInclude Include="..\..\..\modules\flann\include\opencv2\flann\hierarchical_clustering_index.h" />
+    <ClInclude Include="..\..\..\modules\flann\include\opencv2\flann\index_testing.h" />
+    <ClInclude Include="..\..\..\modules\flann\include\opencv2\flann\kdtree_index.h" />
+    <ClInclude Include="..\..\..\modules\flann\include\opencv2\flann\kdtree_single_index.h" />
+    <ClInclude Include="..\..\..\modules\flann\include\opencv2\flann\kmeans_index.h" />
+    <ClInclude Include="..\..\..\modules\flann\include\opencv2\flann\linear_index.h" />
+    <ClInclude Include="..\..\..\modules\flann\include\opencv2\flann\logger.h" />
+    <ClInclude Include="..\..\..\modules\flann\include\opencv2\flann\lsh_index.h" />
+    <ClInclude Include="..\..\..\modules\flann\include\opencv2\flann\lsh_table.h" />
+    <ClInclude Include="..\..\..\modules\flann\include\opencv2\flann\matrix.h" />
+    <ClInclude Include="..\..\..\modules\flann\include\opencv2\flann\nn_index.h" />
+    <ClInclude Include="..\..\..\modules\flann\include\opencv2\flann\object_factory.h" />
+    <ClInclude Include="..\..\..\modules\flann\include\opencv2\flann\params.h" />
+    <ClInclude Include="..\..\..\modules\flann\include\opencv2\flann\random.h" />
+    <ClInclude Include="..\..\..\modules\flann\include\opencv2\flann\result_set.h" />
+    <ClInclude Include="..\..\..\modules\flann\include\opencv2\flann\sampling.h" />
+    <ClInclude Include="..\..\..\modules\flann\include\opencv2\flann\saving.h" />
+    <ClInclude Include="..\..\..\modules\flann\include\opencv2\flann\simplex_downhill.h" />
+    <ClInclude Include="..\..\..\modules\flann\include\opencv2\flann\timer.h" />
+    <ClInclude Include="..\..\..\modules\imgproc\include\opencv2\imgproc.hpp" />
+    <ClInclude Include="..\..\..\modules\imgproc\include\opencv2\imgproc\imgproc.hpp" />
+    <ClInclude Include="..\..\..\modules\imgproc\include\opencv2\imgproc\imgproc_c.h" />
+    <ClInclude Include="..\..\..\modules\imgproc\include\opencv2\imgproc\types_c.h" />
+    <ClInclude Include="..\..\..\modules\ml\include\opencv2\ml.hpp" />
+    <ClInclude Include="..\..\..\modules\ml\include\opencv2\ml\ml.hpp" />
+    <ClInclude Include="..\..\..\modules\photo\include\opencv2\photo.hpp" />
+    <ClInclude Include="..\..\..\modules\photo\include\opencv2\photo\cuda.hpp" />
+    <ClInclude Include="..\..\..\modules\photo\include\opencv2\photo\photo.hpp" />
+    <ClInclude Include="..\..\..\modules\photo\include\opencv2\photo\photo_c.h" />
+    <ClInclude Include="..\..\..\modules\video\include\opencv2\video.hpp" />
+    <ClInclude Include="..\..\..\modules\video\include\opencv2\video\background_segm.hpp" />
+    <ClInclude Include="..\..\..\modules\video\include\opencv2\video\tracking.hpp" />
+    <ClInclude Include="..\..\..\modules\video\include\opencv2\video\video.hpp" />
+    <ClInclude Include="..\..\..\modules\video\include\opencv2\video\tracking_c.h" />
+    <ClInclude Include="..\..\..\modules\imgcodecs\include\opencv2\imgcodecs.hpp" />
+    <ClInclude Include="..\..\..\modules\imgcodecs\include\opencv2\imgcodecs\imgcodecs.hpp" />
+    <ClInclude Include="..\..\..\modules\imgcodecs\include\opencv2\imgcodecs\imgcodecs_c.h" />
+    <ClInclude Include="..\..\..\modules\imgcodecs\include\opencv2\imgcodecs\ios.h" />
+    <ClInclude Include="..\..\..\modules\shape\include\opencv2\shape.hpp" />
+    <ClInclude Include="..\..\..\modules\shape\include\opencv2\shape\emdL1.hpp" />
+    <ClInclude Include="..\..\..\modules\shape\include\opencv2\shape\hist_cost.hpp" />
+    <ClInclude Include="..\..\..\modules\shape\include\opencv2\shape\shape.hpp" />
+    <ClInclude Include="..\..\..\modules\shape\include\opencv2\shape\shape_distance.hpp" />
+    <ClInclude Include="..\..\..\modules\shape\include\opencv2\shape\shape_transformer.hpp" />
+    <ClInclude Include="..\..\..\modules\videoio\include\opencv2\videoio.hpp" />
+    <ClInclude Include="..\..\..\modules\videoio\include\opencv2\videoio\videoio.hpp" />
+    <ClInclude Include="..\..\..\modules\videoio\include\opencv2\videoio\cap_ios.h" />
+    <ClInclude Include="..\..\..\modules\videoio\include\opencv2\videoio\videoio_c.h" />
+    <ClInclude Include="..\..\..\modules\highgui\include\opencv2\highgui.hpp" />
+    <ClInclude Include="..\..\..\modules\highgui\include\opencv2\highgui\highgui.hpp" />
+    <ClInclude Include="..\..\..\modules\highgui\include\opencv2\highgui\highgui_c.h" />
+    <ClInclude Include="..\..\..\modules\objdetect\include\opencv2\objdetect.hpp" />
+    <ClInclude Include="..\..\..\modules\objdetect\include\opencv2\objdetect\detection_based_tracker.hpp" />
+    <ClInclude Include="..\..\..\modules\objdetect\include\opencv2\objdetect\objdetect.hpp" />
+    <ClInclude Include="..\..\..\modules\objdetect\include\opencv2\objdetect\objdetect_c.h" />
+    <ClInclude Include="..\..\..\modules\superres\include\opencv2\superres.hpp" />
+    <ClInclude Include="..\..\..\modules\superres\include\opencv2\superres\optical_flow.hpp" />
+    <ClInclude Include="..\..\..\modules\features2d\include\opencv2\features2d.hpp" />
+    <ClInclude Include="..\..\..\modules\features2d\include\opencv2\features2d\features2d.hpp" />
+    <ClInclude Include="..\..\..\modules\calib3d\include\opencv2\calib3d.hpp" />
+    <ClInclude Include="..\..\..\modules\calib3d\include\opencv2\calib3d\calib3d.hpp" />
+    <ClInclude Include="..\..\..\modules\calib3d\include\opencv2\calib3d\calib3d_c.h" />
+    <ClInclude Include="..\..\..\modules\stitching\include\opencv2\stitching.hpp" />
+    <ClInclude Include="..\..\..\modules\stitching\include\opencv2\stitching\warpers.hpp" />
+    <ClInclude Include="..\..\..\modules\stitching\include\opencv2\stitching\detail\autocalib.hpp" />
+    <ClInclude Include="..\..\..\modules\stitching\include\opencv2\stitching\detail\blenders.hpp" />
+    <ClInclude Include="..\..\..\modules\stitching\include\opencv2\stitching\detail\camera.hpp" />
+    <ClInclude Include="..\..\..\modules\stitching\include\opencv2\stitching\detail\exposure_compensate.hpp" />
+    <ClInclude Include="..\..\..\modules\stitching\include\opencv2\stitching\detail\matchers.hpp" />
+    <ClInclude Include="..\..\..\modules\stitching\include\opencv2\stitching\detail\motion_estimators.hpp" />
+    <ClInclude Include="..\..\..\modules\stitching\include\opencv2\stitching\detail\seam_finders.hpp" />
+    <ClInclude Include="..\..\..\modules\stitching\include\opencv2\stitching\detail\timelapsers.hpp" />
+    <ClInclude Include="..\..\..\modules\stitching\include\opencv2\stitching\detail\util.hpp" />
+    <ClInclude Include="..\..\..\modules\stitching\include\opencv2\stitching\detail\util_inl.hpp" />
+    <ClInclude Include="..\..\..\modules\stitching\include\opencv2\stitching\detail\warpers.hpp" />
+    <ClInclude Include="..\..\..\modules\stitching\include\opencv2\stitching\detail\warpers_inl.hpp" />
+    <ClInclude Include="..\..\..\modules\videostab\include\opencv2\videostab.hpp" />
+    <ClInclude Include="..\..\..\modules\videostab\include\opencv2\videostab\deblurring.hpp" />
+    <ClInclude Include="..\..\..\modules\videostab\include\opencv2\videostab\fast_marching.hpp" />
+    <ClInclude Include="..\..\..\modules\videostab\include\opencv2\videostab\fast_marching_inl.hpp" />
+    <ClInclude Include="..\..\..\modules\videostab\include\opencv2\videostab\frame_source.hpp" />
+    <ClInclude Include="..\..\..\modules\videostab\include\opencv2\videostab\global_motion.hpp" />
+    <ClInclude Include="..\..\..\modules\videostab\include\opencv2\videostab\inpainting.hpp" />
+    <ClInclude Include="..\..\..\modules\videostab\include\opencv2\videostab\log.hpp" />
+    <ClInclude Include="..\..\..\modules\videostab\include\opencv2\videostab\motion_core.hpp" />
+    <ClInclude Include="..\..\..\modules\videostab\include\opencv2\videostab\motion_stabilizing.hpp" />
+    <ClInclude Include="..\..\..\modules\videostab\include\opencv2\videostab\optical_flow.hpp" />
+    <ClInclude Include="..\..\..\modules\videostab\include\opencv2\videostab\outlier_rejection.hpp" />
+    <ClInclude Include="..\..\..\modules\videostab\include\opencv2\videostab\ring_buffer.hpp" />
+    <ClInclude Include="..\..\..\modules\videostab\include\opencv2\videostab\stabilizer.hpp" />
+    <ClInclude Include="..\..\..\modules\videostab\include\opencv2\videostab\wobble_suppression.hpp" />
+    <ClInclude Include="..\..\..\modules\world\include\opencv2\world.hpp" />
+    <ClInclude Include="..\..\..\modules\hal\src\precomp.hpp" />
+    <ClInclude Include="opencl_kernels_core.hpp" />
+    <ClInclude Include="..\..\..\modules\core\src\bufferpool.impl.hpp" />
+    <ClInclude Include="..\..\..\modules\core\src\directx.inc.hpp" />
+    <ClInclude Include="..\..\..\modules\core\src\gl_core_3_1.hpp" />
+    <ClInclude Include="..\..\..\modules\core\src\opencl\runtime\autogenerated\opencl_clamdblas_impl.hpp" />
+    <ClInclude Include="..\..\..\modules\core\src\opencl\runtime\autogenerated\opencl_clamdfft_impl.hpp" />
+    <ClInclude Include="..\..\..\modules\core\src\opencl\runtime\autogenerated\opencl_core_impl.hpp" />
+    <ClInclude Include="..\..\..\modules\core\src\opencl\runtime\runtime_common.hpp" />
+    <ClInclude Include="..\..\..\modules\core\src\precomp.hpp" />
+    <ClInclude Include="..\..\..\modules\flann\src\precomp.hpp" />
+    <ClInclude Include="opencl_kernels_imgproc.hpp" />
+    <ClInclude Include="..\..\..\modules\imgproc\src\filterengine.hpp" />
+    <ClInclude Include="..\..\..\modules\imgproc\src\gcgraph.hpp" />
+    <ClInclude Include="..\..\..\modules\imgproc\src\precomp.hpp" />
+    <ClInclude Include="..\..\..\modules\imgproc\src\_geom.h" />
+    <ClInclude Include="..\..\..\modules\ml\src\kdtree.hpp" />
+    <ClInclude Include="..\..\..\modules\ml\src\precomp.hpp" />
+    <ClInclude Include="opencl_kernels_photo.hpp" />
+    <ClInclude Include="..\..\..\modules\photo\src\arrays.hpp" />
+    <ClInclude Include="..\..\..\modules\photo\src\contrast_preserve.hpp" />
+    <ClInclude Include="..\..\..\modules\photo\src\fast_nlmeans_denoising_invoker.hpp" />
+    <ClInclude Include="..\..\..\modules\photo\src\fast_nlmeans_denoising_invoker_commons.hpp" />
+    <ClInclude Include="..\..\..\modules\photo\src\fast_nlmeans_denoising_opencl.hpp" />
+    <ClInclude Include="..\..\..\modules\photo\src\fast_nlmeans_multi_denoising_invoker.hpp" />
+    <ClInclude Include="..\..\..\modules\photo\src\hdr_common.hpp" />
+    <ClInclude Include="..\..\..\modules\photo\src\npr.hpp" />
+    <ClInclude Include="..\..\..\modules\photo\src\precomp.hpp" />
+    <ClInclude Include="..\..\..\modules\photo\src\seamless_cloning.hpp" />
+    <ClInclude Include="opencl_kernels_video.hpp" />
+    <ClInclude Include="..\..\..\modules\video\src\lkpyramid.hpp" />
+    <ClInclude Include="..\..\..\modules\video\src\precomp.hpp" />
+    <ClInclude Include="..\..\..\modules\imgcodecs\src\precomp.hpp" />
+    <ClInclude Include="..\..\..\modules\imgcodecs\src\utils.hpp" />
+    <ClInclude Include="..\..\..\modules\imgcodecs\src\grfmts.hpp" />
+    <ClInclude Include="..\..\..\modules\imgcodecs\src\grfmt_base.hpp" />
+    <ClInclude Include="..\..\..\modules\imgcodecs\src\grfmt_bmp.hpp" />
+    <ClInclude Include="..\..\..\modules\imgcodecs\src\grfmt_exr.hpp" />
+    <ClInclude Include="..\..\..\modules\imgcodecs\src\grfmt_gdal.hpp" />
+    <ClInclude Include="..\..\..\modules\imgcodecs\src\grfmt_hdr.hpp" />
+    <ClInclude Include="..\..\..\modules\imgcodecs\src\grfmt_jpeg.hpp" />
+    <ClInclude Include="..\..\..\modules\imgcodecs\src\grfmt_jpeg2000.hpp" />
+    <ClInclude Include="..\..\..\modules\imgcodecs\src\grfmt_png.hpp" />
+    <ClInclude Include="..\..\..\modules\imgcodecs\src\grfmt_pxm.hpp" />
+    <ClInclude Include="..\..\..\modules\imgcodecs\src\grfmt_sunras.hpp" />
+    <ClInclude Include="..\..\..\modules\imgcodecs\src\grfmt_tiff.hpp" />
+    <ClInclude Include="..\..\..\modules\imgcodecs\src\grfmt_webp.hpp" />
+    <ClInclude Include="..\..\..\modules\imgcodecs\src\bitstrm.hpp" />
+    <ClInclude Include="..\..\..\modules\imgcodecs\src\rgbe.hpp" />
+    <ClInclude Include="..\..\..\modules\shape\src\emdL1_def.hpp" />
+    <ClInclude Include="..\..\..\modules\shape\src\precomp.hpp" />
+    <ClInclude Include="..\..\..\modules\shape\src\scd_def.hpp" />
+    <ClInclude Include="..\..\..\modules\videoio\src\precomp.hpp" />
+    <ClInclude Include="..\..\..\modules\videoio\src\cap_dshow.hpp" />
+    <ClInclude Include="..\..\..\modules\videoio\src\cap_ffmpeg_impl.hpp" />
+    <ClInclude Include="..\..\..\modules\highgui\src\precomp.hpp" />
+    <ClInclude Include="opencl_kernels_objdetect.hpp" />
+    <ClInclude Include="..\..\..\modules\objdetect\src\cascadedetect.hpp" />
+    <ClInclude Include="..\..\..\modules\objdetect\src\precomp.hpp" />
+    <ClInclude Include="opencl_kernels_superres.hpp" />
+    <ClInclude Include="..\..\..\modules\superres\src\input_array_utility.hpp" />
+    <ClInclude Include="..\..\..\modules\superres\src\precomp.hpp" />
+    <ClInclude Include="..\..\..\modules\superres\src\ring_buffer.hpp" />
+    <ClInclude Include="opencl_kernels_features2d.hpp" />
+    <ClInclude Include="..\..\..\modules\features2d\src\agast_score.hpp" />
+    <ClInclude Include="..\..\..\modules\features2d\src\fast_score.hpp" />
+    <ClInclude Include="..\..\..\modules\features2d\src\precomp.hpp" />
+    <ClInclude Include="..\..\..\modules\features2d\src\kaze\AKAZEConfig.h" />
+    <ClInclude Include="..\..\..\modules\features2d\src\kaze\AKAZEFeatures.h" />
+    <ClInclude Include="..\..\..\modules\features2d\src\kaze\fed.h" />
+    <ClInclude Include="..\..\..\modules\features2d\src\kaze\KAZEConfig.h" />
+    <ClInclude Include="..\..\..\modules\features2d\src\kaze\KAZEFeatures.h" />
+    <ClInclude Include="..\..\..\modules\features2d\src\kaze\nldiffusion_functions.h" />
+    <ClInclude Include="..\..\..\modules\features2d\src\kaze\TEvolution.h" />
+    <ClInclude Include="..\..\..\modules\features2d\src\kaze\utils.h" />
+    <ClInclude Include="opencl_kernels_calib3d.hpp" />
+    <ClInclude Include="..\..\..\modules\calib3d\src\circlesgrid.hpp" />
+    <ClInclude Include="..\..\..\modules\calib3d\src\fisheye.hpp" />
+    <ClInclude Include="..\..\..\modules\calib3d\src\precomp.hpp" />
+    <ClInclude Include="..\..\..\modules\calib3d\src\dls.h" />
+    <ClInclude Include="..\..\..\modules\calib3d\src\epnp.h" />
+    <ClInclude Include="..\..\..\modules\calib3d\src\p3p.h" />
+    <ClInclude Include="..\..\..\modules\calib3d\src\polynom_solver.h" />
+    <ClInclude Include="..\..\..\modules\calib3d\src\rho.h" />
+    <ClInclude Include="..\..\..\modules\calib3d\src\upnp.h" />
+    <ClInclude Include="opencl_kernels_stitching.hpp" />
+    <ClInclude Include="..\..\..\modules\stitching\src\precomp.hpp" />
+    <ClInclude Include="..\..\..\modules\videostab\src\clp.hpp" />
+    <ClInclude Include="..\..\..\modules\videostab\src\precomp.hpp" />
+    <ClInclude Include="..\..\..\modules\world\src\precomp.hpp" />
+    <ClInclude Include="..\..\cvconfig.h" />
+    <ClInclude Include="..\..\opencv2\opencv_modules.hpp" />
+    <ClCompile Include="..\..\..\modules\hal\src\arithm.cpp">
+      <ObjectFileName>$(IntDir)/__/hal/src/arithm.cpp.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="..\..\..\modules\hal\src\color.cpp">
+      <ObjectFileName>$(IntDir)/__/hal/src/color.cpp.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="..\..\..\modules\hal\src\filter.cpp">
+      <ObjectFileName>$(IntDir)/__/hal/src/filter.cpp.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="..\..\..\modules\hal\src\mathfuncs.cpp">
+      <ObjectFileName>$(IntDir)/__/hal/src/mathfuncs.cpp.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="..\..\..\modules\hal\src\matrix.cpp">
+      <ObjectFileName>$(IntDir)/__/hal/src/matrix.cpp.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="..\..\..\modules\hal\src\resize.cpp" />
+    <ClCompile Include="..\..\..\modules\hal\src\stat.cpp">
+      <ObjectFileName>$(IntDir)/__/hal/src/stat.cpp.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="..\..\..\modules\hal\src\warp.cpp" />
+    <ClCompile Include="..\..\..\modules\core\src\algorithm.cpp" />
+    <ClCompile Include="..\..\..\modules\core\src\alloc.cpp" />
+    <ClCompile Include="..\..\..\modules\core\src\arithm.cpp">
+      <ObjectFileName>$(IntDir)/__/core/src/arithm.cpp.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="..\..\..\modules\core\src\array.cpp" />
+    <ClCompile Include="..\..\..\modules\core\src\command_line_parser.cpp" />
+    <ClCompile Include="..\..\..\modules\core\src\conjugate_gradient.cpp" />
+    <ClCompile Include="..\..\..\modules\core\src\convert.cpp" />
+    <ClCompile Include="..\..\..\modules\core\src\copy.cpp" />
+    <ClCompile Include="..\..\..\modules\core\src\cuda_gpu_mat.cpp" />
+    <ClCompile Include="..\..\..\modules\core\src\cuda_host_mem.cpp" />
+    <ClCompile Include="..\..\..\modules\core\src\cuda_info.cpp" />
+    <ClCompile Include="..\..\..\modules\core\src\cuda_stream.cpp" />
+    <ClCompile Include="..\..\..\modules\core\src\datastructs.cpp" />
+    <ClCompile Include="..\..\..\modules\core\src\directx.cpp" />
+    <ClCompile Include="..\..\..\modules\core\src\downhill_simplex.cpp" />
+    <ClCompile Include="..\..\..\modules\core\src\dxt.cpp" />
+    <ClCompile Include="..\..\..\modules\core\src\glob.cpp" />
+    <ClCompile Include="..\..\..\modules\core\src\gl_core_3_1.cpp" />
+    <ClCompile Include="..\..\..\modules\core\src\kmeans.cpp" />
+    <ClCompile Include="..\..\..\modules\core\src\lapack.cpp" />
+    <ClCompile Include="..\..\..\modules\core\src\lda.cpp" />
+    <ClCompile Include="..\..\..\modules\core\src\lpsolver.cpp" />
+    <ClCompile Include="..\..\..\modules\core\src\mathfuncs.cpp">
+      <ObjectFileName>$(IntDir)/__/core/src/mathfuncs.cpp.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="..\..\..\modules\core\src\matmul.cpp" />
+    <ClCompile Include="..\..\..\modules\core\src\matop.cpp" />
+    <ClCompile Include="..\..\..\modules\core\src\matrix.cpp">
+      <ObjectFileName>$(IntDir)/__/core/src/matrix.cpp.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="..\..\..\modules\core\src\ocl.cpp" />
+    <ClCompile Include="..\..\..\modules\core\src\opencl\runtime\opencl_clamdblas.cpp" />
+    <ClCompile Include="..\..\..\modules\core\src\opencl\runtime\opencl_clamdfft.cpp" />
+    <ClCompile Include="..\..\..\modules\core\src\opencl\runtime\opencl_core.cpp" />
+    <ClCompile Include="..\..\..\modules\core\src\opengl.cpp" />
+    <ClCompile Include="..\..\..\modules\core\src\out.cpp" />
+    <ClCompile Include="..\..\..\modules\core\src\parallel.cpp" />
+    <ClCompile Include="..\..\..\modules\core\src\pca.cpp" />
+    <ClCompile Include="..\..\..\modules\core\src\persistence.cpp" />
+    <ClCompile Include="..\..\..\modules\core\src\rand.cpp" />
+    <ClCompile Include="..\..\..\modules\core\src\stat.cpp">
+      <ObjectFileName>$(IntDir)/__/core/src/stat.cpp.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="..\..\..\modules\core\src\stl.cpp" />
+    <ClCompile Include="..\..\..\modules\core\src\system.cpp" />
+    <ClCompile Include="..\..\..\modules\core\src\tables.cpp">
+      <ObjectFileName>$(IntDir)/__/core/src/tables.cpp.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="..\..\..\modules\core\src\types.cpp" />
+    <ClCompile Include="..\..\..\modules\core\src\umatrix.cpp" />
+    <ClCompile Include="opencl_kernels_core.cpp" />
+    <ClCompile Include="..\..\..\modules\flann\src\flann.cpp" />
+    <ClCompile Include="..\..\..\modules\flann\src\miniflann.cpp" />
+    <ClCompile Include="..\..\..\modules\imgproc\src\accum.cpp" />
+    <ClCompile Include="..\..\..\modules\imgproc\src\approx.cpp" />
+    <ClCompile Include="..\..\..\modules\imgproc\src\blend.cpp" />
+    <ClCompile Include="..\..\..\modules\imgproc\src\canny.cpp" />
+    <ClCompile Include="..\..\..\modules\imgproc\src\clahe.cpp" />
+    <ClCompile Include="..\..\..\modules\imgproc\src\color.cpp">
+      <ObjectFileName>$(IntDir)/__/imgproc/src/color.cpp.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="..\..\..\modules\imgproc\src\colormap.cpp" />
+    <ClCompile Include="..\..\..\modules\imgproc\src\connectedcomponents.cpp" />
+    <ClCompile Include="..\..\..\modules\imgproc\src\contours.cpp" />
+    <ClCompile Include="..\..\..\modules\imgproc\src\convhull.cpp" />
+    <ClCompile Include="..\..\..\modules\imgproc\src\corner.cpp" />
+    <ClCompile Include="..\..\..\modules\imgproc\src\cornersubpix.cpp" />
+    <ClCompile Include="..\..\..\modules\imgproc\src\demosaicing.cpp" />
+    <ClCompile Include="..\..\..\modules\imgproc\src\deriv.cpp" />
+    <ClCompile Include="..\..\..\modules\imgproc\src\distransform.cpp" />
+    <ClCompile Include="..\..\..\modules\imgproc\src\drawing.cpp" />
+    <ClCompile Include="..\..\..\modules\imgproc\src\emd.cpp" />
+    <ClCompile Include="..\..\..\modules\imgproc\src\featureselect.cpp" />
+    <ClCompile Include="..\..\..\modules\imgproc\src\filter.cpp">
+      <ObjectFileName>$(IntDir)/__/imgproc/src/filter.cpp.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="..\..\..\modules\imgproc\src\floodfill.cpp" />
+    <ClCompile Include="..\..\..\modules\imgproc\src\gabor.cpp" />
+    <ClCompile Include="..\..\..\modules\imgproc\src\generalized_hough.cpp" />
+    <ClCompile Include="..\..\..\modules\imgproc\src\geometry.cpp" />
+    <ClCompile Include="..\..\..\modules\imgproc\src\grabcut.cpp" />
+    <ClCompile Include="..\..\..\modules\imgproc\src\hershey_fonts.cpp" />
+    <ClCompile Include="..\..\..\modules\imgproc\src\histogram.cpp" />
+    <ClCompile Include="..\..\..\modules\imgproc\src\hough.cpp" />
+    <ClCompile Include="..\..\..\modules\imgproc\src\imgwarp.cpp" />
+    <ClCompile Include="..\..\..\modules\imgproc\src\intersection.cpp" />
+    <ClCompile Include="..\..\..\modules\imgproc\src\linefit.cpp" />
+    <ClCompile Include="..\..\..\modules\imgproc\src\lsd.cpp" />
+    <ClCompile Include="..\..\..\modules\imgproc\src\matchcontours.cpp" />
+    <ClCompile Include="..\..\..\modules\imgproc\src\min_enclosing_triangle.cpp" />
+    <ClCompile Include="..\..\..\modules\imgproc\src\moments.cpp" />
+    <ClCompile Include="..\..\..\modules\imgproc\src\morph.cpp" />
+    <ClCompile Include="..\..\..\modules\imgproc\src\phasecorr.cpp" />
+    <ClCompile Include="..\..\..\modules\imgproc\src\pyramids.cpp" />
+    <ClCompile Include="..\..\..\modules\imgproc\src\rotcalipers.cpp" />
+    <ClCompile Include="..\..\..\modules\imgproc\src\samplers.cpp" />
+    <ClCompile Include="..\..\..\modules\imgproc\src\segmentation.cpp" />
+    <ClCompile Include="..\..\..\modules\imgproc\src\shapedescr.cpp" />
+    <ClCompile Include="..\..\..\modules\imgproc\src\smooth.cpp" />
+    <ClCompile Include="..\..\..\modules\imgproc\src\subdivision2d.cpp" />
+    <ClCompile Include="..\..\..\modules\imgproc\src\sumpixels.cpp" />
+    <ClCompile Include="..\..\..\modules\imgproc\src\tables.cpp">
+      <ObjectFileName>$(IntDir)/__/imgproc/src/tables.cpp.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="..\..\..\modules\imgproc\src\templmatch.cpp" />
+    <ClCompile Include="..\..\..\modules\imgproc\src\thresh.cpp" />
+    <ClCompile Include="..\..\..\modules\imgproc\src\undistort.cpp" />
+    <ClCompile Include="..\..\..\modules\imgproc\src\utils.cpp">
+      <ObjectFileName>$(IntDir)/__/imgproc/src/utils.cpp.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="opencl_kernels_imgproc.cpp" />
+    <ClCompile Include="..\..\..\modules\ml\src\ann_mlp.cpp" />
+    <ClCompile Include="..\..\..\modules\ml\src\boost.cpp" />
+    <ClCompile Include="..\..\..\modules\ml\src\data.cpp" />
+    <ClCompile Include="..\..\..\modules\ml\src\em.cpp" />
+    <ClCompile Include="..\..\..\modules\ml\src\gbt.cpp" />
+    <ClCompile Include="..\..\..\modules\ml\src\inner_functions.cpp" />
+    <ClCompile Include="..\..\..\modules\ml\src\kdtree.cpp" />
+    <ClCompile Include="..\..\..\modules\ml\src\knearest.cpp" />
+    <ClCompile Include="..\..\..\modules\ml\src\lr.cpp" />
+    <ClCompile Include="..\..\..\modules\ml\src\nbayes.cpp" />
+    <ClCompile Include="..\..\..\modules\ml\src\rtrees.cpp" />
+    <ClCompile Include="..\..\..\modules\ml\src\svm.cpp" />
+    <ClCompile Include="..\..\..\modules\ml\src\testset.cpp" />
+    <ClCompile Include="..\..\..\modules\ml\src\tree.cpp" />
+    <ClCompile Include="..\..\..\modules\photo\src\align.cpp" />
+    <ClCompile Include="..\..\..\modules\photo\src\calibrate.cpp" />
+    <ClCompile Include="..\..\..\modules\photo\src\contrast_preserve.cpp" />
+    <ClCompile Include="..\..\..\modules\photo\src\denoise_tvl1.cpp" />
+    <ClCompile Include="..\..\..\modules\photo\src\denoising.cpp" />
+    <ClCompile Include="..\..\..\modules\photo\src\denoising.cuda.cpp" />
+    <ClCompile Include="..\..\..\modules\photo\src\hdr_common.cpp" />
+    <ClCompile Include="..\..\..\modules\photo\src\inpaint.cpp" />
+    <ClCompile Include="..\..\..\modules\photo\src\merge.cpp" />
+    <ClCompile Include="..\..\..\modules\photo\src\npr.cpp" />
+    <ClCompile Include="..\..\..\modules\photo\src\seamless_cloning.cpp" />
+    <ClCompile Include="..\..\..\modules\photo\src\seamless_cloning_impl.cpp" />
+    <ClCompile Include="..\..\..\modules\photo\src\tonemap.cpp" />
+    <ClCompile Include="opencl_kernels_photo.cpp" />
+    <ClCompile Include="..\..\..\modules\video\src\bgfg_gaussmix2.cpp" />
+    <ClCompile Include="..\..\..\modules\video\src\bgfg_KNN.cpp" />
+    <ClCompile Include="..\..\..\modules\video\src\camshift.cpp" />
+    <ClCompile Include="..\..\..\modules\video\src\compat_video.cpp" />
+    <ClCompile Include="..\..\..\modules\video\src\ecc.cpp" />
+    <ClCompile Include="..\..\..\modules\video\src\kalman.cpp" />
+    <ClCompile Include="..\..\..\modules\video\src\lkpyramid.cpp" />
+    <ClCompile Include="..\..\..\modules\video\src\optflowgf.cpp" />
+    <ClCompile Include="..\..\..\modules\video\src\tvl1flow.cpp" />
+    <ClCompile Include="opencl_kernels_video.cpp" />
+    <ClCompile Include="..\..\..\modules\imgcodecs\src\loadsave.cpp" />
+    <ClCompile Include="..\..\..\modules\imgcodecs\src\utils.cpp">
+      <ObjectFileName>$(IntDir)/__/imgcodecs/src/utils.cpp.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="..\..\..\modules\imgcodecs\src\grfmt_base.cpp" />
+    <ClCompile Include="..\..\..\modules\imgcodecs\src\grfmt_bmp.cpp" />
+    <ClCompile Include="..\..\..\modules\imgcodecs\src\grfmt_exr.cpp" />
+    <ClCompile Include="..\..\..\modules\imgcodecs\src\grfmt_gdal.cpp" />
+    <ClCompile Include="..\..\..\modules\imgcodecs\src\grfmt_hdr.cpp" />
+    <ClCompile Include="..\..\..\modules\imgcodecs\src\grfmt_jpeg.cpp" />
+    <ClCompile Include="..\..\..\modules\imgcodecs\src\grfmt_jpeg2000.cpp" />
+    <ClCompile Include="..\..\..\modules\imgcodecs\src\grfmt_png.cpp" />
+    <ClCompile Include="..\..\..\modules\imgcodecs\src\grfmt_pxm.cpp" />
+    <ClCompile Include="..\..\..\modules\imgcodecs\src\grfmt_sunras.cpp" />
+    <ClCompile Include="..\..\..\modules\imgcodecs\src\grfmt_tiff.cpp" />
+    <ClCompile Include="..\..\..\modules\imgcodecs\src\grfmt_webp.cpp" />
+    <ClCompile Include="..\..\..\modules\imgcodecs\src\bitstrm.cpp" />
+    <ClCompile Include="..\..\..\modules\imgcodecs\src\rgbe.cpp" />
+    <ClCompile Include="..\..\..\modules\shape\src\aff_trans.cpp" />
+    <ClCompile Include="..\..\..\modules\shape\src\emdL1.cpp" />
+    <ClCompile Include="..\..\..\modules\shape\src\haus_dis.cpp" />
+    <ClCompile Include="..\..\..\modules\shape\src\hist_cost.cpp" />
+    <ClCompile Include="..\..\..\modules\shape\src\precomp.cpp" />
+    <ClCompile Include="..\..\..\modules\shape\src\sc_dis.cpp" />
+    <ClCompile Include="..\..\..\modules\shape\src\tps_trans.cpp" />
+    <ClCompile Include="..\..\..\modules\videoio\src\cap.cpp" />
+    <ClCompile Include="..\..\..\modules\videoio\src\cap_images.cpp" />
+    <ClCompile Include="..\..\..\modules\videoio\src\cap_mjpeg_encoder.cpp" />
+    <ClCompile Include="..\..\..\modules\videoio\src\cap_mjpeg_decoder.cpp" />
+    <ClCompile Include="..\..\..\modules\videoio\src\cap_cmu.cpp" />
+    <ClCompile Include="..\..\..\modules\videoio\src\cap_dshow.cpp" />
+    <ClCompile Include="..\..\..\modules\videoio\src\cap_vfw.cpp" />
+    <ClCompile Include="..\..\..\modules\videoio\src\cap_ffmpeg.cpp" />
+    <ClCompile Include="..\..\..\modules\highgui\src\window.cpp" />
+    <ClCompile Include="..\..\..\modules\highgui\src\window_w32.cpp" />
+    <ClCompile Include="..\..\..\modules\objdetect\src\cascadedetect.cpp" />
+    <ClCompile Include="..\..\..\modules\objdetect\src\cascadedetect_convert.cpp" />
+    <ClCompile Include="..\..\..\modules\objdetect\src\detection_based_tracker.cpp" />
+    <ClCompile Include="..\..\..\modules\objdetect\src\haar.cpp" />
+    <ClCompile Include="..\..\..\modules\objdetect\src\hog.cpp" />
+    <ClCompile Include="opencl_kernels_objdetect.cpp" />
+    <ClCompile Include="..\..\..\modules\superres\src\btv_l1.cpp" />
+    <ClCompile Include="..\..\..\modules\superres\src\btv_l1_cuda.cpp" />
+    <ClCompile Include="..\..\..\modules\superres\src\frame_source.cpp">
+      <ObjectFileName>$(IntDir)/__/superres/src/frame_source.cpp.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="..\..\..\modules\superres\src\input_array_utility.cpp" />
+    <ClCompile Include="..\..\..\modules\superres\src\optical_flow.cpp">
+      <ObjectFileName>$(IntDir)/__/superres/src/optical_flow.cpp.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="..\..\..\modules\superres\src\super_resolution.cpp" />
+    <ClCompile Include="opencl_kernels_superres.cpp" />
+    <ClCompile Include="..\..\..\modules\features2d\src\agast.cpp" />
+    <ClCompile Include="..\..\..\modules\features2d\src\agast_score.cpp" />
+    <ClCompile Include="..\..\..\modules\features2d\src\akaze.cpp" />
+    <ClCompile Include="..\..\..\modules\features2d\src\bagofwords.cpp" />
+    <ClCompile Include="..\..\..\modules\features2d\src\blobdetector.cpp" />
+    <ClCompile Include="..\..\..\modules\features2d\src\brisk.cpp" />
+    <ClCompile Include="..\..\..\modules\features2d\src\draw.cpp" />
+    <ClCompile Include="..\..\..\modules\features2d\src\dynamic.cpp" />
+    <ClCompile Include="..\..\..\modules\features2d\src\evaluation.cpp" />
+    <ClCompile Include="..\..\..\modules\features2d\src\fast.cpp" />
+    <ClCompile Include="..\..\..\modules\features2d\src\fast_score.cpp" />
+    <ClCompile Include="..\..\..\modules\features2d\src\feature2d.cpp" />
+    <ClCompile Include="..\..\..\modules\features2d\src\gftt.cpp" />
+    <ClCompile Include="..\..\..\modules\features2d\src\kaze\AKAZEFeatures.cpp" />
+    <ClCompile Include="..\..\..\modules\features2d\src\kaze\fed.cpp" />
+    <ClCompile Include="..\..\..\modules\features2d\src\kaze\KAZEFeatures.cpp" />
+    <ClCompile Include="..\..\..\modules\features2d\src\kaze\nldiffusion_functions.cpp" />
+    <ClCompile Include="..\..\..\modules\features2d\src\kaze.cpp" />
+    <ClCompile Include="..\..\..\modules\features2d\src\keypoint.cpp" />
+    <ClCompile Include="..\..\..\modules\features2d\src\matchers.cpp">
+      <ObjectFileName>$(IntDir)/__/features2d/src/matchers.cpp.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="..\..\..\modules\features2d\src\mser.cpp" />
+    <ClCompile Include="..\..\..\modules\features2d\src\orb.cpp" />
+    <ClCompile Include="opencl_kernels_features2d.cpp" />
+    <ClCompile Include="..\..\..\modules\calib3d\src\calibinit.cpp" />
+    <ClCompile Include="..\..\..\modules\calib3d\src\calibration.cpp" />
+    <ClCompile Include="..\..\..\modules\calib3d\src\checkchessboard.cpp" />
+    <ClCompile Include="..\..\..\modules\calib3d\src\circlesgrid.cpp" />
+    <ClCompile Include="..\..\..\modules\calib3d\src\compat_ptsetreg.cpp" />
+    <ClCompile Include="..\..\..\modules\calib3d\src\compat_stereo.cpp" />
+    <ClCompile Include="..\..\..\modules\calib3d\src\dls.cpp" />
+    <ClCompile Include="..\..\..\modules\calib3d\src\epnp.cpp" />
+    <ClCompile Include="..\..\..\modules\calib3d\src\fisheye.cpp" />
+    <ClCompile Include="..\..\..\modules\calib3d\src\five-point.cpp" />
+    <ClCompile Include="..\..\..\modules\calib3d\src\fundam.cpp" />
+    <ClCompile Include="..\..\..\modules\calib3d\src\homography_decomp.cpp" />
+    <ClCompile Include="..\..\..\modules\calib3d\src\levmarq.cpp" />
+    <ClCompile Include="..\..\..\modules\calib3d\src\p3p.cpp" />
+    <ClCompile Include="..\..\..\modules\calib3d\src\polynom_solver.cpp" />
+    <ClCompile Include="..\..\..\modules\calib3d\src\posit.cpp" />
+    <ClCompile Include="..\..\..\modules\calib3d\src\ptsetreg.cpp" />
+    <ClCompile Include="..\..\..\modules\calib3d\src\quadsubpix.cpp" />
+    <ClCompile Include="..\..\..\modules\calib3d\src\rho.cpp" />
+    <ClCompile Include="..\..\..\modules\calib3d\src\solvepnp.cpp" />
+    <ClCompile Include="..\..\..\modules\calib3d\src\stereobm.cpp" />
+    <ClCompile Include="..\..\..\modules\calib3d\src\stereosgbm.cpp" />
+    <ClCompile Include="..\..\..\modules\calib3d\src\triangulate.cpp" />
+    <ClCompile Include="..\..\..\modules\calib3d\src\upnp.cpp" />
+    <ClCompile Include="opencl_kernels_calib3d.cpp" />
+    <ClCompile Include="..\..\..\modules\stitching\src\autocalib.cpp" />
+    <ClCompile Include="..\..\..\modules\stitching\src\blenders.cpp" />
+    <ClCompile Include="..\..\..\modules\stitching\src\camera.cpp" />
+    <ClCompile Include="..\..\..\modules\stitching\src\exposure_compensate.cpp" />
+    <ClCompile Include="..\..\..\modules\stitching\src\matchers.cpp">
+      <ObjectFileName>$(IntDir)/__/stitching/src/matchers.cpp.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="..\..\..\modules\stitching\src\motion_estimators.cpp" />
+    <ClCompile Include="..\..\..\modules\stitching\src\seam_finders.cpp" />
+    <ClCompile Include="..\..\..\modules\stitching\src\stitcher.cpp" />
+    <ClCompile Include="..\..\..\modules\stitching\src\timelapsers.cpp" />
+    <ClCompile Include="..\..\..\modules\stitching\src\util.cpp" />
+    <ClCompile Include="..\..\..\modules\stitching\src\warpers.cpp" />
+    <ClCompile Include="..\..\..\modules\stitching\src\warpers_cuda.cpp" />
+    <ClCompile Include="opencl_kernels_stitching.cpp" />
+    <ClCompile Include="..\..\..\modules\videostab\src\deblurring.cpp" />
+    <ClCompile Include="..\..\..\modules\videostab\src\fast_marching.cpp" />
+    <ClCompile Include="..\..\..\modules\videostab\src\frame_source.cpp">
+      <ObjectFileName>$(IntDir)/__/videostab/src/frame_source.cpp.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="..\..\..\modules\videostab\src\global_motion.cpp" />
+    <ClCompile Include="..\..\..\modules\videostab\src\inpainting.cpp" />
+    <ClCompile Include="..\..\..\modules\videostab\src\log.cpp" />
+    <ClCompile Include="..\..\..\modules\videostab\src\motion_stabilizing.cpp" />
+    <ClCompile Include="..\..\..\modules\videostab\src\optical_flow.cpp">
+      <ObjectFileName>$(IntDir)/__/videostab/src/optical_flow.cpp.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="..\..\..\modules\videostab\src\outlier_rejection.cpp" />
+    <ClCompile Include="..\..\..\modules\videostab\src\stabilizer.cpp" />
+    <ClCompile Include="..\..\..\modules\videostab\src\wobble_suppression.cpp" />
+    <ClCompile Include="..\..\..\modules\world\src\world_init.cpp" />
+    <None Include="version_string.inc" />
+    <None Include="..\..\..\modules\core\src\opencl\arithm.cl" />
+    <None Include="..\..\..\modules\core\src\opencl\convert.cl" />
+    <None Include="..\..\..\modules\core\src\opencl\copymakeborder.cl" />
+    <None Include="..\..\..\modules\core\src\opencl\copyset.cl" />
+    <None Include="..\..\..\modules\core\src\opencl\fft.cl" />
+    <None Include="..\..\..\modules\core\src\opencl\flip.cl" />
+    <None Include="..\..\..\modules\core\src\opencl\gemm.cl" />
+    <None Include="..\..\..\modules\core\src\opencl\inrange.cl" />
+    <None Include="..\..\..\modules\core\src\opencl\lut.cl" />
+    <None Include="..\..\..\modules\core\src\opencl\meanstddev.cl" />
+    <None Include="..\..\..\modules\core\src\opencl\minmaxloc.cl" />
+    <None Include="..\..\..\modules\core\src\opencl\mixchannels.cl" />
+    <None Include="..\..\..\modules\core\src\opencl\mulspectrums.cl" />
+    <None Include="..\..\..\modules\core\src\opencl\normalize.cl" />
+    <None Include="..\..\..\modules\core\src\opencl\reduce.cl" />
+    <None Include="..\..\..\modules\core\src\opencl\reduce2.cl" />
+    <None Include="..\..\..\modules\core\src\opencl\repeat.cl" />
+    <None Include="..\..\..\modules\core\src\opencl\set_identity.cl" />
+    <None Include="..\..\..\modules\core\src\opencl\split_merge.cl" />
+    <None Include="..\..\..\modules\core\src\opencl\transpose.cl" />
+    <None Include="..\..\..\modules\imgproc\src\opencl\accumulate.cl" />
+    <None Include="..\..\..\modules\imgproc\src\opencl\bilateral.cl" />
+    <None Include="..\..\..\modules\imgproc\src\opencl\blend_linear.cl" />
+    <None Include="..\..\..\modules\imgproc\src\opencl\boxFilter.cl" />
+    <None Include="..\..\..\modules\imgproc\src\opencl\calc_back_project.cl" />
+    <None Include="..\..\..\modules\imgproc\src\opencl\canny.cl" />
+    <None Include="..\..\..\modules\imgproc\src\opencl\clahe.cl" />
+    <None Include="..\..\..\modules\imgproc\src\opencl\corner.cl" />
+    <None Include="..\..\..\modules\imgproc\src\opencl\covardata.cl" />
+    <None Include="..\..\..\modules\imgproc\src\opencl\cvtcolor.cl" />
+    <None Include="..\..\..\modules\imgproc\src\opencl\filter2D.cl" />
+    <None Include="..\..\..\modules\imgproc\src\opencl\filter2DSmall.cl" />
+    <None Include="..\..\..\modules\imgproc\src\opencl\filterSepCol.cl" />
+    <None Include="..\..\..\modules\imgproc\src\opencl\filterSepRow.cl" />
+    <None Include="..\..\..\modules\imgproc\src\opencl\filterSep_singlePass.cl" />
+    <None Include="..\..\..\modules\imgproc\src\opencl\filterSmall.cl" />
+    <None Include="..\..\..\modules\imgproc\src\opencl\gftt.cl" />
+    <None Include="..\..\..\modules\imgproc\src\opencl\histogram.cl" />
+    <None Include="..\..\..\modules\imgproc\src\opencl\hough_lines.cl" />
+    <None Include="..\..\..\modules\imgproc\src\opencl\integral_sum.cl" />
+    <None Include="..\..\..\modules\imgproc\src\opencl\laplacian5.cl" />
+    <None Include="..\..\..\modules\imgproc\src\opencl\match_template.cl" />
+    <None Include="..\..\..\modules\imgproc\src\opencl\medianFilter.cl" />
+    <None Include="..\..\..\modules\imgproc\src\opencl\moments.cl" />
+    <None Include="..\..\..\modules\imgproc\src\opencl\morph.cl" />
+    <None Include="..\..\..\modules\imgproc\src\opencl\precornerdetect.cl" />
+    <None Include="..\..\..\modules\imgproc\src\opencl\pyr_down.cl" />
+    <None Include="..\..\..\modules\imgproc\src\opencl\pyr_up.cl" />
+    <None Include="..\..\..\modules\imgproc\src\opencl\remap.cl" />
+    <None Include="..\..\..\modules\imgproc\src\opencl\resize.cl" />
+    <None Include="..\..\..\modules\imgproc\src\opencl\threshold.cl" />
+    <None Include="..\..\..\modules\imgproc\src\opencl\warp_affine.cl" />
+    <None Include="..\..\..\modules\imgproc\src\opencl\warp_perspective.cl" />
+    <None Include="..\..\..\modules\photo\src\opencl\nlmeans.cl" />
+    <None Include="..\..\..\modules\video\src\opencl\bgfg_mog2.cl" />
+    <None Include="..\..\..\modules\video\src\opencl\optical_flow_farneback.cl" />
+    <None Include="..\..\..\modules\video\src\opencl\optical_flow_tvl1.cl" />
+    <None Include="..\..\..\modules\video\src\opencl\pyrlk.cl" />
+    <None Include="..\..\..\modules\objdetect\src\opencl\cascadedetect.cl" />
+    <None Include="..\..\..\modules\objdetect\src\opencl\objdetect_hog.cl" />
+    <None Include="..\..\..\modules\superres\src\opencl\superres_btvl1.cl" />
+    <None Include="..\..\..\modules\features2d\src\opencl\brute_force_match.cl" />
+    <None Include="..\..\..\modules\features2d\src\opencl\fast.cl" />
+    <None Include="..\..\..\modules\features2d\src\opencl\orb.cl" />
+    <None Include="..\..\..\modules\calib3d\src\opencl\stereobm.cl" />
+    <None Include="..\..\..\modules\stitching\src\opencl\multibandblend.cl" />
+    <None Include="..\..\..\modules\stitching\src\opencl\warpers.cl" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="../../../build/3rdparty/openexr/IlmImf.vcxproj">
+      <Project>2336080A-B727-4578-A777-65A6E5EB6195</Project>
+    </ProjectReference>
+    <ProjectReference Include="../../../build/ZERO_CHECK.vcxproj">
+      <Project>B5159BE4-780A-4CFC-8EE0-0B97DB6646FB</Project>
+    </ProjectReference>
+    <ProjectReference Include="../../../build/3rdparty/libjasper/libjasper.vcxproj">
+      <Project>576F7C95-1682-4A32-8648-AE2FE35E2584</Project>
+    </ProjectReference>
+    <ProjectReference Include="../../../build/3rdparty/libjpeg/libjpeg.vcxproj">
+      <Project>AFF4E224-3876-4802-A20D-8693D71CA389</Project>
+    </ProjectReference>
+    <ProjectReference Include="../../../build/3rdparty/libpng/libpng.vcxproj">
+      <Project>8465AE2E-3B18-4746-8E13-81F366BFD37E</Project>
+    </ProjectReference>
+    <ProjectReference Include="../../../build/3rdparty/libtiff/libtiff.vcxproj">
+      <Project>14B4D902-4DAF-4BBE-9B84-AF17492F3582</Project>
+    </ProjectReference>
+    <ProjectReference Include="../../../build/3rdparty/libwebp/libwebp.vcxproj">
+      <Project>FBA43C92-1561-4383-AAFA-7D1DF92B1604</Project>
+    </ProjectReference>
+    <ProjectReference Include="../../../build/3rdparty/zlib/zlib.vcxproj">
+      <Project>8D1D993D-5939-4056-BF7E-CF074FB601BA</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

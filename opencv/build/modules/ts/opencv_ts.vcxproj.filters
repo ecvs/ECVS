@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Project ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="..\..\..\modules\ts\src\cuda_perf.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\modules\ts\src\cuda_test.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\modules\ts\src\ocl_perf.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\modules\ts\src\ocl_test.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\modules\ts\src\ts.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\modules\ts\src\ts_arrtest.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\modules\ts\src\ts_func.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\modules\ts\src\ts_gtest.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\modules\ts\src\ts_perf.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="opencv_ts_pch.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\modules\ts\include\opencv2\ts.hpp">
+      <Filter>Include\opencv2</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\modules\ts\include\opencv2\ts\cuda_perf.hpp">
+      <Filter>Include\opencv2\ts</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\modules\ts\include\opencv2\ts\cuda_test.hpp">
+      <Filter>Include\opencv2\ts</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\modules\ts\include\opencv2\ts\ocl_perf.hpp">
+      <Filter>Include\opencv2\ts</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\modules\ts\include\opencv2\ts\ocl_test.hpp">
+      <Filter>Include\opencv2\ts</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\modules\ts\include\opencv2\ts\ts_ext.hpp">
+      <Filter>Include\opencv2\ts</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\modules\ts\include\opencv2\ts\ts_perf.hpp">
+      <Filter>Include\opencv2\ts</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\modules\ts\include\opencv2\ts\ts_gtest.h">
+      <Filter>Include\opencv2\ts</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\modules\ts\src\precomp.hpp">
+      <Filter>Src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\cvconfig.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\opencv2\opencv_modules.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="..\..\..\modules\ts\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Include\opencv2">
+      <UniqueIdentifier>{73A4D252-D434-40FC-9097-32E750352599}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{74601DC7-33F9-4007-A512-E4EAFDE25608}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{D9A42837-841D-476F-B8B4-3AF358E63B21}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src">
+      <UniqueIdentifier>{3D0B6F9E-B6F3-4CC2-9AFC-272113CCB23E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Include">
+      <UniqueIdentifier>{7E17C965-DD40-4903-984F-6C6C827B6940}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Include\opencv2\ts">
+      <UniqueIdentifier>{8E47C7A3-C959-4B7B-956F-B1F38E2531F8}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
