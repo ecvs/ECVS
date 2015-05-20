@@ -26,6 +26,7 @@ public:
 	//设置和获取说明文字
 	void SetStringInfo(string strInfo);
 	string GetStringInfo();
+	
 private:
 	CInputOutputInfo	m_Value;
 	string				m_strInfo;   //对于该字段的说明文字, 比如 “输入图像” 、"偏移X"

@@ -108,7 +108,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <AdditionalLibraryDirectories>../../../3rdparty/lib;../../../3rdparty/lib/$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>atlthunk.lib;atlsd.lib;libcmt.lib;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <ImportLibrary>../../../build/lib/Debug/opencv_world300d.lib</ImportLibrary>
+      <ImportLibrary>..\..\..\..\EasyComputerVisionSystem\bin\Debug\opencv_world300d.lib</ImportLibrary>
       <ProgramDataBaseFile>../../../build/bin/Debug/opencv_world300d.pdb</ProgramDataBaseFile>
       <SubSystem>Console</SubSystem>
       <Version>
