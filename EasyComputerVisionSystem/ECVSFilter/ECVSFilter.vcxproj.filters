@@ -18,9 +18,15 @@
     <ClInclude Include="BilateralFilter.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="FilterCommon.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BilateralFilter.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="FilterCommon.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

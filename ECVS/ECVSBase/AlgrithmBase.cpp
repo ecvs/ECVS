@@ -143,3 +143,27 @@ void CAlgrithmBase::DeleteMemory() // 删除内存
 	m_vectOutput.clear();
 	
 }
+
+
+//获取输入参数的文字说明，即CToolInput 的m_strInfo
+vector<string> CAlgrithmBase::GetInputParamName()
+{
+	vector<string> inputVec;
+	for (int i = 0; i < m_vectInput.size(); ++i)
+	{
+		inputVec.push_back(m_vectInput[i]->GetStringInfo());
+	}
+	
+	return inputVec;
+}
+//获取输输出参数的文字说明，即CToolOutput 的m_strInfo
+vector<string> CAlgrithmBase::GetOutputParamName()
+{
+	vector<string> outVec;
+	for (int i = 0; i < m_vectOutput.size(); ++i)
+	{
+		outVec.push_back(m_vectOutput[i]->GetStringInfo());
+	}
+	return outVec;
+	
+}
