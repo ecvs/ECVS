@@ -3,5 +3,6 @@
 #include "ToolInput.h"
 #include "ToolOutput.h"
 #include "AlgrithmBase.h"
+#include <windows.h>
 #include <string>
 using std::string ;

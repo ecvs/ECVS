@@ -19,7 +19,7 @@ public:
 	CToolInput& operator=(const CToolInput&);
 	~CToolInput();
 	//…Ë÷√÷µ
-	bool SetInputValue(const CInputOutputInfo&rhs);
+	bool SetValue(const CInputOutputInfo&rhs);
 
 	const CInputOutputInfo& GetValue();
 	const CInputOutputInfo& GetValue() const;

@@ -24,7 +24,7 @@ public:
 	virtual void Read() = 0;  
 	virtual void Save() = 0;
 	
-	virtual string GetErrorMsg() = 0; // 获取算法执行错误字符串
+	virtual string GetErrorMsg(); // 获取算法执行错误字符串
 	
 	 string GetShowText(); //获取显示字符串
 	 void SetShowText(string strText);//修改显示字符串

@@ -8,12 +8,13 @@ public:
 	~CBilateralFilter();
 
 	virtual void Run();		//执行算法
-	virtual void Set() ;  //设置算法
+	virtual void Set(){};  //设置算法
+	virtual string GetErrorMsg();
 	//读写函数，参数暂时未实现，等第一个算法成功实现及流程测试成功后再实现
-	virtual void Read() ;
-	virtual void Save() ;
+	virtual void Read(){};
+	virtual void Save() {};
 
-	virtual string GetErrorMsg(); // 获取算法执行错误字符串
+//	virtual string GetErrorMsg(); // 获取算法执行错误字符串
 
 private:
 	//算法运行时私有参数

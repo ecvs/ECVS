@@ -16,7 +16,7 @@ public:
 	CToolOutput(const CToolOutput &rhs);
 	CToolOutput& operator=(const CToolOutput&);
 	//…Ë÷√÷µ
-	bool SetInputValue(const CInputOutputInfo&rhs);
+	bool SetValue(const CInputOutputInfo&rhs);
 
 	const CInputOutputInfo& GetValue();
 	const CInputOutputInfo& GetValue() const;

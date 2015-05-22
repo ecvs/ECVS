@@ -21,6 +21,7 @@
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v120</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
+    <UseOfMfc>Dynamic</UseOfMfc>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
@@ -54,7 +55,7 @@
       </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;ECVSBASE_EXPORTS;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;ECVSBASE_EXPORTS;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
     </ClCompile>
     <Link>
@@ -86,6 +87,8 @@
     <ClInclude Include="ECVSBase.h" />
     <ClInclude Include="FlowProcess.h" />
     <ClInclude Include="InputOutputInfo.h" />
+    <ClInclude Include="ShowImageWnd.h" />
+    <ClInclude Include="stdafx.h" />
     <ClInclude Include="ToolInput.h" />
     <ClInclude Include="ToolOutput.h" />
   </ItemGroup>
@@ -94,10 +97,16 @@
     <ClCompile Include="ECVSBase.cpp" />
     <ClCompile Include="FlowProcess.cpp" />
     <ClCompile Include="InputOutputInfo.cpp" />
+    <ClCompile Include="ShowImageWnd.cpp" />
     <ClCompile Include="ToolInput.cpp" />
     <ClCompile Include="ToolOutput.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties RESOURCE_FILE="\Learn\GitRepos\ECVS\Python\PC\python_nt.rc" />
+    </VisualStudio>
+  </ProjectExtensions>
 </Project>

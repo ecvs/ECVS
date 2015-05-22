@@ -13,7 +13,8 @@
 #define  ECVS_EXPORT
 #endif
 
-
+#include <string>
+using std::string;
 #define  ECVSString string;
 
 //类型的定义
@@ -56,5 +57,22 @@ enum DataType
 //错误定义
 #define  ECVS_ERROR_NO_ERROR 0
 
+//系统设计时的所有错误
+
+
+//算法还未执行
+#define ECVS_ERR_HAS_NO_EXECUTE 1
+//需要图像输入的算法，没有设置输入图像
+#define  ECVS_ERROR_HAS_NO_IMG_INPUT 2
+
+
+//自定义错误的起始位 所有插件返回错误 能改变的只有后16位
+#define  ECVS_ERROR_USER_MASK 0x00FF0000
+
+
+
+
+
 bool IsVector(DataType dt); //判断dt是否是vector类型
 bool IsSameType(DataType dt1, DataType dt2);// 判断dt1和 dt2是否为同一种类型 比如vector<int> 和int是同一种类型
+string GetErrorMsg(int nCode);

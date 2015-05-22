@@ -15,10 +15,18 @@ CAlgrithmBase::CAlgrithmBase()
 	//至少有两个输出 一个是错误代码 一个是处理时间
 
 	CToolOutput *pErrorCode = new CToolOutput(DataType::TYPE_INT); //错误代码
+	CInputOutputInfo err(DataType::TYPE_INT);
+	err.SetIntValue(ECVS_ERR_HAS_NO_EXECUTE);  //初始化为未执行。
+	pErrorCode->SetValue(err);
 	pErrorCode->SetStringInfo("错误代码");
 	m_vectOutput.push_back(pErrorCode);
+	//初始化时间为0
+	CInputOutputInfo ti(DataType::TYPE_DOUBLE);
+	ti.SetDoubleValue(0);
+
 	CToolOutput* pProcessTime = new CToolOutput(DataType::TYPE_DOUBLE);
 	pProcessTime->SetStringInfo("处理时间");
+	pProcessTime->SetValue(ti);
 	m_vectOutput.push_back(pProcessTime);
 
 }
@@ -80,7 +88,7 @@ bool CAlgrithmBase::SetInputValue(string strWitch, const CInputOutputInfo& value
 	{
 		if (m_vectInput[i]->GetStringInfo() == strWitch)
 		{
-			return m_vectInput[i]->SetInputValue(value);
+			return m_vectInput[i]->SetValue(value);
 			
 		}
 	}
@@ -92,7 +100,7 @@ bool CAlgrithmBase::SetInputValue(int nIndedx, const CInputOutputInfo& value)
 	{
 		return false;
 	}
-	return m_vectInput[nIndedx]->SetInputValue(value);
+	return m_vectInput[nIndedx]->SetValue(value);
 }
 CAlgrithmBase::CAlgrithmBase(const CAlgrithmBase& rhs)
 {
@@ -166,4 +174,13 @@ vector<string> CAlgrithmBase::GetOutputParamName()
 	}
 	return outVec;
 	
+}
+
+//默认获取错误操作
+string CAlgrithmBase::GetErrorMsg()
+{
+	const CInputOutputInfo & info = m_vectOutput[0]->GetValue();
+	int nErr = 0;
+	info.GetIntValue(nErr);
+	return ::GetErrorMsg(nErr);
 }

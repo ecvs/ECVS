@@ -36,7 +36,7 @@ CToolInput::~CToolInput()
 
 
 //设置值
-bool CToolInput::SetInputValue(const CInputOutputInfo&rhs)
+bool CToolInput::SetValue(const CInputOutputInfo&rhs)
 {
 
 	//类型一但确定好就不能更改
