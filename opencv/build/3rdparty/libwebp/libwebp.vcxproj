@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -36,17 +36,17 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
-    <PropertyGroup>
-      <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
-      <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\..\..\build\3rdparty\lib\Debug\</OutDir>
-      <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">libwebp.dir\Debug\</IntDir>
-      <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">libwebpd</TargetName>
-      <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.lib</TargetExt>
-      <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\..\build\3rdparty\lib\Release\</OutDir>
-      <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">libwebp.dir\Release\</IntDir>
-      <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">libwebp</TargetName>
-      <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.lib</TargetExt>
-    </PropertyGroup>
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\..\..\build\3rdparty\lib\Debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">libwebp.dir\Debug\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">libwebpd</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.lib</TargetExt>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\..\build\3rdparty\lib\Release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">libwebp.dir\Release\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">libwebp</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.lib</TargetExt>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <AdditionalOptions> /bigobj %(AdditionalOptions)</AdditionalOptions>
@@ -123,36 +123,6 @@
     </Midl>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <CustomBuild Include="..\..\..\3rdparty\libwebp\CMakeLists.txt">
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Building Custom Rule ../../../3rdparty/libwebp/CMakeLists.txt</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
-"C:\Program Files (x86)\CMake\bin\cmake.exe" -H../../.. -B../.. --check-stamp-file ..\..\..\build\3rdparty\libwebp\CMakeFiles\generate.stamp
-if %errorlevel% neq 0 goto :cmEnd
-:cmEnd
-endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
-:cmErrorLevel
-exit /b %1
-:cmDone
-if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">../../../3rdparty/libwebp/CMakeLists.txt;..\..\..\3rdparty\libwebp\CMakeLists.txt;..\..\..\3rdparty\libwebp\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\..\..\build\3rdparty\libwebp\CMakeFiles\generate.stamp</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Building Custom Rule ../../../3rdparty/libwebp/CMakeLists.txt</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
-"C:\Program Files (x86)\CMake\bin\cmake.exe" -H../../.. -B../.. --check-stamp-file ..\..\..\build\3rdparty\libwebp\CMakeFiles\generate.stamp
-if %errorlevel% neq 0 goto :cmEnd
-:cmEnd
-endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
-:cmErrorLevel
-exit /b %1
-:cmDone
-if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">../../../3rdparty/libwebp/CMakeLists.txt;..\..\..\3rdparty\libwebp\CMakeLists.txt;..\..\..\3rdparty\libwebp\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\..\build\3rdparty\libwebp\CMakeFiles\generate.stamp</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkObjects>
-    </CustomBuild>
-  </ItemGroup>
-  <ItemGroup>
     <ClInclude Include="..\..\..\3rdparty\libwebp\dec\decode_vp8.h" />
     <ClInclude Include="..\..\..\3rdparty\libwebp\dec\vp8i.h" />
     <ClInclude Include="..\..\..\3rdparty\libwebp\dec\vp8li.h" />
@@ -184,84 +154,84 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClInclude Include="..\..\..\3rdparty\libwebp\webp\mux.h" />
     <ClInclude Include="..\..\..\3rdparty\libwebp\webp\mux_types.h" />
     <ClInclude Include="..\..\..\3rdparty\libwebp\webp\types.h" />
-    <ClCompile Include="..\..\..\3rdparty\libwebp\dec\alpha.c" >
+    <ClCompile Include="..\..\..\3rdparty\libwebp\dec\alpha.c">
       <ObjectFileName>$(IntDir)/dec/alpha.c.obj</ObjectFileName>
     </ClCompile>
-    <ClCompile Include="..\..\..\3rdparty\libwebp\dec\buffer.c"  />
-    <ClCompile Include="..\..\..\3rdparty\libwebp\dec\frame.c" >
+    <ClCompile Include="..\..\..\3rdparty\libwebp\dec\buffer.c" />
+    <ClCompile Include="..\..\..\3rdparty\libwebp\dec\frame.c">
       <ObjectFileName>$(IntDir)/dec/frame.c.obj</ObjectFileName>
     </ClCompile>
-    <ClCompile Include="..\..\..\3rdparty\libwebp\dec\idec.c"  />
-    <ClCompile Include="..\..\..\3rdparty\libwebp\dec\io.c"  />
-    <ClCompile Include="..\..\..\3rdparty\libwebp\dec\layer.c" >
+    <ClCompile Include="..\..\..\3rdparty\libwebp\dec\idec.c" />
+    <ClCompile Include="..\..\..\3rdparty\libwebp\dec\io.c" />
+    <ClCompile Include="..\..\..\3rdparty\libwebp\dec\layer.c">
       <ObjectFileName>$(IntDir)/dec/layer.c.obj</ObjectFileName>
     </ClCompile>
-    <ClCompile Include="..\..\..\3rdparty\libwebp\dec\quant.c" >
+    <ClCompile Include="..\..\..\3rdparty\libwebp\dec\quant.c">
       <ObjectFileName>$(IntDir)/dec/quant.c.obj</ObjectFileName>
     </ClCompile>
-    <ClCompile Include="..\..\..\3rdparty\libwebp\dec\tree.c" >
+    <ClCompile Include="..\..\..\3rdparty\libwebp\dec\tree.c">
       <ObjectFileName>$(IntDir)/dec/tree.c.obj</ObjectFileName>
     </ClCompile>
-    <ClCompile Include="..\..\..\3rdparty\libwebp\dec\vp8.c"  />
-    <ClCompile Include="..\..\..\3rdparty\libwebp\dec\vp8l.c" >
+    <ClCompile Include="..\..\..\3rdparty\libwebp\dec\vp8.c" />
+    <ClCompile Include="..\..\..\3rdparty\libwebp\dec\vp8l.c">
       <ObjectFileName>$(IntDir)/dec/vp8l.c.obj</ObjectFileName>
     </ClCompile>
-    <ClCompile Include="..\..\..\3rdparty\libwebp\dec\webp.c"  />
-    <ClCompile Include="..\..\..\3rdparty\libwebp\dsp\cpu.c"  />
-    <ClCompile Include="..\..\..\3rdparty\libwebp\dsp\dec.c"  />
-    <ClCompile Include="..\..\..\3rdparty\libwebp\dsp\dec_neon.c"  />
-    <ClCompile Include="..\..\..\3rdparty\libwebp\dsp\dec_sse2.c"  />
-    <ClCompile Include="..\..\..\3rdparty\libwebp\dsp\enc.c"  />
-    <ClCompile Include="..\..\..\3rdparty\libwebp\dsp\enc_neon.c"  />
-    <ClCompile Include="..\..\..\3rdparty\libwebp\dsp\enc_sse2.c"  />
-    <ClCompile Include="..\..\..\3rdparty\libwebp\dsp\lossless.c"  />
-    <ClCompile Include="..\..\..\3rdparty\libwebp\dsp\upsampling.c"  />
-    <ClCompile Include="..\..\..\3rdparty\libwebp\dsp\upsampling_neon.c"  />
-    <ClCompile Include="..\..\..\3rdparty\libwebp\dsp\upsampling_sse2.c"  />
-    <ClCompile Include="..\..\..\3rdparty\libwebp\dsp\yuv.c"  />
-    <ClCompile Include="..\..\..\3rdparty\libwebp\enc\alpha.c" >
+    <ClCompile Include="..\..\..\3rdparty\libwebp\dec\webp.c" />
+    <ClCompile Include="..\..\..\3rdparty\libwebp\dsp\cpu.c" />
+    <ClCompile Include="..\..\..\3rdparty\libwebp\dsp\dec.c" />
+    <ClCompile Include="..\..\..\3rdparty\libwebp\dsp\dec_neon.c" />
+    <ClCompile Include="..\..\..\3rdparty\libwebp\dsp\dec_sse2.c" />
+    <ClCompile Include="..\..\..\3rdparty\libwebp\dsp\enc.c" />
+    <ClCompile Include="..\..\..\3rdparty\libwebp\dsp\enc_neon.c" />
+    <ClCompile Include="..\..\..\3rdparty\libwebp\dsp\enc_sse2.c" />
+    <ClCompile Include="..\..\..\3rdparty\libwebp\dsp\lossless.c" />
+    <ClCompile Include="..\..\..\3rdparty\libwebp\dsp\upsampling.c" />
+    <ClCompile Include="..\..\..\3rdparty\libwebp\dsp\upsampling_neon.c" />
+    <ClCompile Include="..\..\..\3rdparty\libwebp\dsp\upsampling_sse2.c" />
+    <ClCompile Include="..\..\..\3rdparty\libwebp\dsp\yuv.c" />
+    <ClCompile Include="..\..\..\3rdparty\libwebp\enc\alpha.c">
       <ObjectFileName>$(IntDir)/enc/alpha.c.obj</ObjectFileName>
     </ClCompile>
-    <ClCompile Include="..\..\..\3rdparty\libwebp\enc\analysis.c"  />
-    <ClCompile Include="..\..\..\3rdparty\libwebp\enc\backward_references.c"  />
-    <ClCompile Include="..\..\..\3rdparty\libwebp\enc\config.c"  />
-    <ClCompile Include="..\..\..\3rdparty\libwebp\enc\cost.c"  />
-    <ClCompile Include="..\..\..\3rdparty\libwebp\enc\filter.c"  />
-    <ClCompile Include="..\..\..\3rdparty\libwebp\enc\frame.c" >
+    <ClCompile Include="..\..\..\3rdparty\libwebp\enc\analysis.c" />
+    <ClCompile Include="..\..\..\3rdparty\libwebp\enc\backward_references.c" />
+    <ClCompile Include="..\..\..\3rdparty\libwebp\enc\config.c" />
+    <ClCompile Include="..\..\..\3rdparty\libwebp\enc\cost.c" />
+    <ClCompile Include="..\..\..\3rdparty\libwebp\enc\filter.c" />
+    <ClCompile Include="..\..\..\3rdparty\libwebp\enc\frame.c">
       <ObjectFileName>$(IntDir)/enc/frame.c.obj</ObjectFileName>
     </ClCompile>
-    <ClCompile Include="..\..\..\3rdparty\libwebp\enc\histogram.c"  />
-    <ClCompile Include="..\..\..\3rdparty\libwebp\enc\iterator.c"  />
-    <ClCompile Include="..\..\..\3rdparty\libwebp\enc\layer.c" >
+    <ClCompile Include="..\..\..\3rdparty\libwebp\enc\histogram.c" />
+    <ClCompile Include="..\..\..\3rdparty\libwebp\enc\iterator.c" />
+    <ClCompile Include="..\..\..\3rdparty\libwebp\enc\layer.c">
       <ObjectFileName>$(IntDir)/enc/layer.c.obj</ObjectFileName>
     </ClCompile>
-    <ClCompile Include="..\..\..\3rdparty\libwebp\enc\picture.c"  />
-    <ClCompile Include="..\..\..\3rdparty\libwebp\enc\quant.c" >
+    <ClCompile Include="..\..\..\3rdparty\libwebp\enc\picture.c" />
+    <ClCompile Include="..\..\..\3rdparty\libwebp\enc\quant.c">
       <ObjectFileName>$(IntDir)/enc/quant.c.obj</ObjectFileName>
     </ClCompile>
-    <ClCompile Include="..\..\..\3rdparty\libwebp\enc\syntax.c"  />
-    <ClCompile Include="..\..\..\3rdparty\libwebp\enc\token.c"  />
-    <ClCompile Include="..\..\..\3rdparty\libwebp\enc\tree.c" >
+    <ClCompile Include="..\..\..\3rdparty\libwebp\enc\syntax.c" />
+    <ClCompile Include="..\..\..\3rdparty\libwebp\enc\token.c" />
+    <ClCompile Include="..\..\..\3rdparty\libwebp\enc\tree.c">
       <ObjectFileName>$(IntDir)/enc/tree.c.obj</ObjectFileName>
     </ClCompile>
-    <ClCompile Include="..\..\..\3rdparty\libwebp\enc\vp8l.c" >
+    <ClCompile Include="..\..\..\3rdparty\libwebp\enc\vp8l.c">
       <ObjectFileName>$(IntDir)/enc/vp8l.c.obj</ObjectFileName>
     </ClCompile>
-    <ClCompile Include="..\..\..\3rdparty\libwebp\enc\webpenc.c"  />
-    <ClCompile Include="..\..\..\3rdparty\libwebp\mux\muxedit.c"  />
-    <ClCompile Include="..\..\..\3rdparty\libwebp\mux\muxinternal.c"  />
-    <ClCompile Include="..\..\..\3rdparty\libwebp\mux\muxread.c"  />
-    <ClCompile Include="..\..\..\3rdparty\libwebp\utils\bit_reader.c"  />
-    <ClCompile Include="..\..\..\3rdparty\libwebp\utils\bit_writer.c"  />
-    <ClCompile Include="..\..\..\3rdparty\libwebp\utils\color_cache.c"  />
-    <ClCompile Include="..\..\..\3rdparty\libwebp\utils\filters.c"  />
-    <ClCompile Include="..\..\..\3rdparty\libwebp\utils\huffman.c"  />
-    <ClCompile Include="..\..\..\3rdparty\libwebp\utils\huffman_encode.c"  />
-    <ClCompile Include="..\..\..\3rdparty\libwebp\utils\quant_levels.c"  />
-    <ClCompile Include="..\..\..\3rdparty\libwebp\utils\quant_levels_dec.c"  />
-    <ClCompile Include="..\..\..\3rdparty\libwebp\utils\rescaler.c"  />
-    <ClCompile Include="..\..\..\3rdparty\libwebp\utils\thread.c"  />
-    <ClCompile Include="..\..\..\3rdparty\libwebp\utils\utils.c"  />
+    <ClCompile Include="..\..\..\3rdparty\libwebp\enc\webpenc.c" />
+    <ClCompile Include="..\..\..\3rdparty\libwebp\mux\muxedit.c" />
+    <ClCompile Include="..\..\..\3rdparty\libwebp\mux\muxinternal.c" />
+    <ClCompile Include="..\..\..\3rdparty\libwebp\mux\muxread.c" />
+    <ClCompile Include="..\..\..\3rdparty\libwebp\utils\bit_reader.c" />
+    <ClCompile Include="..\..\..\3rdparty\libwebp\utils\bit_writer.c" />
+    <ClCompile Include="..\..\..\3rdparty\libwebp\utils\color_cache.c" />
+    <ClCompile Include="..\..\..\3rdparty\libwebp\utils\filters.c" />
+    <ClCompile Include="..\..\..\3rdparty\libwebp\utils\huffman.c" />
+    <ClCompile Include="..\..\..\3rdparty\libwebp\utils\huffman_encode.c" />
+    <ClCompile Include="..\..\..\3rdparty\libwebp\utils\quant_levels.c" />
+    <ClCompile Include="..\..\..\3rdparty\libwebp\utils\quant_levels_dec.c" />
+    <ClCompile Include="..\..\..\3rdparty\libwebp\utils\rescaler.c" />
+    <ClCompile Include="..\..\..\3rdparty\libwebp\utils\thread.c" />
+    <ClCompile Include="..\..\..\3rdparty\libwebp\utils\utils.c" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="../../../build/ZERO_CHECK.vcxproj">

@@ -89,6 +89,7 @@
     <ClInclude Include="InputOutputInfo.h" />
     <ClInclude Include="ShowImageWnd.h" />
     <ClInclude Include="stdafx.h" />
+    <ClInclude Include="targetver.h" />
     <ClInclude Include="ToolInput.h" />
     <ClInclude Include="ToolOutput.h" />
   </ItemGroup>

@@ -185,36 +185,6 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     </ProjectReference>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <CustomBuild Include="..\..\..\modules\world\CMakeLists.txt">
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Building Custom Rule ../../../modules/world/CMakeLists.txt</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
-"C:\Program Files (x86)\CMake\bin\cmake.exe" -H../../.. -B../.. --check-stamp-file ..\..\..\build\modules\world\CMakeFiles\generate.stamp
-if %errorlevel% neq 0 goto :cmEnd
-:cmEnd
-endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
-:cmErrorLevel
-exit /b %1
-:cmDone
-if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">../../../modules/world/CMakeLists.txt;..\..\..\modules\world\CMakeLists.txt;..\..\..\modules\hal\CMakeLists.txt;..\..\..\modules\core\CMakeLists.txt;..\..\..\modules\flann\CMakeLists.txt;..\..\..\modules\imgproc\CMakeLists.txt;..\..\..\modules\ml\CMakeLists.txt;..\..\..\modules\photo\CMakeLists.txt;..\..\..\modules\video\CMakeLists.txt;..\..\..\modules\imgcodecs\CMakeLists.txt;..\..\..\modules\shape\CMakeLists.txt;..\..\..\modules\videoio\CMakeLists.txt;..\..\..\modules\highgui\CMakeLists.txt;..\..\..\modules\objdetect\CMakeLists.txt;..\..\..\modules\superres\CMakeLists.txt;..\..\..\modules\features2d\CMakeLists.txt;..\..\..\modules\calib3d\CMakeLists.txt;..\..\..\modules\stitching\CMakeLists.txt;..\..\..\modules\videostab\CMakeLists.txt;..\..\..\modules\world\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\..\..\build\modules\world\CMakeFiles\generate.stamp</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Building Custom Rule ../../../modules/world/CMakeLists.txt</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
-"C:\Program Files (x86)\CMake\bin\cmake.exe" -H../../.. -B../.. --check-stamp-file ..\..\..\build\modules\world\CMakeFiles\generate.stamp
-if %errorlevel% neq 0 goto :cmEnd
-:cmEnd
-endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
-:cmErrorLevel
-exit /b %1
-:cmDone
-if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">../../../modules/world/CMakeLists.txt;..\..\..\modules\world\CMakeLists.txt;..\..\..\modules\hal\CMakeLists.txt;..\..\..\modules\core\CMakeLists.txt;..\..\..\modules\flann\CMakeLists.txt;..\..\..\modules\imgproc\CMakeLists.txt;..\..\..\modules\ml\CMakeLists.txt;..\..\..\modules\photo\CMakeLists.txt;..\..\..\modules\video\CMakeLists.txt;..\..\..\modules\imgcodecs\CMakeLists.txt;..\..\..\modules\shape\CMakeLists.txt;..\..\..\modules\videoio\CMakeLists.txt;..\..\..\modules\highgui\CMakeLists.txt;..\..\..\modules\objdetect\CMakeLists.txt;..\..\..\modules\superres\CMakeLists.txt;..\..\..\modules\features2d\CMakeLists.txt;..\..\..\modules\calib3d\CMakeLists.txt;..\..\..\modules\stitching\CMakeLists.txt;..\..\..\modules\videostab\CMakeLists.txt;..\..\..\modules\world\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\..\build\modules\world\CMakeFiles\generate.stamp</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkObjects>
-    </CustomBuild>
-  </ItemGroup>
-  <ItemGroup>
     <CustomBuild Include="..\..\CMakeFiles\7e258d3b87c3c653e4d2cfa35ba2a483\opencl_kernels_core.cpp.rule">
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Generating opencl_kernels_core.cpp, opencl_kernels_core.hpp</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
@@ -1032,7 +1002,8 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClCompile Include="..\..\..\modules\videostab\src\stabilizer.cpp" />
     <ClCompile Include="..\..\..\modules\videostab\src\wobble_suppression.cpp" />
     <ClCompile Include="..\..\..\modules\world\src\world_init.cpp" />
-    <None Include="version_string.inc" />
+    <None Include="..\..\..\3rdparty\ffmpeg\opencv_ffmpeg.dll" />
+    <None Include="..\..\..\3rdparty\ffmpeg\opencv_ffmpeg_64.dll" />
     <None Include="..\..\..\modules\core\src\opencl\arithm.cl" />
     <None Include="..\..\..\modules\core\src\opencl\convert.cl" />
     <None Include="..\..\..\modules\core\src\opencl\copymakeborder.cl" />
