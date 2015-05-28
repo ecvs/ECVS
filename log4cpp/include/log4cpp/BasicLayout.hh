@@ -12,7 +12,6 @@
 
 #include <log4cpp/Portability.hh>
 #include <log4cpp/Layout.hh>
-
 namespace log4cpp {
 
     /**

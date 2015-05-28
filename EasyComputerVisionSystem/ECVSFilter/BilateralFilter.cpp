@@ -1,8 +1,9 @@
-#define  ECVS_BUILD_DLL
+#include "stdafx.h"
+#include "resource.h"
 #include "FilterCommon.h"
 #include "BilateralFilter.h"
 #include "opencv2/imgproc.hpp"
-
+#include "BilateralFilterSet.h"
 CBilateralFilter::CBilateralFilter() :CAlgrithmBase()
 {
 	CToolOutput *pOutImg = new CToolOutput(DataType::TYPE_IMAGE);
@@ -12,6 +13,7 @@ CBilateralFilter::CBilateralFilter() :CAlgrithmBase()
 	CToolInput* pInputImg = new CToolInput(DataType::TYPE_IMAGE);
 	pInputImg->SetStringInfo("ÊäÈëÍ¼Ïñ");
 	m_vectInput.push_back(pInputImg);
+	
 }
 
 
@@ -26,9 +28,9 @@ void CBilateralFilter::Run()
 	CToolInput *pInput = m_vectInput[0];  //ÊäÈëÍ¼Ïñ
 	Mat pImgSrc;
 	bool bTrue = pInput->GetValue().GetImageValue(pImgSrc);
-	
 
-	
+
+
 	if (pImgSrc.data != NULL)
 	{
 		Mat imgOut;
@@ -60,7 +62,13 @@ void CBilateralFilter::Run()
 
 }
 
+void CBilateralFilter::Set()
+{
 
+
+ 	CBilateralFilterSet setF;
+ 	setF.DoModal();
+}
 string CBilateralFilter::GetErrorMsg()
 {
 	string strErr = CAlgrithmBase::GetErrorMsg();
@@ -71,5 +79,5 @@ string CBilateralFilter::GetErrorMsg()
 	}
 	return strErr;
 
-	
+
 }

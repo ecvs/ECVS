@@ -6,7 +6,7 @@
 *  µœ÷CToolOutput
 *
 */
-#define  ECVS_BUILD_DLL
+#include "stdafx.h"
 #include "ToolOutput.h"
 
 

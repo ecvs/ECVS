@@ -1,3 +1,4 @@
+#include "stdafx.h"
 #include "ECVSBase.h"
 #include "InputOutputInfo.h"
 #include "ToolInput.h"

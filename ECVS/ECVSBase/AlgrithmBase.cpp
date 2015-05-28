@@ -1,5 +1,4 @@
-#define  ECVS_BUILD_DLL
-
+#include "stdafx.h"
 #include "ECVSBase.h"
 #include "InputOutputInfo.h"
 #include "ToolInput.h"

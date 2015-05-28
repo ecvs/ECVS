@@ -7,7 +7,7 @@
 *  µœ÷CToolInput
 *
 */
-#define  ECVS_BUILD_DLL
+#include "stdafx.h"
 #include "ToolInput.h"
 
 CToolInput::CToolInput(DataType dataType, string strInfo /*= ""*/) :m_Value(dataType), m_strInfo(strInfo)

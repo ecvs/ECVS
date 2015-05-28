@@ -1,3 +1,4 @@
+#include "stdafx.h"
 #include <string>
 using std::string;
 #include "ECVSBase.h"
@@ -6,9 +7,16 @@ using std::string;
 #ifdef _DEBUG
 #pragma  comment(lib,"opencv_world300d.lib" )
 #pragma  comment(lib, "opencv_ts300d.lib")
+#pragma  comment(lib, "QT5Cored.lib")
+#pragma  comment(lib, "Qt5Guid.lib")
+#pragma  comment(lib, "Qt5Widgetsd.lib")
+
 #else
 #pragma  comment(lib, "opencv_ts300.lib")
 #pragma  comment(lib,"opencv_world300.lib" )
+#pragma  comment(lib, "QT5Core.lib")
+#pragma  comment(lib, "Qt5Gui.lib")
+#pragma  comment(lib, "Qt5Widgets.lib")
 #endif
 
 

@@ -1,3 +1,4 @@
+#include "stdafx.h"
 #include "FilterCommon.h"
 //µº»ÎOpenCV
 #ifdef _DEBUG

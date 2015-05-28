@@ -7,7 +7,7 @@
 *
 */
 
-#define  ECVS_BUILD_DLL
+#include "stdafx.h"
 #include "InputOutputInfo.h"
 
 //构造函数,必须指定类型

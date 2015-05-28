@@ -2,10 +2,16 @@
 //
 
 #include "stdafx.h"
-
+#include "ECVSBase.h"
+#include "ToolInput.h"
+#include "ToolOutput.h"
 #include<vector>
 #include <iostream>
 #include <string>
+using std::string;
+#include "AlgrithmBase.h"
+#include "BilateralFilter.h"
+#pragma  comment(lib, "ECVSFilter.lib")
 using namespace std;
 int a = 5;
 const int& GetIntValue()
@@ -14,6 +20,9 @@ const int& GetIntValue()
 }
 int _tmain(int argc, _TCHAR* argv[])
 {
+
+	CBilateralFilter *pBi = new CBilateralFilter();
+	pBi->Set();
 	vector<string> vec1;
 	for (int i = 0; i < 10; ++i)
 	{

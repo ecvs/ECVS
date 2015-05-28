@@ -15,7 +15,25 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AlgrithmBase.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ECVSBase.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="FlowProcess.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
     <ClInclude Include="InputOutputInfo.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ShowImageWnd.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="ToolInput.h">
@@ -24,45 +42,27 @@
     <ClInclude Include="ToolOutput.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="AlgrithmBase.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="FlowProcess.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="ECVSBase.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="stdafx.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="ShowImageWnd.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="targetver.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="AlgrithmBase.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ECVSBase.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="FlowProcess.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
     <ClCompile Include="InputOutputInfo.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ShowImageWnd.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="ToolInput.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="ToolOutput.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="AlgrithmBase.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="FlowProcess.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="ECVSBase.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="ShowImageWnd.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
