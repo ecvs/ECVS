@@ -15,55 +15,33 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="AlgrithmBase.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="ECVSBase.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="FlowProcess.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="InputOutputInfo.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="ShowImageWnd.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
     <ClInclude Include="stdafx.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="targetver.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="ToolInput.h">
+    <ClInclude Include="Resource.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="ToolOutput.h">
+    <ClInclude Include="ECVSTest.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="AlgrithmBase.cpp">
+    <ClCompile Include="stdafx.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="ECVSBase.cpp">
+    <ClCompile Include="ECVSTest.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="FlowProcess.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="InputOutputInfo.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="ShowImageWnd.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="ToolInput.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="ToolOutput.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="ECVSTest.rc">
+      <Filter>资源文件</Filter>
+    </ResourceCompile>
   </ItemGroup>
 </Project>

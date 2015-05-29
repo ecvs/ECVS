@@ -24,68 +24,83 @@
       <SourceControlFiles>False</SourceControlFiles>
     </Filter>
     <Filter Include="Generated Files\Debug">
-      <UniqueIdentifier>{96468636-fa9a-462f-80fb-9825bf2c4ff1}</UniqueIdentifier>
+      <UniqueIdentifier>{a91a88f3-829d-4cb3-af1e-2aa276272958}</UniqueIdentifier>
       <Extensions>cpp;moc</Extensions>
       <SourceControlFiles>False</SourceControlFiles>
     </Filter>
     <Filter Include="Generated Files\Release">
-      <UniqueIdentifier>{e575f068-45be-4a66-81be-975e83989921}</UniqueIdentifier>
+      <UniqueIdentifier>{28697ed3-9d5a-4ec5-b6f1-e77f8b0c78cb}</UniqueIdentifier>
       <Extensions>cpp;moc</Extensions>
       <SourceControlFiles>False</SourceControlFiles>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="ECVSFilter.cpp">
+    <ClCompile Include="AlgrithmBase.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="FilterCommon.cpp">
+    <ClCompile Include="FlowProcess.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="BilateralFilter.cpp">
+    <ClCompile Include="InputOutputInfo.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="dllmain.cpp">
+    <ClCompile Include="ToolInput.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="BilateralFilterSet.cpp">
+    <ClCompile Include="ToolOutput.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_BilateralFilterSet.cpp">
+    <ClCompile Include="ECVSBase.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ShowImageWnd.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_ShowImageWnd.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_ShowImageWnd.cpp">
       <Filter>Generated Files\Release</Filter>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_BilateralFilterSet.cpp">
-      <Filter>Generated Files\Debug</Filter>
+    <ClCompile Include="TestStatic.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="ecvsfilter_global.h">
+    <ClInclude Include="ecvsbase_global.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AlgrithmBase.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FlowProcess.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="InputOutputInfo.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="stdafx.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="FilterCommon.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="BilateralFilter.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="resource.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="targetver.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="GeneratedFiles\ui_BilateralFilterSet.h">
-      <Filter>Generated Files</Filter>
+    <ClInclude Include="ToolInput.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ToolOutput.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ECVSBase.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="BilateralFilterSet.h">
+    <CustomBuild Include="ShowImageWnd.h">
       <Filter>Header Files</Filter>
     </CustomBuild>
-    <CustomBuild Include="BilateralFilterSet.ui">
-      <Filter>Form Files</Filter>
+    <CustomBuild Include="TestStatic.h">
+      <Filter>Header Files</Filter>
     </CustomBuild>
   </ItemGroup>
 </Project>

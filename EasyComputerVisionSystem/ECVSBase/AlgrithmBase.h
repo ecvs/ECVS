@@ -6,7 +6,7 @@
 *
 * CAlgrithmBase 作为所有算法或者工具的基类，流程处理中也仅仅只需要使用该类
 *
-*/ 
+*/
 
 class ECVS_EXPORT CAlgrithmBase
 {

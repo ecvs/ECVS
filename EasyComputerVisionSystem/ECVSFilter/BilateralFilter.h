@@ -1,6 +1,6 @@
 #pragma once
-
-class ECVS_EXPORT CBilateralFilter :
+#include "ecvsfilter_global.h"
+class ECVSFILTER_EXPORT CBilateralFilter :
 	public CAlgrithmBase
 {
 public:

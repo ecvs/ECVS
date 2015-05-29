@@ -9,7 +9,7 @@
 
 #include "targetver.h"
 
-#define  QWT_DLL
+
 //作为DLL导出
 #define  ECVS_BUILD_DLL
 #include "ECVSBase.h"

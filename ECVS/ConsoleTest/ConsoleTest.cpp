@@ -8,6 +8,7 @@
 #include<vector>
 #include <iostream>
 #include <string>
+
 using std::string;
 #include "AlgrithmBase.h"
 #include "BilateralFilter.h"
@@ -20,9 +21,11 @@ const int& GetIntValue()
 }
 int _tmain(int argc, _TCHAR* argv[])
 {
+// 	QApplication app(argc, argv);
+// 	CBilateralFilter *pBi = new CBilateralFilter();
+// 	pBi->Set();
+// 	return app.exec();
 
-	CBilateralFilter *pBi = new CBilateralFilter();
-	pBi->Set();
 	vector<string> vec1;
 	for (int i = 0; i < 10; ++i)
 	{

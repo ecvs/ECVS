@@ -1,31 +1,27 @@
-#pragma once
-class CShowImageWnd;
-#include "resource.h"
-
-// BilateralFilterSet 对话框
-
-class CBilateralFilterSet : public CDialogEx
+#ifndef BILATERALFILTERSET_H
+#define BILATERALFILTERSET_H
+#include "ecvsfilter_global.h"
+#include "ECVSBase.h"
+#include <QWidget>
+#include <QDialog>
+#include "ui_BilateralFilterSet.h"
+#include "ShowImageWnd.h"
+#include <QMainWindow>
+class  CBilateralFilterSet : public QDialog
 {
-	DECLARE_DYNAMIC(CBilateralFilterSet)
+	Q_OBJECT
 
 public:
-	CBilateralFilterSet(CWnd* pParent = NULL);   // 标准构造函数
-	virtual ~CBilateralFilterSet();
-
-// 对话框数据
-	enum { IDD = IDD_BILATERALFILTER };
-
-protected:
-	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV 支持
-
-	DECLARE_MESSAGE_MAP()
+	CBilateralFilterSet(QWidget *parent = 0);
+	~CBilateralFilterSet();
 
 private:
-	CShowImageWnd * m_pShowImgWnd;
-	Mat m_imagSrc;
-	Mat m_imgDst;
+	Ui::CBilateralFilterSet ui;
+	CShowImageWnd *m_pShowImgWnd;
+	QMenu *m_pMenu;
 
-public:
-	virtual BOOL OnInitDialog();
-	afx_msg void OnBnClickedOpenimg();
+protected:
+	void resizeEvent(QResizeEvent *);
 };
+
+#endif // BILATERALFILTERSET_H

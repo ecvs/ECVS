@@ -4,6 +4,8 @@
 #include "BilateralFilter.h"
 #include "opencv2/imgproc.hpp"
 #include "BilateralFilterSet.h"
+#include <windows.h>
+#include <QDateTime>
 CBilateralFilter::CBilateralFilter() :CAlgrithmBase()
 {
 	CToolOutput *pOutImg = new CToolOutput(DataType::TYPE_IMAGE);
@@ -24,6 +26,10 @@ CBilateralFilter::~CBilateralFilter()
 
 void CBilateralFilter::Run()
 {
+
+	//QDateTime t1 = QDateTime::currentDateTime(); 
+	
+
 	int t1 = GetTickCount();
 	CToolInput *pInput = m_vectInput[0];  // ‰»ÎÕºœÒ
 	Mat pImgSrc;
@@ -67,7 +73,12 @@ void CBilateralFilter::Set()
 
 
  	CBilateralFilterSet setF;
- 	setF.DoModal();
+
+	
+	setF.exec();
+// 	setF.setWindowModality(Qt::WindowModal);
+// 	setF.show();
+// 	setF.DoModal();
 }
 string CBilateralFilter::GetErrorMsg()
 {
