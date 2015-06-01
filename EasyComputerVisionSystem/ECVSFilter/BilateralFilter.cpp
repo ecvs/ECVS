@@ -6,8 +6,13 @@
 #include "BilateralFilterSet.h"
 #include <windows.h>
 #include <QDateTime>
+
 CBilateralFilter::CBilateralFilter() :CAlgrithmBase()
 {
+	//三个参数都初始化为1
+	m_nDiameter = 1;
+	m_dbSigmaColor = 1;
+	m_dbSigmaSpace = 1;
 	CToolOutput *pOutImg = new CToolOutput(DataType::TYPE_IMAGE);
 	pOutImg->SetStringInfo("输出图像");
 	m_vectOutput.push_back(pOutImg);
@@ -68,11 +73,18 @@ void CBilateralFilter::Run()
 
 }
 
+
+Mat CBilateralFilter::Run(Mat inputimg,int nD, double dbSigmaColor, double dbSigmaSpace)
+{
+	Mat imgOut;
+	bilateralFilter(inputimg, imgOut, nD, dbSigmaColor, dbSigmaSpace);
+	return imgOut;
+}
 void CBilateralFilter::Set()
 {
 
 
- 	CBilateralFilterSet setF;
+ 	CBilateralFilterSet setF(this);
 
 	
 	setF.exec();

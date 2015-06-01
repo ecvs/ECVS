@@ -56,6 +56,9 @@
     <ClCompile Include="GeneratedFiles\Debug\moc_BilateralFilterSet.cpp">
       <Filter>Generated Files\Debug</Filter>
     </ClCompile>
+    <ClCompile Include="GeneratedFiles\qrc_ECVSFilter.cpp">
+      <Filter>Generated Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ecvsfilter_global.h">
@@ -87,5 +90,28 @@
     <CustomBuild Include="BilateralFilterSet.ui">
       <Filter>Form Files</Filter>
     </CustomBuild>
+    <CustomBuild Include="BilateralFilter\ECVSFilter.qrc">
+      <Filter>Resource Files</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="BilateralFilter\copy.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="BilateralFilter\cut.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="BilateralFilter\new.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="BilateralFilter\open.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="BilateralFilter\paste.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="BilateralFilter\save.png">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
 </Project>

@@ -13,7 +13,6 @@
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
-#include <QtWidgets/QDoubleSpinBox>
 #include <QtWidgets/QFrame>
 #include <QtWidgets/QGridLayout>
 #include <QtWidgets/QHBoxLayout>
@@ -22,6 +21,7 @@
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QSlider>
 #include <QtWidgets/QSpacerItem>
+#include <QtWidgets/QSpinBox>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
@@ -34,23 +34,23 @@ public:
     QVBoxLayout *verticalLayout;
     QHBoxLayout *horizontalLayout_3;
     QLabel *label_4;
-    QSlider *horizontalSlider_4;
-    QDoubleSpinBox *doubleSpinBox_4;
+    QSlider *horizontalSliderD;
+    QSpinBox *spinBoxD;
     QHBoxLayout *horizontalLayout_2;
     QLabel *label_2;
-    QSlider *horizontalSlider_2;
-    QDoubleSpinBox *doubleSpinBox_2;
+    QSlider *horizontalSliderSigmaColor;
+    QSpinBox *spinBoxSigmaColor;
     QHBoxLayout *horizontalLayout;
     QLabel *label;
-    QSlider *horizontalSlider;
-    QDoubleSpinBox *doubleSpinBox;
+    QSlider *horizontalSliderSigmaSpace;
+    QSpinBox *spinBoxSigmaSpace;
     QVBoxLayout *verticalLayout_2;
     QFrame *frame;
     QHBoxLayout *horizontalLayout_4;
     QSpacerItem *horizontalSpacer;
-    QPushButton *pushButton_3;
-    QPushButton *pushButton;
-    QPushButton *pushButton_2;
+    QPushButton *OKBtn;
+    QPushButton *CancelBtn;
+    QHBoxLayout *horizontalLayout_5;
 
     void setupUi(QWidget *CBilateralFilterSet)
     {
@@ -70,19 +70,21 @@ public:
         horizontalLayout_3->setSizeConstraint(QLayout::SetFixedSize);
         label_4 = new QLabel(CBilateralFilterSet);
         label_4->setObjectName(QStringLiteral("label_4"));
+        label_4->setMinimumSize(QSize(70, 0));
 
         horizontalLayout_3->addWidget(label_4);
 
-        horizontalSlider_4 = new QSlider(CBilateralFilterSet);
-        horizontalSlider_4->setObjectName(QStringLiteral("horizontalSlider_4"));
-        horizontalSlider_4->setOrientation(Qt::Horizontal);
+        horizontalSliderD = new QSlider(CBilateralFilterSet);
+        horizontalSliderD->setObjectName(QStringLiteral("horizontalSliderD"));
+        horizontalSliderD->setOrientation(Qt::Horizontal);
 
-        horizontalLayout_3->addWidget(horizontalSlider_4);
+        horizontalLayout_3->addWidget(horizontalSliderD);
 
-        doubleSpinBox_4 = new QDoubleSpinBox(CBilateralFilterSet);
-        doubleSpinBox_4->setObjectName(QStringLiteral("doubleSpinBox_4"));
+        spinBoxD = new QSpinBox(CBilateralFilterSet);
+        spinBoxD->setObjectName(QStringLiteral("spinBoxD"));
+        spinBoxD->setMinimumSize(QSize(60, 0));
 
-        horizontalLayout_3->addWidget(doubleSpinBox_4);
+        horizontalLayout_3->addWidget(spinBoxD);
 
 
         verticalLayout->addLayout(horizontalLayout_3);
@@ -92,19 +94,21 @@ public:
         horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
         label_2 = new QLabel(CBilateralFilterSet);
         label_2->setObjectName(QStringLiteral("label_2"));
+        label_2->setMinimumSize(QSize(70, 0));
 
         horizontalLayout_2->addWidget(label_2);
 
-        horizontalSlider_2 = new QSlider(CBilateralFilterSet);
-        horizontalSlider_2->setObjectName(QStringLiteral("horizontalSlider_2"));
-        horizontalSlider_2->setOrientation(Qt::Horizontal);
+        horizontalSliderSigmaColor = new QSlider(CBilateralFilterSet);
+        horizontalSliderSigmaColor->setObjectName(QStringLiteral("horizontalSliderSigmaColor"));
+        horizontalSliderSigmaColor->setOrientation(Qt::Horizontal);
 
-        horizontalLayout_2->addWidget(horizontalSlider_2);
+        horizontalLayout_2->addWidget(horizontalSliderSigmaColor);
 
-        doubleSpinBox_2 = new QDoubleSpinBox(CBilateralFilterSet);
-        doubleSpinBox_2->setObjectName(QStringLiteral("doubleSpinBox_2"));
+        spinBoxSigmaColor = new QSpinBox(CBilateralFilterSet);
+        spinBoxSigmaColor->setObjectName(QStringLiteral("spinBoxSigmaColor"));
+        spinBoxSigmaColor->setMinimumSize(QSize(60, 0));
 
-        horizontalLayout_2->addWidget(doubleSpinBox_2);
+        horizontalLayout_2->addWidget(spinBoxSigmaColor);
 
 
         verticalLayout->addLayout(horizontalLayout_2);
@@ -114,25 +118,27 @@ public:
         horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
         label = new QLabel(CBilateralFilterSet);
         label->setObjectName(QStringLiteral("label"));
+        label->setMinimumSize(QSize(70, 0));
 
         horizontalLayout->addWidget(label);
 
-        horizontalSlider = new QSlider(CBilateralFilterSet);
-        horizontalSlider->setObjectName(QStringLiteral("horizontalSlider"));
-        horizontalSlider->setOrientation(Qt::Horizontal);
+        horizontalSliderSigmaSpace = new QSlider(CBilateralFilterSet);
+        horizontalSliderSigmaSpace->setObjectName(QStringLiteral("horizontalSliderSigmaSpace"));
+        horizontalSliderSigmaSpace->setOrientation(Qt::Horizontal);
 
-        horizontalLayout->addWidget(horizontalSlider);
+        horizontalLayout->addWidget(horizontalSliderSigmaSpace);
 
-        doubleSpinBox = new QDoubleSpinBox(CBilateralFilterSet);
-        doubleSpinBox->setObjectName(QStringLiteral("doubleSpinBox"));
+        spinBoxSigmaSpace = new QSpinBox(CBilateralFilterSet);
+        spinBoxSigmaSpace->setObjectName(QStringLiteral("spinBoxSigmaSpace"));
+        spinBoxSigmaSpace->setMinimumSize(QSize(60, 0));
 
-        horizontalLayout->addWidget(doubleSpinBox);
+        horizontalLayout->addWidget(spinBoxSigmaSpace);
 
 
         verticalLayout->addLayout(horizontalLayout);
 
 
-        gridLayout->addLayout(verticalLayout, 0, 0, 1, 1);
+        gridLayout->addLayout(verticalLayout, 1, 0, 1, 1);
 
         verticalLayout_2 = new QVBoxLayout();
         verticalLayout_2->setSpacing(6);
@@ -150,7 +156,7 @@ public:
         verticalLayout_2->addWidget(frame);
 
 
-        gridLayout->addLayout(verticalLayout_2, 1, 0, 1, 1);
+        gridLayout->addLayout(verticalLayout_2, 2, 0, 1, 1);
 
         horizontalLayout_4 = new QHBoxLayout();
         horizontalLayout_4->setSpacing(6);
@@ -160,32 +166,31 @@ public:
 
         horizontalLayout_4->addItem(horizontalSpacer);
 
-        pushButton_3 = new QPushButton(CBilateralFilterSet);
-        pushButton_3->setObjectName(QStringLiteral("pushButton_3"));
+        OKBtn = new QPushButton(CBilateralFilterSet);
+        OKBtn->setObjectName(QStringLiteral("OKBtn"));
         QSizePolicy sizePolicy1(QSizePolicy::Maximum, QSizePolicy::Maximum);
         sizePolicy1.setHorizontalStretch(0);
         sizePolicy1.setVerticalStretch(0);
-        sizePolicy1.setHeightForWidth(pushButton_3->sizePolicy().hasHeightForWidth());
-        pushButton_3->setSizePolicy(sizePolicy1);
+        sizePolicy1.setHeightForWidth(OKBtn->sizePolicy().hasHeightForWidth());
+        OKBtn->setSizePolicy(sizePolicy1);
 
-        horizontalLayout_4->addWidget(pushButton_3);
+        horizontalLayout_4->addWidget(OKBtn);
 
-        pushButton = new QPushButton(CBilateralFilterSet);
-        pushButton->setObjectName(QStringLiteral("pushButton"));
-        sizePolicy1.setHeightForWidth(pushButton->sizePolicy().hasHeightForWidth());
-        pushButton->setSizePolicy(sizePolicy1);
+        CancelBtn = new QPushButton(CBilateralFilterSet);
+        CancelBtn->setObjectName(QStringLiteral("CancelBtn"));
+        sizePolicy1.setHeightForWidth(CancelBtn->sizePolicy().hasHeightForWidth());
+        CancelBtn->setSizePolicy(sizePolicy1);
 
-        horizontalLayout_4->addWidget(pushButton);
-
-        pushButton_2 = new QPushButton(CBilateralFilterSet);
-        pushButton_2->setObjectName(QStringLiteral("pushButton_2"));
-        sizePolicy1.setHeightForWidth(pushButton_2->sizePolicy().hasHeightForWidth());
-        pushButton_2->setSizePolicy(sizePolicy1);
-
-        horizontalLayout_4->addWidget(pushButton_2);
+        horizontalLayout_4->addWidget(CancelBtn);
 
 
-        gridLayout->addLayout(horizontalLayout_4, 2, 0, 1, 1);
+        gridLayout->addLayout(horizontalLayout_4, 3, 0, 1, 1);
+
+        horizontalLayout_5 = new QHBoxLayout();
+        horizontalLayout_5->setSpacing(6);
+        horizontalLayout_5->setObjectName(QStringLiteral("horizontalLayout_5"));
+
+        gridLayout->addLayout(horizontalLayout_5, 0, 0, 1, 1);
 
 
         retranslateUi(CBilateralFilterSet);
@@ -195,13 +200,12 @@ public:
 
     void retranslateUi(QWidget *CBilateralFilterSet)
     {
-        CBilateralFilterSet->setWindowTitle(QApplication::translate("CBilateralFilterSet", "CBilateralFilterSet", 0));
-        label_4->setText(QApplication::translate("CBilateralFilterSet", "TextLabel", 0));
-        label_2->setText(QApplication::translate("CBilateralFilterSet", "TextLabel", 0));
-        label->setText(QApplication::translate("CBilateralFilterSet", "TextLabel", 0));
-        pushButton_3->setText(QApplication::translate("CBilateralFilterSet", "PushButton", 0));
-        pushButton->setText(QApplication::translate("CBilateralFilterSet", "PushButton", 0));
-        pushButton_2->setText(QApplication::translate("CBilateralFilterSet", "PushButton", 0));
+        CBilateralFilterSet->setWindowTitle(QApplication::translate("CBilateralFilterSet", "BilateralFilter", 0));
+        label_4->setText(QApplication::translate("CBilateralFilterSet", "D", 0));
+        label_2->setText(QApplication::translate("CBilateralFilterSet", "Sigma Color", 0));
+        label->setText(QApplication::translate("CBilateralFilterSet", "Sigma Space", 0));
+        OKBtn->setText(QApplication::translate("CBilateralFilterSet", "\347\241\256\345\256\232", 0));
+        CancelBtn->setText(QApplication::translate("CBilateralFilterSet", "\345\217\226\346\266\210", 0));
     } // retranslateUi
 
 };

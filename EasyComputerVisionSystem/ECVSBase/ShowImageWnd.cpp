@@ -1,7 +1,8 @@
 #include "stdafx.h"
 #include "ShowImageWnd.h"
 #include <windows.h>
-
+#include <QWheelEvent>
+#include <QMoveEvent>
 CShowImageWnd::CShowImageWnd(QWidget *parent)
 : QFrame(parent)
 {
@@ -18,10 +19,11 @@ CShowImageWnd::CShowImageWnd(QWidget *parent)
 // 
 // 
 // 	this -> setPalette(palette);
-// 	
+// 	setMouseTracking
 	setStyleSheet("border:1px solid black");
 	this->setStyleSheet("background-color:black;");
 	setAutoFillBackground(true);
+	setMouseTracking(true);
 	
 }
 
@@ -49,9 +51,62 @@ void CShowImageWnd::paintEvent(QPaintEvent *event)
 void CShowImageWnd::wheelEvent(QWheelEvent *event)
 {
 
+	if (m_bCanEditView)
+	{
+		if (m_matShowImg.data == NULL)
+		{
+			return __super::wheelEvent(event);
+
+		}
+		if (event->delta() == 120)
+		{
+			
+			Enlarge(true, event->pos());
+		}
+		else if (event->delta() == -120)
+		{
+		
+			Enlarge(false, event->pos());
+		}
+		update();
+	}
+	return __super::wheelEvent(event);
 }
+void CShowImageWnd::mouseMoveEvent(QMouseEvent* event)   //鼠标移动消息
+{
 
+	Qt::MouseButtons btns = event->buttons();
+	if ( (event->buttons() ^ Qt::MouseButton::MiddleButton) == 0)  //只有鼠标中键按下
+	{
+		
+		QPoint point = event->pos();
+		m_rectShowImgRect.setLeft(m_rectShowImgRect.left() + (point.rx() - m_ptPrev.rx()));
+		m_rectShowImgRect.setRight(m_rectShowImgRect.right() + (point.rx() - m_ptPrev.rx()));
+// 
+		m_rectShowImgRect.setTop(m_rectShowImgRect.top() + (point.ry() - m_ptPrev.ry()));
+		m_rectShowImgRect.setBottom(m_rectShowImgRect.bottom() + (point.ry() - m_ptPrev.ry()) );
+// 
+// 
+// 		m_ptCoordinateOffset.x += (point.x - m_ptPrev.x);
+// 		m_ptCoordinateOffset.y += (point.y - m_ptPrev.y);
 
+		update();
+	}
+	m_ptPrev = event->pos();
+	return __super::mouseMoveEvent(event);
+}
+bool CShowImageWnd::GetBackImg(Mat& imgBack) //获取后台图像
+{
+	if (m_matShowImg.data == NULL)
+	{
+		return false;
+	}
+	else
+	{
+		imgBack = m_matShowImg;
+		return TRUE;
+	}
+}
 void CShowImageWnd::SetImage(Mat img)
 {
 
@@ -186,11 +241,12 @@ void CShowImageWnd::OnShowImgFixWindow(/*int nRows, int nCols*/)
 		m_rectShowImgRect.setTop ( clientRect.center().ry() - nHeight / 2.0);
 		m_rectShowImgRect.setBottom ( m_rectShowImgRect.top() + nHeight);
 		//Invalidate();
+		update();
 
 	}
 }
 
-void CShowImageWnd::Enlarge(bool bEnlarge, QPoint ptCenter)
+void CShowImageWnd::Enlarge(bool bEnlarge, QPointF ptCenter)
 {
 
 
@@ -198,7 +254,6 @@ void CShowImageWnd::Enlarge(bool bEnlarge, QPoint ptCenter)
 	{
 		return;
 	}
-
 	//放大显示区域
 	if (bEnlarge)
 	{
@@ -277,17 +332,18 @@ void CShowImageWnd::Enlarge(bool bEnlarge, QPoint ptCenter)
 		m_rectShowImgRect.setBottom ( dbY + dbHeight);
 
 	}
-
-//	if (m_pParentWnd != NULL)
-	{
-		//	m_pFuncTransShowScale(m_dbShowPersent);
-		//		::SendMessage(m_pParentWnd->m_hWnd, WM_SHOWSCALECHANGE, (WPARAM)(m_dbShowPersent * 100), 0);
-	}
 }
-
+// void CShowImageWnd::Enlarge(bool bEnlarge, QPointF ptCenter)
+// {
+// 	Enlarge(bEnlarge, QPoint(ptCenter.rx(), ptCenter.ry()));
+// }
 void CShowImageWnd::EnlargeCenter(bool bEnlarge)  //以图像中心点为基准缩放
 {
-	QPoint ptCenter = m_rectShowImgRect.center();
+	QPointF ptCenter = m_rectShowImgRect.center();
 
 	Enlarge(bEnlarge, ptCenter);
+}
+void CShowImageWnd::ShowImgFixSize()
+{
+	::SendMessage((HWND)this->winId(), WM_SHOWIMGFIXWINDOW, (WPARAM)0, (LPARAM)0);
 }

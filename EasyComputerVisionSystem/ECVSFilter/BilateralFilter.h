@@ -3,11 +3,14 @@
 class ECVSFILTER_EXPORT CBilateralFilter :
 	public CAlgrithmBase
 {
+	friend class CBilateralFilterSet;  //让设置类可以公开访问所有成员
 public:
 	CBilateralFilter();
 	~CBilateralFilter();
 
 	virtual void Run();		//执行算法
+
+
 	virtual void Set();  //设置算法
 	virtual string GetErrorMsg();
 	//读写函数，参数暂时未实现，等第一个算法成功实现及流程测试成功后再实现
@@ -33,6 +36,8 @@ private:
 	double	m_dbSigmaColor;
 	double	m_dbSigmaSpace;
 
+	//私有的执行函数，被设置类调用，简单的返回图像变量，返回时间等其他的附加值，
+	Mat Run(Mat inPutImg,int nD, double dbSigmaColor, double dbSigmaSpace);
 	
 
 

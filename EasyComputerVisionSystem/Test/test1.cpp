@@ -9,6 +9,7 @@ Test1::Test1(QWidget *parent)
 	: QWidget(parent)
 {
 	ui.setupUi(this);
+	 pSet = new CBilateralFilter();
 }
 
 Test1::~Test1()
@@ -18,6 +19,6 @@ Test1::~Test1()
 
 void Test1::OnBtnClicked()
 {
-	CBilateralFilter *pSet = new CBilateralFilter();
+	
 	pSet->Set();
 }

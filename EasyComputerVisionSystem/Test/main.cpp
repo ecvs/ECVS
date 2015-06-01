@@ -13,7 +13,7 @@ int main(int argc, char *argv[])
 	QApplication app(argc, argv);
 
 	Test1 t;
-	
+	Qt::WindowFlags flgs = t.windowFlags();
 //	t.setWindowModality(Qt::WindowStaysOnTopHint);
 	t.show();
 	return app.exec();
