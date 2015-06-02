@@ -12,6 +12,7 @@ using namespace cv;
 #include <QToolButton>
 #include <QFileDialog>
 #include <QDockWidget>
+#include <QTextCodec>  
 
 #include "BilateralFilter.h"
 CBilateralFilterSet::CBilateralFilterSet(CBilateralFilter* pOwer, QWidget *parent)
@@ -24,7 +25,6 @@ CBilateralFilterSet::CBilateralFilterSet(CBilateralFilter* pOwer, QWidget *paren
 
 	ui.setupUi(this);
 	m_pShowImgWnd = new CShowImageWnd(ui.frame);
-
 
 
 	ui.frame->setStyleSheet("border:1px solid black");
@@ -114,6 +114,7 @@ void CBilateralFilterSet::resizeEvent(QResizeEvent *e)
 void CBilateralFilterSet::OnOpenImg()
 {
 
+
 	//QString path = QFileDialog::getOpenFileName(this, QStringLiteral("打开图片"), ".", QStringLiteral("Image Files(*.jpg *.png *.bmp)"));
 
  	QFileDialog openImg(this);
@@ -131,8 +132,14 @@ void CBilateralFilterSet::OnOpenImg()
 	if (openImg.exec() == Accepted)
 	{
 		QString path = openImg.selectedFiles()[0];
-		
+		std::wstring str1 = path.toStdWString();
+		std::string str2(str1.length(), ' ');
+		std::copy(str1.begin(), str1.end(), str2.begin());
+		QByteArray array = path.toUtf8();
+		string str = path.toStdString();
+		const char* strPath = path.toStdString().c_str();
 		m_imgProcessed = imread(path.toStdString().c_str());
+		
 		BilateralFilterParamChanged(); //打开图片时需要进行一次滤波操作
 		//m_pShowImgWnd->SetImage(m_imgProcessed);
 	}

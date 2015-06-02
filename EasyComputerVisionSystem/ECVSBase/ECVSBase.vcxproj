@@ -40,7 +40,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <OutDir>..\bin\debug</OutDir>
     <LibraryPath>C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\Lib;;$(VCInstallDir)lib\OpenCV;$(VCInstallDir)lib;$(VCInstallDir)atlmfc\lib;$(WindowsSdkDir)lib;$(FrameworkSDKDir)\lib;..\bin\debug;</LibraryPath>
-    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);$(VCInstallDir)include;$(VCInstallDir)atlmfc\include;$(WindowsSdkDir)include;$(FrameworkSDKDir)\include;C:\Qt\Qt5.4.1\5.4\msvc2013\include;..\..\opencv\include;..\..\opencv\include\opencv;</IncludePath>
+    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);$(VCInstallDir)include;$(VCInstallDir)atlmfc\include;$(WindowsSdkDir)include;$(FrameworkSDKDir)\include;C:\Qt\Qt5.4.1\5.4\msvc2013\include;..\..\opencv\include;..\..\opencv\include\opencv;C:\Qt\Qt5.4.1\5.4\msvc2013\include\QtWidgets;</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\</OutDir>
