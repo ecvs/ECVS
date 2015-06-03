@@ -13,7 +13,7 @@ using namespace cv;
 #include <QFileDialog>
 #include <QDockWidget>
 #include <QTextCodec>  
-
+#
 #include "BilateralFilter.h"
 CBilateralFilterSet::CBilateralFilterSet(CBilateralFilter* pOwer, QWidget *parent)
 : m_pOwerFilter(pOwer),QDialog(parent)
@@ -60,7 +60,8 @@ CBilateralFilterSet::CBilateralFilterSet(CBilateralFilter* pOwer, QWidget *paren
 	//connect()
 	connect(pToolButtonOpenImgs, SIGNAL(clicked()), SLOT(OnOpenImg()));
 	connect(pToolButtonShowFixSize, SIGNAL(clicked()), SLOT(OnShowFixSize()));
-	
+	connect(pToolButtonShowOrgImg, SIGNAL(clicked()), SLOT(OnShowOrgImg()));  //显示原图
+	connect(pToolButtonShowFilterImg, SIGNAL(clicked()), SLOT(OnShowFilterImg()));  //显示处理图
 
 
 	//最大化最小化按钮
@@ -119,29 +120,17 @@ void CBilateralFilterSet::OnOpenImg()
 
  	QFileDialog openImg(this);
 	openImg.setWindowTitle(QStringLiteral("打开图片"));
-	QDir dir;
-	QStringList listFtr;
-	listFtr.append("*.jpg");
-	listFtr.append("*.bmp");
-	listFtr.append("*.png");
-	dir.setNameFilters(listFtr);
-	QDir::Filters ftr;
-	
 	openImg.setNameFilter(QStringLiteral("Image Files(*.jpg *.png *.bmp)"));
-/*	openImg.setDirectory(".");**/
 	if (openImg.exec() == Accepted)
 	{
 		QString path = openImg.selectedFiles()[0];
-		std::wstring str1 = path.toStdWString();
-		std::string str2(str1.length(), ' ');
-		std::copy(str1.begin(), str1.end(), str2.begin());
-		QByteArray array = path.toUtf8();
-		string str = path.toStdString();
-		const char* strPath = path.toStdString().c_str();
-		m_imgProcessed = imread(path.toStdString().c_str());
+		QByteArray byteArray = path.toLocal8Bit();
+		string strPath =  byteArray.toStdString();
+		m_imgProcessed = imread(strPath.c_str());
+		//QImage qImg(path);
 		
 		BilateralFilterParamChanged(); //打开图片时需要进行一次滤波操作
-		//m_pShowImgWnd->SetImage(m_imgProcessed);
+		
 	}
 
 }
@@ -247,8 +236,28 @@ void CBilateralFilterSet::OnOkClicked()
 	m_pOwerFilter->m_dbSigmaColor = ui.spinBoxSigmaColor->value();
 	m_pOwerFilter->m_dbSigmaSpace = ui.spinBoxSigmaSpace->value();
 	this->close();
+	this->setResult(Accepted);
 }
 void CBilateralFilterSet::OnCancelClicled()
 {
+	
 	this->close();
+	this->setResult(Rejected);
 }
+
+//显示原图
+void CBilateralFilterSet::OnShowOrgImg()
+{
+	if (m_imgProcessed.data != NULL)
+	{
+		m_pShowImgWnd->SetImage(m_imgProcessed);
+	}
+}
+
+//显示处理图
+void CBilateralFilterSet::OnShowFilterImg()
+{
+	BilateralFilterParamChanged();
+}
+
+//虚构造函数

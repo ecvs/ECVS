@@ -93,10 +93,12 @@
     <ClCompile Include="TestStatic.cpp" />
     <ClCompile Include="ToolInput.cpp" />
     <ClCompile Include="ToolOutput.cpp" />
+    <ClCompile Include="需实现功能.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AlgrithmBase.h" />
     <ClInclude Include="ECVSBase.h" />
+    <ClInclude Include="ECVSBaseHeader.h" />
     <ClInclude Include="ecvsbase_global.h" />
     <ClInclude Include="FlowProcess.h" />
     <ClInclude Include="InputOutputInfo.h" />

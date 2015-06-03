@@ -196,7 +196,7 @@ void CShowImageWnd::OnShowImgFixWindow(/*int nRows, int nCols*/)
 	else
 	{
 		
-		const QRect& clientRect = geometry();
+		const QRect& clientRect = rect();
 	//	GetClientRect(clientRect);
 		//图像比窗口大的情况
 

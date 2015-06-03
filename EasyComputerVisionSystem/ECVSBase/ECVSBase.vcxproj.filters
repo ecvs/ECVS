@@ -65,6 +65,9 @@
     <ClCompile Include="TestStatic.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="需实现功能.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ecvsbase_global.h">
@@ -92,6 +95,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="ECVSBase.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ECVSBaseHeader.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

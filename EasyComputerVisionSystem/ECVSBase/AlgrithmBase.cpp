@@ -8,7 +8,7 @@
 using std::vector;
 #include "AlgrithmBase.h"
 
-
+map<string, CAlgrithmBase::CreateFunction> CAlgrithmBase::m_mapCreatedFucn;
 CAlgrithmBase::CAlgrithmBase()
 {
 	//至少有两个输出 一个是错误代码 一个是处理时间
@@ -132,6 +132,7 @@ void CAlgrithmBase::Clone(const CAlgrithmBase& rhs)
 	}
 	m_strAlgrithmName = rhs.m_strAlgrithmName;
 	m_strShowText = rhs.m_strShowText;
+	m_strClassName = rhs.m_strClassName;
 }
 void CAlgrithmBase::DeleteMemory() // 删除内存
 {
@@ -182,4 +183,31 @@ string CAlgrithmBase::GetErrorMsg()
 	int nErr = 0;
 	info.GetIntValue(nErr);
 	return ::GetErrorMsg(nErr);
+}
+
+
+// void CAlgrithmBase::RegistClass(string strClassName, CreateFunction funcCreate)
+// {
+// 	CAlgrithmBase::m_mapCreatedFucn.insert(make_pair("CAl", funcCreate));
+// }
+
+
+CAlgrithmBase* CAlgrithmBase::CreateAlgrithm(string strClassName)
+{
+	for (map<string, CreateFunction>::iterator iter = CAlgrithmBase::m_mapCreatedFucn.begin();
+		iter != CAlgrithmBase::m_mapCreatedFucn.end(); ++iter)
+	{
+		if (iter->first == strClassName)
+		{
+			return  iter->second();
+		}
+	}
+
+	return NULL;
+	
+}
+
+string CAlgrithmBase::GetAlgrithmClassName()  //获取算法的类
+{
+	return m_strClassName;
 }

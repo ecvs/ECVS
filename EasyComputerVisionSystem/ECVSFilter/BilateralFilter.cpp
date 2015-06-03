@@ -6,8 +6,9 @@
 #include "BilateralFilterSet.h"
 #include <windows.h>
 #include <QDateTime>
-
-CBilateralFilter::CBilateralFilter() :CAlgrithmBase()
+#include <string>
+using std::string;
+CBilateralFilter::CBilateralFilter() :CAlgrithmBase() 
 {
 	//三个参数都初始化为1
 	m_nDiameter = 1;
@@ -20,7 +21,8 @@ CBilateralFilter::CBilateralFilter() :CAlgrithmBase()
 	CToolInput* pInputImg = new CToolInput(DataType::TYPE_IMAGE);
 	pInputImg->SetStringInfo("输入图像");
 	m_vectInput.push_back(pInputImg);
-	
+	m_strAlgrithmName = string("ECVS_BilateralFilter");
+	m_strClassName = string("CBilateralFilter");
 }
 
 
@@ -80,7 +82,7 @@ Mat CBilateralFilter::Run(Mat inputimg,int nD, double dbSigmaColor, double dbSig
 	bilateralFilter(inputimg, imgOut, nD, dbSigmaColor, dbSigmaSpace);
 	return imgOut;
 }
-void CBilateralFilter::Set()
+bool CBilateralFilter::Set()
 {
 
 
@@ -88,6 +90,11 @@ void CBilateralFilter::Set()
 
 	
 	setF.exec();
+	if (setF.result() == QDialog::Accepted)
+	{
+		return true;
+	}
+	return false;
 // 	setF.setWindowModality(Qt::WindowModal);
 // 	setF.show();
 // 	setF.DoModal();
@@ -104,3 +111,37 @@ string CBilateralFilter::GetErrorMsg()
 
 
 }
+
+
+
+
+CAlgrithmBase* CBilateralFilter::CreateAlgrithm()
+{
+	return new CBilateralFilter();
+}
+
+//虚构造函数
+CAlgrithmBase* CBilateralFilter::Clone()
+{
+	return new CBilateralFilter(*this);
+}
+
+
+void CBilateralFilter::Clone(const CBilateralFilter& rhs) //用于复制构造函数和赋值操作符使用 
+{
+	__super::Clone(rhs);
+	m_nDiameter = rhs.m_nDiameter;
+	m_dbSigmaColor = rhs.m_dbSigmaColor;
+	m_dbSigmaSpace = rhs.m_dbSigmaSpace;
+}
+
+
+IML_REFLECT_CLASS(CBilateralFilter)
+
+
+
+
+// void CBilateralFilter::RegistClass()
+// {
+// 	CAlgrithmBase::m_mapCreatedFucn.insert(std::make_pair("CBilateralFilter", CBilateralFilter::CreateAlgrithm));
+// }

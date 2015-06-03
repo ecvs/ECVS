@@ -31,6 +31,8 @@ protected:
 private slots:
 	void OnOpenImg();
 	void OnShowFixSize();
+	void OnShowOrgImg();
+	void OnShowFilterImg();
 	void OnSliderDChanged(int nValue);
 	void OnSliderSigmaColorChanged(int nValue);
 	void OnSliderSigmaSpaceChanged(int nValue);
