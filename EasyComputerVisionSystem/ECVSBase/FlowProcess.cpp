@@ -15,6 +15,87 @@ CFlowProcess::CFlowProcess()
 
 CFlowProcess::~CFlowProcess()
 {
+	DeleteMemory();
+}
+
+CFlowProcess::CFlowProcess(const CFlowProcess& rhs)
+{
+	Copy(rhs);
+
+}
+
+const CFlowProcess& CFlowProcess::operator = (const CFlowProcess& rhs)
+{
+	if (this != &rhs)
+	{
+		Copy(rhs);
+	}
+	return *this;
+}
+
+void CFlowProcess::Copy(const CFlowProcess& rhs)
+{
+	//首先删除所有内存空间
+	DeleteMemory();
+
+	//然后依次赋值
+// 	vector<CAlgrithmBase*> m_pAlgrithms;   // 流程中的算法集合
+// 	//vector< vector<AlgrithmRelateship*> >m_vecRalationSheep;  //算法间的相互关系
+// 	vector<AlgrithmRelateship*> m_vecRalationSheep;  //算法间的相互关系
+// 	vector< vector<CToolOutput*> >  m_pOutput; // 执行过程中每个算法的输出值
+
+	for (int i = 0; i < rhs.m_pAlgrithms.size(); ++i)
+	{
+		m_pAlgrithms.push_back(rhs.m_pAlgrithms[i]->Clone());
+	}
+
+	for (int i = 0; i < rhs.m_vecRalationSheep.size(); ++i)
+	{
+		m_vecRalationSheep.push_back(new AlgrithmRelateship(*rhs.m_vecRalationSheep[i]));
+	}
+
+	for (int i = 0; i < rhs.m_pOutput.size(); ++i)
+	{
+		vector<CToolOutput*> pOutput;
+		for (int j = 0; j < rhs.m_pOutput[i].size(); ++j)
+		{
+			pOutput.push_back(new CToolOutput(*rhs.m_pOutput[i][j]));
+		}
+		m_pOutput.push_back(pOutput);
+	}
+}
+
+//删除所有存储空间
+void CFlowProcess::DeleteMemory()
+{
+
+	for (int i = m_pAlgrithms.size() - 1; i >= 0; --i)
+	{
+		delete m_pAlgrithms[i];
+		m_pAlgrithms[i] = NULL;
+		m_pAlgrithms.pop_back();
+
+	}
+
+	for (int i = m_vecRalationSheep.size() - 1; i >= 0; --i)
+	{
+		delete m_vecRalationSheep[i];
+		m_vecRalationSheep[i] = NULL;
+		m_vecRalationSheep.pop_back();
+	}
+
+	for (int i = m_pOutput.size() - 1; i >= 0; --i)
+	{
+		for (int j = m_pOutput[i].size() - 1; j >= 0; --j)
+		{
+			delete m_pOutput[i][j];
+			m_pOutput[i][j] = NULL;
+			m_pOutput[i].pop_back();
+
+		}
+		m_pOutput.pop_back();
+	}
+
 }
 
 //检测流程是否有错
@@ -610,4 +691,90 @@ void CFlowProcess::SetInputParam(int nIndex)
 
 
 	}
+}
+
+
+bool CFlowProcess::AddAlgrithm(CAlgrithmBase* pAlgrithm) //往集合最后添加一个算法
+{
+	m_pAlgrithms.push_back(pAlgrithm->Clone());  //重新分配一个新的对象
+	m_vecRalationSheep.push_back(new AlgrithmRelateship());
+	vector<CToolOutput*> pOutput = pAlgrithm->GetOutput();
+	vector<CToolOutput*> pOutputClone;
+	for (int i = 0; i < pOutput.size(); ++i)
+	{
+		pOutputClone.push_back(new CToolOutput(*pOutput[i]));
+	}
+	m_pOutput.push_back(pOutputClone); 
+	return true;
+}
+bool CFlowProcess::InsertAlgirthm(CAlgrithmBase* pAlgrithm, int nIndex) //插入一个算法到nIndex处，如果超出范围 ,返回false，什么都不做
+{
+	if (nIndex < 0 || nIndex > m_pAlgrithms.size())
+	{
+		return false;
+	}
+
+	m_pAlgrithms.insert(m_pAlgrithms.begin() + nIndex, pAlgrithm->Clone());
+	m_vecRalationSheep.insert(m_vecRalationSheep.begin() + nIndex, new AlgrithmRelateship());
+	vector<CToolOutput*> pOutput = pAlgrithm->GetOutput();
+	vector<CToolOutput*> pOutputClone;
+	for (int i = 0; i < pOutput.size(); ++i)
+	{
+		pOutputClone.push_back(new CToolOutput(*pOutput[i]));
+	}
+	m_pOutput.insert(m_pOutput.begin() + nIndex, pOutputClone);
+	return true;
+}
+
+//两个函数暂未实现
+bool CFlowProcess::ExchangeAlgrithmIndex(int nIndex1, int nIndex2) //将nIndex1和nIndex2的算法相互交换,下标不在范围返回false
+{
+	return true;
+}
+bool CFlowProcess::ChangeAlgrithmIndex(int nIndex, int nChangedIndex) //将nIndex的算法放到nChangedIndex处 之间的算法依次填补过去,下标非法返回错误
+{
+	return true;
+}
+bool CFlowProcess::DelAlgrithm(int nIndex) //删除nIndex处的Algorithm,如果下标非法则返回false
+{
+	if (nIndex < 0 || nIndex >= m_pAlgrithms.size())
+	{
+		return false;
+	}
+
+	delete m_pAlgrithms[nIndex];
+	m_pAlgrithms[nIndex] = NULL;
+	m_pAlgrithms.erase(m_pAlgrithms.begin() + nIndex);
+
+	delete m_vecRalationSheep[nIndex];
+	m_vecRalationSheep[nIndex] = NULL;
+	m_vecRalationSheep.erase(m_vecRalationSheep.begin() + nIndex);
+
+	for (int i = 0; i < m_pOutput[nIndex].size(); ++i)
+	{
+		delete m_pOutput[nIndex][i];
+		
+	}
+	m_pOutput[nIndex].clear();
+	m_pOutput.erase(m_pOutput.begin() + nIndex);
+	return true;
+}
+
+bool CFlowProcess::SetAlgrithmName(int nIndex, std::string strName) //设置算法显示名字
+{
+	if (nIndex >= 0 && nIndex < m_pAlgrithms.size())
+	{
+		 m_pAlgrithms[nIndex]->SetShowText(strName);
+		 return true;
+	}
+	return false;
+}
+bool CFlowProcess::SetAlgrithm(int nIndex)
+{
+	if (nIndex >= 0 && nIndex < m_pAlgrithms.size())
+	{
+		return m_pAlgrithms[nIndex]->Set();
+	}
+	return false;
+	
 }

@@ -78,7 +78,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="ecvs.cpp" />
+    <ClCompile Include="Ecvs.cpp" />
     <ClCompile Include="GeneratedFiles\Debug\moc_ecvs.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
     </ClCompile>

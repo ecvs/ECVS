@@ -6,9 +6,11 @@
 #include <QFileDialog>
 #include <QDialog>
 #include <BilateralFilter.h>
+#include <Qpoint>
 ECVS::ECVS(QWidget *parent)
-	: QMainWindow(parent)
+: QMainWindow(parent)
 {
+	m_bChangeToolText = false;
 	ui.setupUi(this);
 	m_pShowImgWnd = new CShowImageWnd(this);
 	setCentralWidget(m_pShowImgWnd);
@@ -24,15 +26,12 @@ ECVS::~ECVS()
 
 void ECVS::resizeEvent(QResizeEvent *e)
 {
- 	QMainWindow::resizeEvent(e);
-// 	QRect rect = ui.dockWidgetObjList->geometry();
-// 	int nW = rect.width();
-// 	int nH = rect.height();
-// 	rect.setLeft(0);
-// 	rect.setTop(0);
-// 	rect.setWidth(nW);
-// 	rect.setHeight(nH);
-//	ui.listViewObjList->setGeometry(rect);
+	QMainWindow::resizeEvent(e);
+
+
+	QRect qRect = m_objList->rect();
+	m_objList->setColumnWidth(0, qRect.width());
+
 }
 void ECVS::createDockWindows()
 {
@@ -41,10 +40,26 @@ void ECVS::createDockWindows()
 
 	dock = new QDockWidget(QStringLiteral("对象列表"), this);
 	dock->setAllowedAreas(Qt::LeftDockWidgetArea | Qt::RightDockWidgetArea);
-	m_objList = new QListWidget(dock);
+	m_objList = new QTableView(dock);
+	m_objList->horizontalHeader()->hide();
+	m_objList->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+	m_objList->setSelectionBehavior(QAbstractItemView::SelectionBehavior::SelectRows);
+	m_objList->setSelectionMode(QAbstractItemView::SelectionMode::SingleSelection);
+	m_objList->setContextMenuPolicy(Qt::CustomContextMenu);
+	//右键菜单
+	connect(m_objList, SIGNAL(customContextMenuRequested(const QPoint&)), this, SLOT(SetFlow(const QPoint&)));
+	//鼠标双击
+	connect(m_objList, SIGNAL(doubleClicked(const QModelIndex &)), this, SLOT(OnDoubleClicked(const QModelIndex &)));
+	
+
+	m_modelFlow = new QStandardItemModel();
 
 
-
+	//文本消息改变
+	connect(m_modelFlow, SIGNAL(dataChanged(const QModelIndex &, const QModelIndex &, const QVector<int> &)), this, SLOT(ToolTextChanged(const QModelIndex &, const QModelIndex &, const QVector<int> &)));
+	
+	m_objList->setModel(m_modelFlow);
+	m_objList->setEditTriggers(QAbstractItemView::NoEditTriggers);
 	dock->setWidget(m_objList);
 	addDockWidget(Qt::LeftDockWidgetArea, dock);
 	ui.menuView->addAction(dock->toggleViewAction());
@@ -63,6 +78,64 @@ void ECVS::createDockWindows()
 	ui.menuView->addAction(dock->toggleViewAction());
 }
 
+//右键快捷菜单
+void ECVS::SetFlow(const QPoint& ptPos)
+{
+	QModelIndex index = m_objList->currentIndex();
+	
+	if (index.row() >= 0 && index.row() < m_modelFlow->rowCount())
+	{
+		m_pMenuSetFlowMenu->exec(QCursor::pos());
+	}
+}
+
+//鼠标双击
+void ECVS::OnDoubleClicked(const QModelIndex & index)
+{
+	SetAlgrithm(index.row());
+}
+void ECVS::ToolTextChanged(const QModelIndex &lt, const QModelIndex &rb, const QVector<int> &roles)
+{
+//	m_modelFlow->item()
+	if (m_bChangeToolText)  //如果当前是设置算法显示字符串的
+	{
+		m_bChangeToolText = false;  //标志位反转为false
+		for (int i = lt.row(); i <= rb.row(); ++i)
+		{
+			QStandardItem* pItem = m_modelFlow->item(i);
+			QString str = pItem->text();
+			std::string strName = str.toLocal8Bit().toStdString();
+			//这里设置算法显示名字，该步暂时不加入redo undo功能  6-4添加 redo undo功能
+			m_flowProcess[m_nCurIndex].SetAlgrithmName(i,strName);
+		}
+	}
+
+}
+
+void ECVS::SetTools()
+{
+	int nSelectedIndex = m_objList->currentIndex().row();
+	SetAlgrithm(nSelectedIndex);
+
+}
+void ECVS::SetToolsFlow()
+{
+
+}
+void ECVS::ChangeToolName()
+{
+	//m_objList->setEditTriggers(QAbstractItemView::CurrentChanged);
+	m_objList->edit(m_objList->currentIndex());
+	m_bChangeToolText = true;  //当前是设置算法显示字符串的
+	//m_objLis
+	
+}
+
+void ECVS::contextMenuEvent(QContextMenuEvent *e)
+{
+
+}
+
 //初始化工具集合
 void ECVS::InitObjSet()
 {
@@ -79,7 +152,7 @@ void ECVS::InitObjSet()
 	CBilateralFilter biFilter;
 	string strName = biFilter.GetAlgrithmClassName();
 	pTreeWidgetTemp->setData(0, Qt::UserRole, QVariant(strName.c_str()));
-	 
+
 
 	new QTreeWidgetItem(pPreImg, QStringList(QStringLiteral("高斯模糊")));
 	new QTreeWidgetItem(pPreImg, QStringList(QStringLiteral("中值模糊")));
@@ -117,8 +190,8 @@ void ECVS::InitObjSet()
 
 	//void itemDoubleClicked(QTreeWidgetItem *item, int column);
 	//信号连接
-	
-	connect(m_objSet, SIGNAL(itemDoubleClicked(QTreeWidgetItem *, int )), this, SLOT(OnAddTools(QTreeWidgetItem *, int )));
+
+	connect(m_objSet, SIGNAL(itemDoubleClicked(QTreeWidgetItem *, int)), this, SLOT(OnAddTools(QTreeWidgetItem *, int)));
 
 
 }
@@ -134,6 +207,19 @@ void ECVS::createMenu()
 	connect(m_actOpenImg, SIGNAL(triggered()), this, SLOT(OpenImg()));
 
 	ui.menuFile->addAction(m_actOpenImg);
+
+	m_pMenuSetFlowMenu = new QMenu(m_objList->horizontalHeader());  //流程设置菜单
+	 m_pActSetTool = m_pMenuSetFlowMenu->addAction(QStringLiteral("设置算法"));  //设置算法工具ACTION
+	 m_pActSetFlows = m_pMenuSetFlowMenu->addAction(QStringLiteral("流程设置")); //设置流程间的算法关系
+	 m_pActChangeToolName = m_pMenuSetFlowMenu->addAction(QStringLiteral("修改名字")); //修改算法显示的名字
+	 connect(m_pActSetTool, SIGNAL(triggered()), this, SLOT(SetTools()));
+	 connect(m_pActSetFlows, SIGNAL(triggered()), this, SLOT(SetToolsFlow()));
+	 connect(m_pActChangeToolName, SIGNAL(triggered()), this, SLOT(ChangeToolName()));
+// 	QMenu *m_pMenuSetFlowMenu;  //流程设置菜单
+// 	QAction* m_pActSetTool;  //设置算法工具ACTION
+// 	QAction* m_pActSetFlows; //设置流程间的算法关系
+// 	QAction* m_pActChangeToolName; //修改算法显示的名字
+	/*m_pMenuSetFlowMenu = new QMenu();*/
 	//ui.menuFile->addAction(m_actSaveImg);
 }
 
@@ -163,7 +249,7 @@ void ECVS::OnAddTools(QTreeWidgetItem *item, int column)
 		AddVisionTool(strData);
 
 	}
-	
+
 }
 //通过流程名字来添加算法工具，软件内置的算法还是需要通过if else 来
 void ECVS::AddVisionTool(string strData)
@@ -205,7 +291,29 @@ void ECVS::AddAlgrithm(CAlgrithmBase* pAlgrithm)
 		m_flowProcess.erase(m_flowProcess.begin() + m_nCurIndex + 1, m_flowProcess.end()); //删除尾巴
 		m_flowProcess.push_back(flow); //添加
 		m_nCurIndex = m_flowProcess.size() - 1; //设置标号
-		
-	}
 
+	}
+	std::string str = pAlgrithm->GetShowText();
+	QByteArray byteArray;
+	byteArray = QByteArray::fromStdString(str);
+	QString strName;
+	strName = QString::fromLocal8Bit(byteArray);
+	QString strIndex = QString::number(m_flowProcess[m_nCurIndex].GetAlgrithmNumber()).sprintf("%d", m_flowProcess[m_nCurIndex].GetAlgrithmNumber());
+
+	m_modelFlow->setItem(m_flowProcess[m_nCurIndex].GetAlgrithmNumber() - 1, 0, new QStandardItem(strName));
+	/*	m_modelFlow->setItem(0, 1, new QStandardItem("20120202"));*/
+	//m_objList->addItem(strName);
+	//m_objList->addR
+}
+
+void ECVS::SetAlgrithm(int nIndex)
+{
+	//设置成功需要记录操作
+	CFlowProcess flow = m_flowProcess[m_nCurIndex];
+	if (m_flowProcess[m_nCurIndex].SetAlgrithm(nIndex))
+	{
+		m_flowProcess.erase(m_flowProcess.begin() + m_nCurIndex + 1, m_flowProcess.end()); //删除尾巴
+		m_flowProcess.insert(m_flowProcess.end() - 1 , flow); //插入到倒数第二去
+		m_nCurIndex = m_flowProcess.size() - 1; //设置标号
+	}
 }

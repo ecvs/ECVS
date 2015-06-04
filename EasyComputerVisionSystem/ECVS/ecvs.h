@@ -8,6 +8,7 @@
 #include <vector>
 #include <FlowProcess.h>
 #include<QTreeWidget>
+#include <QStandardItemModel>
 #include "ui_ecvs.h"
 class QTextEdit;
 class QTreeWidget;
@@ -19,16 +20,23 @@ class ECVS : public QMainWindow
 public:
 	ECVS(QWidget *parent = 0);
 	~ECVS();
-	
+	void contextMenuEvent(QContextMenuEvent *);
 protected:
 	//虚函数
 
 	void resizeEvent(QResizeEvent *); //窗口大小发生改变
 private:
 	Ui::ECVSClass ui;
-	QListWidget *m_objList;  //流程工具列表
+	QTableView *m_objList;  //流程工具列表
+	QStandardItemModel *m_modelFlow;
+	bool		m_bChangeToolText; //是否为设置算法的显示字符
 	QTreeWidget *m_objSet; //工具箱
 	CShowImageWnd *m_pShowImgWnd;  //显示图像的窗口
+
+	QMenu *m_pMenuSetFlowMenu;
+	QAction* m_pActSetTool; 
+	QAction* m_pActSetFlows; 
+	QAction* m_pActChangeToolName; 
 
 	QTextEdit*		m_pDebugTest;
 	
@@ -39,10 +47,19 @@ private:
 	void createMenu();
 	void AddVisionTool(string strData);  //通过算法名字来添加流程处理工具
 	void AddAlgrithm(CAlgrithmBase* pAlgrithm); //添加算法，需要记录步骤 用于Redo UnDo, 以及和流程里面的UI交互
+	void SetAlgrithm(int nIndex); //对某一个算法进行设置，需要记录步骤 用于Redo UnDo, 以及和流程里面的UI交互
+
 	//信号和槽
 public slots:
 	void OpenImg();
 	void OnAddTools(QTreeWidgetItem *item, int column);
+	void SetFlow(const QPoint&);
+	void SetTools();
+	void SetToolsFlow();
+	void ChangeToolName();
+	void OnDoubleClicked(const QModelIndex &);
+	void ToolTextChanged(const QModelIndex &, const QModelIndex &, const QVector<int> &);
+	
 private:
 
 	//包括一个流程的集合 用于redo undo 操作 ，m_nCurIndex用来

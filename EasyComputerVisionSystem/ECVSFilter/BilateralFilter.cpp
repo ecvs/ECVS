@@ -23,6 +23,7 @@ CBilateralFilter::CBilateralFilter() :CAlgrithmBase()
 	m_vectInput.push_back(pInputImg);
 	m_strAlgrithmName = string("ECVS_BilateralFilter");
 	m_strClassName = string("CBilateralFilter");
+	m_strShowText = "Ë«±ßÂË²¨";
 }
 
 

@@ -35,14 +35,50 @@ private:
 			m_FalidProcess = RunFaildProcess::BREAK;
 			m_nStep2Index = 0;
 		}
+		~AlgrithmRelateship()
+		{
+			DeleteMemory();
+		}
+		AlgrithmRelateship(const AlgrithmRelateship& rhs)
+		{
+			Copy(rhs);
+		}
+		const AlgrithmRelateship&operator = (const AlgrithmRelateship& rhs)
+		{
+			if (this != &rhs)
+			{
+				Copy(rhs);
+			}
+			return *this;
+		}
+	private:
+		void DeleteMemory()
+		{
+			for (int i = m_relationShip.size() - 1; i >= 0; --i)
+			{
+				delete m_relationShip[i];
+				m_relationShip[i] = NULL;
+				m_relationShip.pop_back();
+			}
+		}
+		void Copy(const AlgrithmRelateship& rhs)
+		{
+			DeleteMemory();
+			m_FalidProcess = rhs.m_FalidProcess;
+			m_nStep2Index = rhs.m_nStep2Index;
+		}
 
 	};
 	
 
 public:
 	CFlowProcess();
+	CFlowProcess(const CFlowProcess& rhs);
+	const CFlowProcess& operator=(const CFlowProcess& rhs);
 	~CFlowProcess();
 	bool AddAlgrithm(CAlgrithmBase* pAlgrithm); //往集合最后添加一个算法
+	bool SetAlgrithm(int nIndex); //对某一个算法进行设置，
+	bool SetAlgrithmName(int nIndex, std::string strName); //设置算法显示名字
 	bool InsertAlgirthm(CAlgrithmBase* pAlgrithm, int nIndex); //插入一个算法到nIndex处，如果超出范围 ,返回false，什么都不做
 	bool ExchangeAlgrithmIndex(int nIndex1, int nIndex2); //将nIndex1和nIndex2的算法相互交换,下标不在范围返回false
 	bool ChangeAlgrithmIndex(int nIndex, int nChangedIndex); //将nIndex的算法放到nChangedIndex处 之间的算法依次填补过去,下标非法返回错误
@@ -50,7 +86,10 @@ public:
 
 	bool ComplierFlow(string& strError);  //编译算法流程是否合法，数据交互的合法性,strError返回所有的错误
 	bool  Run();  //开始执行流程
-
+	int  GetAlgrithmNumber()
+	{
+		return m_pAlgrithms.size();
+	}
 
 private: 
 	vector<CAlgrithmBase*> m_pAlgrithms;   // 流程中的算法集合
@@ -64,7 +103,9 @@ private:
 	//设置第nIndex算法的输入参数
 	void SetInputParam(int nIndex);
 
-
+	//删除所有内存
+	void DeleteMemory();
+	void Copy(const CFlowProcess& rhs);
 
 };
 

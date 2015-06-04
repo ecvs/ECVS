@@ -1,6 +1,7 @@
 #include "ecvs.h"
 #include <QtWidgets/QApplication>
-
+#define _CRTDBG_MAP_ALLOC  
+#include <crtdbg.h>  
 
 //µº»ÎOpenCV
 #ifdef _DEBUG
@@ -21,6 +22,9 @@ int main(int argc, char *argv[])
 	QApplication a(argc, argv);
 	ECVS w;
 	w.showMaximized();
-//	w.show();
-	return a.exec();
+
+	w.show();
+	int nRet = a.exec();
+
+	return nRet;
 }

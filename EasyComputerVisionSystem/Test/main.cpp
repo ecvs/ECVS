@@ -10,8 +10,18 @@
 #pragma  comment(lib, "ECVSFilter.lib")
 #pragma  comment(lib, "ECVSBase.lib")
 #define  Test(class_name) asd##class_name
+#define _CRTDBG_MAP_ALLOC  
+#include <crtdbg.h>  
+class TestVector
+{
+public:
+	vector<int> m_vecInt;
+};
 int main(int argc, char *argv[])
 {
+	TestVector a;
+	a.m_vecInt.push_back(11);
+	TestVector b = a;
 	
 	QApplication app(argc, argv);
 	QString str = QStringLiteral("Œ“");
@@ -24,5 +34,6 @@ int main(int argc, char *argv[])
 	Qt::WindowFlags flgs = t.windowFlags();
 	/*t.setWindowModality(Qt::WindowStaysOnTopHint);*/
 	t.show();
+
 	return app.exec();
 }
