@@ -7,6 +7,7 @@
 #include <QDialog>
 #include <BilateralFilter.h>
 #include <Qpoint>
+#include <Qsci/qsciscintilla.h>
 ECVS::ECVS(QWidget *parent)
 : QMainWindow(parent)
 {
@@ -73,8 +74,9 @@ void ECVS::createDockWindows()
 
 	dock = new QDockWidget(QStringLiteral("ต๗สิ"), this);
 	addDockWidget(Qt::BottomDockWidgetArea, dock);
-	m_pDebugTest = new QTextEdit(dock);
-	dock->setWidget(m_pDebugTest);
+	m_pCodeEdit = new QsciScintilla(dock);
+//	m_pDebugTest = new QTextEdit(dock);
+	dock->setWidget(m_pCodeEdit);
 	ui.menuView->addAction(dock->toggleViewAction());
 }
 

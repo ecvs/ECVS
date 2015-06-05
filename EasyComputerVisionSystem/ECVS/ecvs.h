@@ -12,6 +12,7 @@
 #include "ui_ecvs.h"
 class QTextEdit;
 class QTreeWidget;
+class QsciScintilla;
 using std::vector;
 class ECVS : public QMainWindow
 {
@@ -39,7 +40,7 @@ private:
 	QAction* m_pActChangeToolName; 
 
 	QTextEdit*		m_pDebugTest;
-	
+	QsciScintilla*  m_pCodeEdit;
 	//Ë½ÓÐ·½·¨
 private:
 	void InitObjSet();

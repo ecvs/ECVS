@@ -24,6 +24,7 @@ class Ui_Test1
 public:
     QPushButton *pushButton;
     QPushButton *pushButton_2;
+    QWidget *widget;
 
     void setupUi(QWidget *Test1)
     {
@@ -36,6 +37,9 @@ public:
         pushButton_2 = new QPushButton(Test1);
         pushButton_2->setObjectName(QStringLiteral("pushButton_2"));
         pushButton_2->setGeometry(QRect(190, 400, 75, 23));
+        widget = new QWidget(Test1);
+        widget->setObjectName(QStringLiteral("widget"));
+        widget->setGeometry(QRect(30, 20, 321, 181));
 
         retranslateUi(Test1);
         QObject::connect(pushButton, SIGNAL(clicked()), Test1, SLOT(OnBtnClicked()));

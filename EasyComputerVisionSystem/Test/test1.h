@@ -16,7 +16,7 @@ public slots:
 void OnBtnClicked();
 private:
 	Ui::Test1 ui;
-	CBilateralFilter *pSet;
+	//CBilateralFilter *pSet;
 };
 
 #endif // TEST1_H

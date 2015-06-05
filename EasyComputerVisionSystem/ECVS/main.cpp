@@ -17,6 +17,8 @@
 //导入Fillter模块
 #pragma  comment(lib, "ECVSFilter.lib")
 
+//导入QScintilla
+#pragma  comment(lib, "qscintilla2d.lib")
 int main(int argc, char *argv[])
 {
 	QApplication a(argc, argv);
