@@ -31,7 +31,10 @@ CBilateralFilter::~CBilateralFilter()
 {
 }
 
-
+CBilateralFilter::CBilateralFilter(const CBilateralFilter& rhs)
+{
+	Clone(rhs);
+}
 void CBilateralFilter::Run()
 {
 

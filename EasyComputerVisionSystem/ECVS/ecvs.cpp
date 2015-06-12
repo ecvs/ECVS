@@ -8,6 +8,11 @@
 #include <BilateralFilter.h>
 #include <Qpoint>
 #include <Qsci/qsciscintilla.h>
+#include "PluginManager.h"
+#include "AlgrithmPlugin.h"
+#include "PluginManager.h"
+#include "QTableViewEx.h"
+
 ECVS::ECVS(QWidget *parent)
 : QMainWindow(parent)
 {
@@ -18,6 +23,8 @@ ECVS::ECVS(QWidget *parent)
 	createDockWindows();
 	createMenu();
 	setUnifiedTitleAndToolBarOnMac(true);
+	
+
 }
 
 ECVS::~ECVS()
@@ -41,7 +48,7 @@ void ECVS::createDockWindows()
 
 	dock = new QDockWidget(QStringLiteral("对象列表"), this);
 	dock->setAllowedAreas(Qt::LeftDockWidgetArea | Qt::RightDockWidgetArea);
-	m_objList = new QTableView(dock);
+	m_objList = new QTableViewEx(dock);
 	m_objList->horizontalHeader()->hide();
 	m_objList->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
 	m_objList->setSelectionBehavior(QAbstractItemView::SelectionBehavior::SelectRows);
@@ -50,9 +57,9 @@ void ECVS::createDockWindows()
 	//右键菜单
 	connect(m_objList, SIGNAL(customContextMenuRequested(const QPoint&)), this, SLOT(SetFlow(const QPoint&)));
 	//鼠标双击
-	connect(m_objList, SIGNAL(doubleClicked(const QModelIndex &)), this, SLOT(OnDoubleClicked(const QModelIndex &)));
-	
-
+	connect(m_objList, SIGNAL(moveIndex(int, int)), this, SLOT(MoveObjIndex(int ,int )));
+ //	connect(m_objList, SIGNAL(mouseMoveEvent(QMouseEvent* )), SLOT());
+// 	connect(m_objList, SIGNAL(mouseMoveEvent(QMouseEvent*)), SLOT());
 	m_modelFlow = new QStandardItemModel();
 
 
@@ -70,6 +77,7 @@ void ECVS::createDockWindows()
 	dock->setWidget(m_objSet);
 	addDockWidget(Qt::RightDockWidgetArea, dock);
 	ui.menuView->addAction(dock->toggleViewAction());
+
 
 
 	dock = new QDockWidget(QStringLiteral("调试"), this);
@@ -122,7 +130,11 @@ void ECVS::SetTools()
 }
 void ECVS::SetToolsFlow()
 {
-
+// 	CFlowSet *pFlowSet = new CFlowSet(this);
+ 	int nIndex = m_objList->currentIndex().row();
+	m_flowProcess[m_nCurIndex].SetInput(nIndex);
+// 	CAlgrithmBase* pAlgrithm = m_flowProcess[m_nCurIndex].;
+// 	pFlowSet->exec();
 }
 void ECVS::ChangeToolName()
 {
@@ -189,6 +201,22 @@ void ECVS::InitObjSet()
 
 	//插件功能
 	QTreeWidgetItem* pPlugins = new QTreeWidgetItem(m_objSet, QStringList(QStringLiteral("插件")));
+	CPluginManager* pPluginsManager = GetPlugins();
+	vector<string> strAlgrithmName = pPluginsManager->GetPluginsName();  //算法对外名字
+	vector<string> strDataName = pPluginsManager->GetPluginsInnerName(); //算法内部名字
+	for (int i = 0; i < strDataName.size(); ++i)
+	{
+		QByteArray byteArray;
+		byteArray = QByteArray::fromStdString(strAlgrithmName[i]);
+		QString qStrName;
+		qStrName = QString::fromLocal8Bit(byteArray);
+		QTreeWidgetItem*pTreeWidgetTemp = new QTreeWidgetItem(pPlugins, QStringList(qStrName));
+		CBilateralFilter biFilter;
+		string strName = strDataName[i];
+		pTreeWidgetTemp->setData(0, Qt::UserRole, QVariant(strName.c_str()));
+	}
+
+
 
 	//void itemDoubleClicked(QTreeWidgetItem *item, int column);
 	//信号连接
@@ -212,7 +240,7 @@ void ECVS::createMenu()
 
 	m_pMenuSetFlowMenu = new QMenu(m_objList->horizontalHeader());  //流程设置菜单
 	 m_pActSetTool = m_pMenuSetFlowMenu->addAction(QStringLiteral("设置算法"));  //设置算法工具ACTION
-	 m_pActSetFlows = m_pMenuSetFlowMenu->addAction(QStringLiteral("流程设置")); //设置流程间的算法关系
+	 m_pActSetFlows = m_pMenuSetFlowMenu->addAction(QStringLiteral("输入设置")); //设置流程间的算法关系
 	 m_pActChangeToolName = m_pMenuSetFlowMenu->addAction(QStringLiteral("修改名字")); //修改算法显示的名字
 	 connect(m_pActSetTool, SIGNAL(triggered()), this, SLOT(SetTools()));
 	 connect(m_pActSetFlows, SIGNAL(triggered()), this, SLOT(SetToolsFlow()));
@@ -270,7 +298,16 @@ void ECVS::AddVisionTool(string strData)
 	}
 	else //内置算法里面没有功能，那么去插件功能里面找，
 	{
-
+		pAlgrithm = GetPlugins()->CreateAlgrithm(strData);
+		if (pAlgrithm != NULL)
+		{
+			if (pAlgrithm->Set())
+			{
+				AddAlgrithm(pAlgrithm);
+			}
+			delete pAlgrithm;
+			pAlgrithm = NULL;
+		}
 	}
 }
 
@@ -316,6 +353,19 @@ void ECVS::SetAlgrithm(int nIndex)
 	{
 		m_flowProcess.erase(m_flowProcess.begin() + m_nCurIndex + 1, m_flowProcess.end()); //删除尾巴
 		m_flowProcess.insert(m_flowProcess.end() - 1 , flow); //插入到倒数第二去
+		m_nCurIndex = m_flowProcess.size() - 1; //设置标号
+	}
+}
+
+void ECVS::MoveObjIndex(int nWitch, int nAfter)
+{
+
+	//m_flowProcess[m_nCurIndex]
+	CFlowProcess flow = m_flowProcess[m_nCurIndex];
+	if (m_flowProcess[m_nCurIndex].ChangeAlgrithmIndex(nWitch, nAfter))
+	{
+		m_flowProcess.erase(m_flowProcess.begin() + m_nCurIndex + 1, m_flowProcess.end()); //删除尾巴
+		m_flowProcess.insert(m_flowProcess.end() - 1, flow); //插入到倒数第二去
 		m_nCurIndex = m_flowProcess.size() - 1; //设置标号
 	}
 }

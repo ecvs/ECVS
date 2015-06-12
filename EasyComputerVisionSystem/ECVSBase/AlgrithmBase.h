@@ -9,6 +9,7 @@
 */
 #include <string >
 #include <map>
+#include "ECVSBase.h"
 using std::string;
 class CAlgrithmBase;
 using std::map;
@@ -34,10 +35,12 @@ public:
 	CAlgrithmBase();
 	CAlgrithmBase(const CAlgrithmBase& rhs);
 	CAlgrithmBase& operator= (const CAlgrithmBase &rhs);
-	virtual CAlgrithmBase* Clone() = 0; // 虚构造函数
+	
 
 
 	virtual ~CAlgrithmBase();
+
+	virtual CAlgrithmBase* Clone() = 0; // 虚构造函数
 	virtual void Run() = 0;  //执行算法
 	virtual bool Set() = 0;  //设置算法,设置成功返回true， 失败返回false
 	//读写函数，参数暂时未实现，等第一个算法成功实现及流程测试成功后再实现

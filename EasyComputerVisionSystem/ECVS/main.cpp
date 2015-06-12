@@ -7,9 +7,11 @@
 #ifdef _DEBUG
 #pragma  comment(lib,"opencv_world300d.lib" )
 #pragma  comment(lib, "opencv_ts300d.lib")
+#pragma  comment(lib, "qscintilla2d.lib")
 #else
 #pragma  comment(lib, "opencv_ts300.lib")
 #pragma  comment(lib,"opencv_world300.lib" )
+#pragma  comment(lib, "qscintilla2.lib")
 #endif
 
 //导入基础模块
@@ -17,8 +19,7 @@
 //导入Fillter模块
 #pragma  comment(lib, "ECVSFilter.lib")
 
-//导入QScintilla
-#pragma  comment(lib, "qscintilla2d.lib")
+
 int main(int argc, char *argv[])
 {
 	QApplication a(argc, argv);

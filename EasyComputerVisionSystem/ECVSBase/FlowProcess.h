@@ -90,7 +90,8 @@ public:
 	{
 		return m_pAlgrithms.size();
 	}
-
+	bool SetInput(int nIndex);
+	
 private: 
 	vector<CAlgrithmBase*> m_pAlgrithms;   // 流程中的算法集合
 	//vector< vector<AlgrithmRelateship*> >m_vecRalationSheep;  //算法间的相互关系

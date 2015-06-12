@@ -6,6 +6,7 @@
 #include <vector>
 #include "AlgrithmBase.h"
 #include "FlowProcess.h"
+#include "InputSet.h"
 using std::vector;
 
 CFlowProcess::CFlowProcess()
@@ -46,7 +47,8 @@ void CFlowProcess::Copy(const CFlowProcess& rhs)
 
 	for (int i = 0; i < rhs.m_pAlgrithms.size(); ++i)
 	{
-		m_pAlgrithms.push_back(rhs.m_pAlgrithms[i]->Clone());
+		CAlgrithmBase* pAlg = rhs.m_pAlgrithms[i]->Clone();
+		m_pAlgrithms.push_back(pAlg);
 	}
 
 	for (int i = 0; i < rhs.m_vecRalationSheep.size(); ++i)
@@ -696,9 +698,10 @@ void CFlowProcess::SetInputParam(int nIndex)
 
 bool CFlowProcess::AddAlgrithm(CAlgrithmBase* pAlgrithm) //往集合最后添加一个算法
 {
-	m_pAlgrithms.push_back(pAlgrithm->Clone());  //重新分配一个新的对象
+	CAlgrithmBase* pAdd = pAlgrithm->Clone();
+	m_pAlgrithms.push_back(pAdd);  //重新分配一个新的对象
 	m_vecRalationSheep.push_back(new AlgrithmRelateship());
-	vector<CToolOutput*> pOutput = pAlgrithm->GetOutput();
+	vector<CToolOutput*> pOutput = pAdd->GetOutput();
 	vector<CToolOutput*> pOutputClone;
 	for (int i = 0; i < pOutput.size(); ++i)
 	{
@@ -733,6 +736,48 @@ bool CFlowProcess::ExchangeAlgrithmIndex(int nIndex1, int nIndex2) //将nIndex1和
 }
 bool CFlowProcess::ChangeAlgrithmIndex(int nIndex, int nChangedIndex) //将nIndex的算法放到nChangedIndex处 之间的算法依次填补过去,下标非法返回错误
 {
+	if (nIndex < 0 || nIndex >= m_pAlgrithms.size() || nChangedIndex < 0 ||
+		nChangedIndex >= m_pAlgrithms.size())
+	{
+		return false;
+	}
+
+
+	CAlgrithmBase* pPre = m_pAlgrithms[nIndex];
+	CAlgrithmBase* pAft = m_pAlgrithms[nChangedIndex];
+
+// 	vector<AlgrithmRelateship*> m_vecRalationSheep;  //算法间的相互关系
+// 	vector< vector<CToolOutput*> >  m_pOutput; // 执行过程中每个算法的输出值
+
+	AlgrithmRelateship* pShipPre = m_vecRalationSheep[nIndex];
+	AlgrithmRelateship* pShipAft = m_vecRalationSheep[nChangedIndex];
+	vector<CToolOutput*> pOutPre = m_pOutput[nIndex];
+	vector<CToolOutput*> pOutAft = m_pOutput[nChangedIndex];
+
+	m_pAlgrithms[nChangedIndex] = pPre;
+	m_vecRalationSheep[nChangedIndex] = pShipPre;
+	m_pOutput[nChangedIndex] = pOutPre;
+	int nAdd = (nIndex - nChangedIndex) > 0 ? 1 : -1;
+	int i = nChangedIndex;
+	do 
+	{
+		i += nAdd;
+		pPre = m_pAlgrithms[i];
+		m_pAlgrithms[i] = pAft;
+		pAft = pPre;
+
+		pShipPre = m_vecRalationSheep[i];
+		m_vecRalationSheep[i] = pShipAft;
+		pShipAft = pShipPre;
+
+		pOutPre = m_pOutput[i];
+		m_pOutput[i] = pOutAft;
+		pOutAft = pOutPre;
+
+
+
+	} while (i != nIndex);
+
 	return true;
 }
 bool CFlowProcess::DelAlgrithm(int nIndex) //删除nIndex处的Algorithm,如果下标非法则返回false
@@ -777,4 +822,28 @@ bool CFlowProcess::SetAlgrithm(int nIndex)
 	}
 	return false;
 	
+}
+
+
+bool CFlowProcess::SetInput(int nIndex)
+{
+	CInputSet *pSet = new CInputSet();
+
+	vector<CToolInput*>  pInput = m_pAlgrithms[nIndex]->GetInput();
+	vector<string>  pStrName = m_pAlgrithms[nIndex]->GetInputParamName();
+	for (int i = 0; i < pInput.size(); ++i)
+	{
+		string strInfo  = pInput[i]->GetStringInfo();
+		pSet->AddSrcInput(StdStr2QString(pStrName[i]), StdStr2QString(pInput[i]->GetStringInfo()));
+	}
+
+
+	for (int i = 0; i < nIndex; ++i)
+	{
+		string strAlgrithm = m_pAlgrithms[i]->GetShowText();
+		pSet->AddPreAlgrithms(StdStr2QString(strAlgrithm));
+	}
+
+	pSet->exec();
+	return true;
 }

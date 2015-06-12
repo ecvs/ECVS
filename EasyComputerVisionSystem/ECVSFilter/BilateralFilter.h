@@ -6,7 +6,7 @@ class ECVSFILTER_EXPORT CBilateralFilter :
 	friend class CBilateralFilterSet;  //让设置类可以公开访问所有成员
 public:
 	CBilateralFilter();
-/*	CBilateralFilter(const CBilateralFilter&rhs); //复制构造函数*/
+	CBilateralFilter(const CBilateralFilter&rhs); //复制构造函数
 	~CBilateralFilter();
 	virtual CAlgrithmBase* Clone(); // 虚构造函数
 
@@ -40,10 +40,6 @@ private:
 
 	//私有的执行函数，被设置类调用，简单的返回图像变量，返回时间等其他的附加值，
 	Mat Run(Mat inPutImg,int nD, double dbSigmaColor, double dbSigmaSpace);
-	
-
-	
-
 
 	DEF_REFLECT_CLASS(CBilateralFilter)
 	

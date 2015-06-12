@@ -18,6 +18,8 @@ class ECVS : public QMainWindow
 {
 	Q_OBJECT
 
+
+	friend class CFlowSet;
 public:
 	ECVS(QWidget *parent = 0);
 	~ECVS();
@@ -60,6 +62,7 @@ public slots:
 	void ChangeToolName();
 	void OnDoubleClicked(const QModelIndex &);
 	void ToolTextChanged(const QModelIndex &, const QModelIndex &, const QVector<int> &);
+	void MoveObjIndex(int nWitch, int nAfter);
 	
 private:
 

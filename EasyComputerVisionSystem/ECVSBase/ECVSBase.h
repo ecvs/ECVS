@@ -24,6 +24,7 @@ using cv::Point2f;
 
 #include <string>
 #include <vector>
+#include <QString>
 using std::vector;
 using std::string;
 #define  ECVSString string;
@@ -63,6 +64,8 @@ enum DataType
 };
 
 
+class CPluginManager;
+
 
 
 //错误定义
@@ -87,3 +90,6 @@ enum DataType
 bool IsVector(DataType dt); //判断dt是否是vector类型
 bool IsSameType(DataType dt1, DataType dt2);// 判断dt1和 dt2是否为同一种类型 比如vector<int> 和int是同一种类型
 string GetErrorMsg(int nCode);
+ECVS_EXPORT CPluginManager* GetPlugins();
+ECVS_EXPORT QString StdStr2QString(string str);
+ECVS_EXPORT string  QString2StdStr(QString str);

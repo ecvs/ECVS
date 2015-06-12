@@ -29,3 +29,16 @@ string GetErrorMsg(int nCode)
 	}
 
 }
+
+QString StdStr2QString(string str)
+{
+	QByteArray byteArray = QByteArray::fromStdString(str);
+	QString qStr = QString::fromLocal8Bit(byteArray);
+	return qStr;
+}
+string  QString2StdStr(QString str)
+{
+	QByteArray byteArray = str.toLocal8Bit();
+	string strStd = byteArray.toStdString();
+	return strStd;
+}
