@@ -8,6 +8,7 @@
 //////////////////////////////////////////////////////////////////////////
 class ECVS_EXPORT CFlowProcess
 {
+	friend class CInputSet;
 private:
 	//算法运行错误后处理流程
 	enum RunFaildProcess

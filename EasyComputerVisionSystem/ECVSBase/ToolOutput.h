@@ -8,8 +8,10 @@
 *
 */
 #include "InputOutputInfo.h"
+
 class ECVS_EXPORT CToolOutput
 {
+	friend class CToolInput; 
 public:
 	CToolOutput(DataType dataType, string strInfo = "");
 	~CToolOutput();
@@ -17,7 +19,8 @@ public:
 	CToolOutput& operator=(const CToolOutput&);
 	//设置值
 	bool SetValue(const CInputOutputInfo&rhs);
-
+	bool IsSameType(const CToolOutput &rhs);
+	bool IsSameType(const CToolInput& rhs);
 	const CInputOutputInfo& GetValue();
 	const CInputOutputInfo& GetValue() const;
 	//设置和获取说明文字

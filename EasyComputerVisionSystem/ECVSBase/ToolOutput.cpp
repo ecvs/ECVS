@@ -9,7 +9,7 @@
 #include "stdafx.h"
 #include "ToolOutput.h"
 
-
+#include "ToolInput.h"
 CToolOutput::CToolOutput(DataType dataType, string strInfo/* = ""*/) :m_Value(dataType), m_strInfo(strInfo)
 {
 }
@@ -57,6 +57,16 @@ void CToolOutput::SetStringInfo(string strInfo)
 string CToolOutput::GetStringInfo()
 {
 	return m_strInfo;
+}
+
+
+bool CToolOutput::IsSameType(const CToolOutput &rhs)
+{
+	return m_Value.IsSameType(rhs.m_Value);
+}
+bool CToolOutput::IsSameType(const CToolInput& rhs)
+{
+	return m_Value.IsSameType(rhs.m_Value);
 }
 
 CToolOutput& CToolOutput::operator = (const CToolOutput& rhs)

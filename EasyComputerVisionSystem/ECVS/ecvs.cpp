@@ -58,6 +58,7 @@ void ECVS::createDockWindows()
 	connect(m_objList, SIGNAL(customContextMenuRequested(const QPoint&)), this, SLOT(SetFlow(const QPoint&)));
 	//Êó±êË«»÷
 	connect(m_objList, SIGNAL(moveIndex(int, int)), this, SLOT(MoveObjIndex(int ,int )));
+	connect(m_objList, SIGNAL(doubleClicked(const QModelIndex&)), this, SLOT(OnDoubleClicked(const QModelIndex&)));
  //	connect(m_objList, SIGNAL(mouseMoveEvent(QMouseEvent* )), SLOT());
 // 	connect(m_objList, SIGNAL(mouseMoveEvent(QMouseEvent*)), SLOT());
 	m_modelFlow = new QStandardItemModel();

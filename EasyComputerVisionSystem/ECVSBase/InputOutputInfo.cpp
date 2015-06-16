@@ -480,5 +480,7 @@ bool IsVector(DataType dt) //判断dt是否是vector类型
 }
 bool IsSameType(DataType dt1, DataType dt2)// 判断dt1和 dt2是否为同一种类型 比如vector<int> 和int是同一种类型
 {
-	 return ( (dt1 ^ dt2) &0x00FF == 0);
+	int a = dt1 ^ dt2;
+	
+	 return ( ((dt1 ^ dt2) &0x00FF) == 0);
 }

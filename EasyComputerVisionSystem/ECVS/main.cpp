@@ -24,7 +24,7 @@ int main(int argc, char *argv[])
 {
 	QApplication a(argc, argv);
 	ECVS w;
-	w.showMaximized();
+	//w.showMaximized();
 
 	w.show();
 	int nRet = a.exec();

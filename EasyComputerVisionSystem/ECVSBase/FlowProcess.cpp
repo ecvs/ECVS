@@ -827,7 +827,9 @@ bool CFlowProcess::SetAlgrithm(int nIndex)
 
 bool CFlowProcess::SetInput(int nIndex)
 {
-	CInputSet *pSet = new CInputSet();
+	CInputSet *pSet = new CInputSet(nIndex);
+
+	pSet->m_pOwerProcess = this;
 
 	vector<CToolInput*>  pInput = m_pAlgrithms[nIndex]->GetInput();
 	vector<string>  pStrName = m_pAlgrithms[nIndex]->GetInputParamName();

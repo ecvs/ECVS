@@ -11,6 +11,7 @@
 #include "InputOutputInfo.h"
 class ECVS_EXPORT CToolInput
 {
+	friend class CToolOutput;
 public:
 	CToolInput(DataType dataType, string strInfo = "");
 	//复制构造函数
@@ -20,6 +21,9 @@ public:
 	~CToolInput();
 	//设置值
 	bool SetValue(const CInputOutputInfo&rhs);
+
+	bool IsSameType(const CToolOutput &rhs);
+	bool IsSameType(const CToolInput& rhs);
 
 	const CInputOutputInfo& GetValue();
 	const CInputOutputInfo& GetValue() const;
