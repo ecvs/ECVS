@@ -126,7 +126,8 @@ void CBilateralFilterSet::OnOpenImg()
 		QString path = openImg.selectedFiles()[0];
 		QByteArray byteArray = path.toLocal8Bit();
 		string strPath =  byteArray.toStdString();
-		m_imgProcessed = imread(strPath.c_str());
+
+		m_imgProcessed = imread(strPath.c_str(), IMREAD_UNCHANGED);
 		//QImage qImg(path);
 		
 		BilateralFilterParamChanged(); //打开图片时需要进行一次滤波操作

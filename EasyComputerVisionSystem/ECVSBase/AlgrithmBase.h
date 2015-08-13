@@ -10,6 +10,10 @@
 #include <string >
 #include <map>
 #include "ECVSBase.h"
+#include "InputOutputInfo.h"
+#include "ToolInput.h"
+#include "ToolOutput.h"
+#include "ECVSBase.h"
 using std::string;
 class CAlgrithmBase;
 using std::map;
@@ -46,7 +50,11 @@ public:
 	//读写函数，参数暂时未实现，等第一个算法成功实现及流程测试成功后再实现
 	virtual void Read() = 0;  
 	virtual void Save() = 0;
-	
+	//流程中是否需要清除该存储空间,默认都是需要的,当某各类实现为单例模式时 则返回false，比如Camera类(根据相机个数实现几个实例)
+	virtual bool NeedClear()
+	{
+		return true;
+	}
 	virtual string GetErrorMsg(); // 获取算法执行错误字符串
 	
 	 string GetShowText(); //获取显示字符串

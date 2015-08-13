@@ -12,10 +12,15 @@
 #include "AlgrithmPlugin.h"
 #include "PluginManager.h"
 #include "QTableViewEx.h"
-
+#include "ECVSReadImage.h"
+#include "ECVSCamera.h"
+extern void ECVSInitCameara();  //初始化内部集成相机
+extern CAlgrithmBase* CreateAlgrithmGloble(string strName);
+extern void ECVSExitCamera();  //退出内部集成相机
 ECVS::ECVS(QWidget *parent)
 : QMainWindow(parent)
 {
+	
 	m_bChangeToolText = false;
 	ui.setupUi(this);
 	m_pShowImgWnd = new CShowImageWnd(this);
@@ -23,13 +28,76 @@ ECVS::ECVS(QWidget *parent)
 	createDockWindows();
 	createMenu();
 	setUnifiedTitleAndToolBarOnMac(true);
+	CFlowProcess::SetShowImgWnd(m_pShowImgWnd);
+	InitCamera();
+
 	
+}
+void ECVS::InitCamera()
+{
+
+	//添加菜单项
+
+	//先集成内部的相机
+	ECVSInitCameara();
+	
+	connect(ui.menuCamera, SIGNAL(triggered(QAction *)), this, SLOT(OnSetCamera(QAction* )));
+
+	for (int i = 0; i < CECVSCamera::m_pCameras.size(); ++i)
+	{
+
+		//添加菜单项
+ 		string strText = CECVSCamera::m_pCameras[i]->GetShowText();
+		QString qStr = StdStr2QString(strText);
+		QAction* acCamera = new QAction(qStr, this);
+	
+		acCamera->setStatusTip(qStr);
+
+		ui.menuCamera->addAction(acCamera);
+
+		//添加工具栏
+
+		QTreeWidgetItem *pTempCamera = new QTreeWidgetItem(m_pGetImg, QStringList(qStr));
+		char strName[128];
+		sprintf(strName, "ECVS_Camera%d", i);
+		//string strName = "ECVS_Camera" + i;
+		pTempCamera->setData(0, Qt::UserRole, QVariant(strName));
+	}
+
+	//Plugin相机
+}
+
+void ECVS::OnSetCamera(QAction *pAction)
+{
+	QList<QAction*> acts = ui.menuCamera->actions();
+	int nIndex = -1;
+	//找到是哪一个Action被触发了
+	for (int i = 0; i < acts.size(); ++i)
+	{
+		if (acts[i] == pAction)
+		{
+			nIndex = i;
+			break;
+		}
+	}
+
+	if (nIndex >= 0 && nIndex < CECVSCamera::m_pCameras.size())
+	{
+		CECVSCamera::m_pCameras[nIndex]->SetCameraParam();
+	}
 
 }
 
+void ECVS::ExitCamera()
+{
+	//退出软件集成相机
+	ECVSExitCamera();
+	//Pligin相机
+}
 ECVS::~ECVS()
 {
-
+	//退出相机
+	ExitCamera();
 }
 
 void ECVS::resizeEvent(QResizeEvent *e)
@@ -129,6 +197,7 @@ void ECVS::SetTools()
 	SetAlgrithm(nSelectedIndex);
 
 }
+
 void ECVS::SetToolsFlow()
 {
 // 	CFlowSet *pFlowSet = new CFlowSet(this);
@@ -137,6 +206,7 @@ void ECVS::SetToolsFlow()
 // 	CAlgrithmBase* pAlgrithm = m_flowProcess[m_nCurIndex].;
 // 	pFlowSet->exec();
 }
+
 void ECVS::ChangeToolName()
 {
 	//m_objList->setEditTriggers(QAbstractItemView::CurrentChanged);
@@ -159,13 +229,18 @@ void ECVS::InitObjSet()
 
 
 	//图像获取工具
-	QTreeWidgetItem* pGetImg = new QTreeWidgetItem(m_objSet, QStringList(QStringLiteral("图像获取")));
+	m_pGetImg = new QTreeWidgetItem(m_objSet, QStringList(QStringLiteral("图像获取")));
+	QTreeWidgetItem*pGetImgFromFile = new QTreeWidgetItem(m_pGetImg, QStringList(QStringLiteral("从文件读取")));
+	CECVSReadImage bRead;
+	string strName = bRead.GetAlgrithmClassName();
+	pGetImgFromFile->setData(0, Qt::UserRole, QVariant(strName.c_str()));
+
 
 	//图像预处理工具
 	QTreeWidgetItem* pPreImg = new QTreeWidgetItem(m_objSet, QStringList(QStringLiteral("图像预处理")));
 	QTreeWidgetItem*pTreeWidgetTemp = new QTreeWidgetItem(pPreImg, QStringList(QStringLiteral("双边滤波")));
 	CBilateralFilter biFilter;
-	string strName = biFilter.GetAlgrithmClassName();
+	 strName = biFilter.GetAlgrithmClassName();
 	pTreeWidgetTemp->setData(0, Qt::UserRole, QVariant(strName.c_str()));
 
 
@@ -236,16 +311,20 @@ void ECVS::createMenu()
 	//m_actOpenImg->setShortcuts(QKeySequence::Save);
 	m_actOpenImg->setStatusTip(tr("打开图片"));
 	connect(m_actOpenImg, SIGNAL(triggered()), this, SLOT(OpenImg()));
+	m_pRunProcess = new QAction(QStringLiteral("&运行"), this);
+	connect(m_pRunProcess, SIGNAL(triggered()), this, SLOT(OnRun()));
 
 	ui.menuFile->addAction(m_actOpenImg);
+	ui.menuFile->addAction(m_pRunProcess);
 
 	m_pMenuSetFlowMenu = new QMenu(m_objList->horizontalHeader());  //流程设置菜单
-	 m_pActSetTool = m_pMenuSetFlowMenu->addAction(QStringLiteral("设置算法"));  //设置算法工具ACTION
-	 m_pActSetFlows = m_pMenuSetFlowMenu->addAction(QStringLiteral("输入设置")); //设置流程间的算法关系
-	 m_pActChangeToolName = m_pMenuSetFlowMenu->addAction(QStringLiteral("修改名字")); //修改算法显示的名字
-	 connect(m_pActSetTool, SIGNAL(triggered()), this, SLOT(SetTools()));
-	 connect(m_pActSetFlows, SIGNAL(triggered()), this, SLOT(SetToolsFlow()));
-	 connect(m_pActChangeToolName, SIGNAL(triggered()), this, SLOT(ChangeToolName()));
+	m_pActSetTool = m_pMenuSetFlowMenu->addAction(QStringLiteral("设置算法"));  //设置算法工具ACTION
+	m_pActSetFlows = m_pMenuSetFlowMenu->addAction(QStringLiteral("输入设置")); //设置流程间的算法关系
+	m_pActChangeToolName = m_pMenuSetFlowMenu->addAction(QStringLiteral("修改名字")); //修改算法显示的名字
+	
+	connect(m_pActSetTool, SIGNAL(triggered()), this, SLOT(SetTools()));
+	connect(m_pActSetFlows, SIGNAL(triggered()), this, SLOT(SetToolsFlow()));
+	connect(m_pActChangeToolName, SIGNAL(triggered()), this, SLOT(ChangeToolName()));
 // 	QMenu *m_pMenuSetFlowMenu;  //流程设置菜单
 // 	QAction* m_pActSetTool;  //设置算法工具ACTION
 // 	QAction* m_pActSetFlows; //设置流程间的算法关系
@@ -253,6 +332,17 @@ void ECVS::createMenu()
 	/*m_pMenuSetFlowMenu = new QMenu();*/
 	//ui.menuFile->addAction(m_actSaveImg);
 }
+
+void ECVS::OnRun()
+{
+	//for (int i = 0; i < 100; ++i)
+	{
+		m_flowProcess[m_nCurIndex].Run();
+		//Sleep(1);
+	}
+	
+}
+
 
 void ECVS::OpenImg()
 {
@@ -264,7 +354,7 @@ void ECVS::OpenImg()
 		QString path = openImg.selectedFiles()[0];
 		QByteArray byteArray = path.toLocal8Bit();
 		string strPath = byteArray.toStdString();
-		m_pShowImgWnd->SetImage(cv::imread(strPath.c_str()));
+		m_pShowImgWnd->SetImage(cv::imread(strPath.c_str(), cv::IMREAD_UNCHANGED));
 	}
 }
 
@@ -294,20 +384,49 @@ void ECVS::AddVisionTool(string strData)
 			AddAlgrithm(pAlgrithm);
 		}
 
-		delete pAlgrithm;
-		pAlgrithm = NULL;
+		if (pAlgrithm->NeedClear())
+		{
+			delete pAlgrithm;
+			pAlgrithm = NULL;
+		}
+	
 	}
-	else //内置算法里面没有功能，那么去插件功能里面找，
+	else if (pAlgrithm = GetPlugins()->CreateAlgrithm(strData), pAlgrithm != NULL)//内置算法里面没有功能，那么去插件功能里面找，
 	{
-		pAlgrithm = GetPlugins()->CreateAlgrithm(strData);
+		//;
+	
+			if (pAlgrithm != NULL)
+			{
+				if (pAlgrithm->Set())
+				{
+					AddAlgrithm(pAlgrithm);
+				}
+				if (pAlgrithm->NeedClear())
+				{
+					delete pAlgrithm;
+					pAlgrithm = NULL;
+				}
+			}
+		
+
+		
+
+	}
+	else  //如果插件还是没找到，丢给全局的CreateAlgrithm
+	{
+
+		pAlgrithm = CreateAlgrithmGloble(strData);
 		if (pAlgrithm != NULL)
 		{
 			if (pAlgrithm->Set())
 			{
 				AddAlgrithm(pAlgrithm);
 			}
-			delete pAlgrithm;
-			pAlgrithm = NULL;
+			if (pAlgrithm->NeedClear())
+			{
+				delete pAlgrithm;
+				pAlgrithm = NULL;
+			}
 		}
 	}
 }
@@ -329,6 +448,7 @@ void ECVS::AddAlgrithm(CAlgrithmBase* pAlgrithm)
 		CFlowProcess flow = m_flowProcess[m_nCurIndex];  //取当前的流程
 		flow.AddAlgrithm(pAlgrithm);  //
 		m_flowProcess.erase(m_flowProcess.begin() + m_nCurIndex + 1, m_flowProcess.end()); //删除尾巴
+	
 		m_flowProcess.push_back(flow); //添加
 		m_nCurIndex = m_flowProcess.size() - 1; //设置标号
 

@@ -4,6 +4,7 @@
 #include <QGraphicsView>
 
 #define  WM_SHOWIMGFIXWINDOW WM_USER + 5017  //自定义消息，用于适应窗口显示图片
+#define WM_SHOWIMGCOMING WM_USER + 5018  //自定义消息，用于新的显示图片来了
 #define NUMOFCANNEL 1
 #define	MAXRATE	 26
 #define	MINRATE	 -15
@@ -41,6 +42,11 @@ private:
 	QPoint		m_ptPrev;			//鼠标移动时上一个坐标
 	bool		m_bCanEditView;		//是否可以对图像进行缩放，移动操作
 
+
+private:
+	//为了提升效率,显示图像自己手动内存分配与释放
+	uchar* m_pImgData;
+	int	   m_nImgDataLen;
 public slots:
 	
 protected:

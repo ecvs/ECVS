@@ -43,6 +43,8 @@ private:
 
 	QTextEdit*		m_pDebugTest;
 	QsciScintilla*  m_pCodeEdit;
+
+	
 	//私有方法
 private:
 	void InitObjSet();
@@ -63,7 +65,8 @@ public slots:
 	void OnDoubleClicked(const QModelIndex &);
 	void ToolTextChanged(const QModelIndex &, const QModelIndex &, const QVector<int> &);
 	void MoveObjIndex(int nWitch, int nAfter);
-	
+	void OnRun();
+	void OnSetCamera(QAction *);  //设置相机
 private:
 
 	//包括一个流程的集合 用于redo undo 操作 ，m_nCurIndex用来
@@ -72,7 +75,13 @@ private:
 
 	QAction* m_actOpenImg;
 	QAction* m_actSaveImg;
-
+	QAction* m_pRunProcess;
+	//工具栏的获取图像跟
+	QTreeWidgetItem* m_pGetImg;
+	//私有方法
+private:
+	void InitCamera();  //初始化所有相机
+	void ExitCamera();  //退出相机
 };
 
 #endif // ECVS_H

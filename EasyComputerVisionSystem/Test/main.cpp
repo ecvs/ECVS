@@ -19,12 +19,41 @@
 using std::vector;
 class TestVector
 {
+
 public:
 	vector<int> m_vecInt;
 };
+
+class TestClear
+{
+public:
+	int *pInt;
+	TestClear()
+	{
+		pInt = new int;
+		*pInt = 5;
+
+	}
+
+	void ClearMemry()
+	{
+		delete this;
+		
+	}
+
+	~TestClear()
+	{
+		delete pInt;
+	}
+};
+#include <string>
+using std::string;
 int main(int argc, char *argv[])
 {
-
+	string str11 = "asd";
+	str11 += 1;
+	TestClear *p = new TestClear();
+	p->ClearMemry();
 	TestVector a;
 	a.m_vecInt.push_back(11);
 	TestVector b = a;

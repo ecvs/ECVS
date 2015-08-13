@@ -56,7 +56,7 @@ public:
     {
         if (CBilateralFilterSet->objectName().isEmpty())
             CBilateralFilterSet->setObjectName(QStringLiteral("CBilateralFilterSet"));
-        CBilateralFilterSet->resize(987, 744);
+        CBilateralFilterSet->resize(1020, 660);
         gridLayout = new QGridLayout(CBilateralFilterSet);
         gridLayout->setSpacing(6);
         gridLayout->setContentsMargins(11, 11, 11, 11);

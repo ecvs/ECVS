@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>998</width>
-    <height>755</height>
+    <height>674</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -35,8 +35,14 @@
      <string>视图</string>
     </property>
    </widget>
+   <widget class="QMenu" name="menuCamera">
+    <property name="title">
+     <string>相机</string>
+    </property>
+   </widget>
    <addaction name="menuFile"/>
    <addaction name="menuView"/>
+   <addaction name="menuCamera"/>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
    <attribute name="toolBarArea">

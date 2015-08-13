@@ -1,8 +1,5 @@
 #include "stdafx.h"
-#include "ECVSBase.h"
-#include "InputOutputInfo.h"
-#include "ToolInput.h"
-#include "ToolOutput.h"
+
 
 #include <vector>
 using std::vector;
@@ -12,6 +9,7 @@ map<string, CAlgrithmBase::CreateFunction> CAlgrithmBase::m_mapCreatedFucn;
 CAlgrithmBase::CAlgrithmBase()
 {
 	//至少有两个输出 一个是错误代码 一个是处理时间
+	//2015-6-25添加一个输出，显示图像，即所有的用于显示到屏幕上的图像，其它的图像都是后台图像，不能显示出来
 
 	CToolOutput *pErrorCode = new CToolOutput(DataType::TYPE_INT); //错误代码
 	CInputOutputInfo err(DataType::TYPE_INT);
@@ -19,6 +17,9 @@ CAlgrithmBase::CAlgrithmBase()
 	pErrorCode->SetValue(err);
 	pErrorCode->SetStringInfo("错误代码");
 	m_vectOutput.push_back(pErrorCode);
+
+	
+
 	//初始化时间为0
 	CInputOutputInfo ti(DataType::TYPE_DOUBLE);
 	ti.SetDoubleValue(0);
@@ -28,6 +29,13 @@ CAlgrithmBase::CAlgrithmBase()
 	pProcessTime->SetValue(ti);
 	m_vectOutput.push_back(pProcessTime);
 
+
+	CToolOutput* pResultedImg = new CToolOutput(DataType::TYPE_IMAGE);
+	pResultedImg->SetStringInfo("结果图像");
+	CInputOutputInfo img(DataType::TYPE_IMAGE);
+	img.SetImageValue(Mat());
+	pResultedImg->SetValue(img);
+	m_vectOutput.push_back(pResultedImg);
 }
 
 

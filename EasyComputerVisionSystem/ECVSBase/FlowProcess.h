@@ -6,6 +6,7 @@
 //   该类维护所有算法之间的数据交互,第一版本暂时只支持单个流程，
 //   
 //////////////////////////////////////////////////////////////////////////
+#include "ShowImageWnd.h"
 class ECVS_EXPORT CFlowProcess
 {
 	friend class CInputSet;
@@ -93,6 +94,10 @@ public:
 	}
 	bool SetInput(int nIndex);
 	
+
+public:
+	void static SetShowImgWnd(CShowImageWnd * pWnd);
+	void ClearAlgrithm(CAlgrithmBase* pAlgrithm);  //清空算法的存储空间，根据ALgrithm的NeedClear来判断，
 private: 
 	vector<CAlgrithmBase*> m_pAlgrithms;   // 流程中的算法集合
 	//vector< vector<AlgrithmRelateship*> >m_vecRalationSheep;  //算法间的相互关系
@@ -100,7 +105,8 @@ private:
 	vector< vector<CToolOutput*> >  m_pOutput; // 执行过程中每个算法的输出值
 
 
-
+private:
+	static CShowImageWnd* m_pImgWnd; //用于显示流程处理后的图片,该变量只做浅拷贝，内存由外部窗口负责销毁与分配
 private:
 	//设置第nIndex算法的输入参数
 	void SetInputParam(int nIndex);
@@ -109,5 +115,7 @@ private:
 	void DeleteMemory();
 	void Copy(const CFlowProcess& rhs);
 
+private:
+	vector<Mat> m_imgCur;
 };
 

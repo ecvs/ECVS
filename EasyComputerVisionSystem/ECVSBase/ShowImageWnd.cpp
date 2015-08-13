@@ -24,7 +24,7 @@ CShowImageWnd::CShowImageWnd(QWidget *parent)
 	this->setStyleSheet("background-color:black;");
 	setAutoFillBackground(true);
 	setMouseTracking(true);
-	
+	m_pImgData = NULL;
 }
 
 CShowImageWnd::~CShowImageWnd()
@@ -109,7 +109,7 @@ bool CShowImageWnd::GetBackImg(Mat& imgBack) //获取后台图像
 }
 void CShowImageWnd::SetImage(Mat img)
 {
-
+	/*::PostMessage((HWND)this->winId(), WM_SHOWIMGCOMING, 0, 0);*/
 	bool bFixWnd = false;
 
 	//如果图像的大小或者通道数改变了，那么重新分配资源，
@@ -120,27 +120,48 @@ void CShowImageWnd::SetImage(Mat img)
 		Init(img.rows, img.cols, img.channels());
 		Init();
 		bFixWnd = true;
-		
+
+	
 	}
 
 	m_matShowImg = img;  //赋值后台图像
-	m_matShowImgClone = m_matShowImg.clone(); //显示图像
+	int t1 = GetTickCount();
+	char strTime[128];
+
 	if (m_matShowImg.channels() == 1) //灰度图
 	{
 
-		cvtColor(m_matShowImgClone, m_matShowImgClone, CV_GRAY2RGB); //图像转换成3通道RGB图
+		cvtColor(m_matShowImg, m_matShowImgClone, CV_GRAY2RGB); //图像转换成3通道RGB图
 	}
 	else
 	{
-		cvtColor(m_matShowImgClone, m_matShowImgClone, CV_BGR2RGB);
+		cvtColor(m_matShowImg, m_matShowImgClone, CV_BGR2RGB);
 	}
-	m_imgShow = QImage((const uchar*)(m_matShowImgClone.data), m_matShowImgClone.cols, m_matShowImgClone.rows, QImage::Format_RGB888);
-	m_imgShow.bits();
+
+	sprintf(strTime, "cvtColor:%d", GetTickCount() - t1);
+	OutputDebugStringA(strTime);
+// 	int nLen = m_matShowImgClone.cols* m_matShowImgClone.rows*m_matShowImgClone.channels();
+// 	uchar *pData = new uchar[nLen];
+	memcpy(m_pImgData, m_matShowImgClone.data, m_nImgDataLen);
+
+	m_imgShow = QImage(m_pImgData/*; (const uchar*)(m_matShowImgClone.data)*/, m_matShowImgClone.cols, m_matShowImgClone.rows, m_matShowImgClone.cols*m_matShowImgClone.channels(), QImage::Format_RGB888);
+	sprintf(strTime, "QImage:%d", GetTickCount() - t1);
+	OutputDebugStringA(strTime);
+
+	//m_imgShow.bits(); 
+	sprintf(strTime, "QImage bits:%d", GetTickCount() - t1);
+	OutputDebugStringA(strTime);
 	if (bFixWnd)
 	{
 		::SendMessage((HWND)this->winId(), WM_SHOWIMGFIXWINDOW, (WPARAM)img.rows, (LPARAM)img.cols);
 	}
+	sprintf(strTime, "SendMessage:%d", GetTickCount() - t1);
+	OutputDebugStringA(strTime);
 	update();
+	sprintf(strTime, "update:%d", GetTickCount() - t1);
+	OutputDebugStringA(strTime);
+	
+
 }
 
 bool CShowImageWnd::Init()
@@ -154,7 +175,11 @@ bool CShowImageWnd::Init()
 }
 bool CShowImageWnd::Delete()
 {
-
+	if (m_pImgData != NULL)
+	{
+		delete[] m_pImgData;
+		m_pImgData = NULL;
+	}
 	return true;
 }
 bool CShowImageWnd::Init(int nRows, int nClos, int nChannels)
@@ -167,6 +192,18 @@ bool CShowImageWnd::Init(int nRows, int nClos, int nChannels)
  	m_dbShowPersent = 100; 
 	m_nCols = nClos;
 	m_nRows = nRows;
+
+
+	if (m_pImgData != NULL)
+	{
+		delete[] m_pImgData;
+		m_pImgData = NULL;
+	}
+
+	m_nImgDataLen = nRows* nClos * nChannels; // 显示图片默认全部是3 RGB彩色.
+	m_pImgData = new uchar[m_nImgDataLen];
+	m_imgShow = QImage(m_pImgData/*; (const uchar*)(m_matShowImgClone.data)*/, nClos, nRows, nClos*nChannels, QImage::Format_RGB888);
+
 
 	return true;
 }

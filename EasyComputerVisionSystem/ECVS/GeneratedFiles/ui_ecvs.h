@@ -35,6 +35,7 @@ public:
     QMenuBar *menuBar;
     QMenu *menuFile;
     QMenu *menuView;
+    QMenu *menuCamera;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
 
@@ -42,7 +43,7 @@ public:
     {
         if (ECVSClass->objectName().isEmpty())
             ECVSClass->setObjectName(QStringLiteral("ECVSClass"));
-        ECVSClass->resize(998, 755);
+        ECVSClass->resize(998, 674);
         actionToolBox = new QAction(ECVSClass);
         actionToolBox->setObjectName(QStringLiteral("actionToolBox"));
         actionDfas = new QAction(ECVSClass);
@@ -63,6 +64,8 @@ public:
         menuFile->setObjectName(QStringLiteral("menuFile"));
         menuView = new QMenu(menuBar);
         menuView->setObjectName(QStringLiteral("menuView"));
+        menuCamera = new QMenu(menuBar);
+        menuCamera->setObjectName(QStringLiteral("menuCamera"));
         ECVSClass->setMenuBar(menuBar);
         mainToolBar = new QToolBar(ECVSClass);
         mainToolBar->setObjectName(QStringLiteral("mainToolBar"));
@@ -73,6 +76,7 @@ public:
 
         menuBar->addAction(menuFile->menuAction());
         menuBar->addAction(menuView->menuAction());
+        menuBar->addAction(menuCamera->menuAction());
 
         retranslateUi(ECVSClass);
 
@@ -87,6 +91,7 @@ public:
         actionDebugWnd->setText(QApplication::translate("ECVSClass", "\350\260\203\350\257\225\347\252\227\345\217\243", 0));
         menuFile->setTitle(QApplication::translate("ECVSClass", "\346\226\207\344\273\266", 0));
         menuView->setTitle(QApplication::translate("ECVSClass", "\350\247\206\345\233\276", 0));
+        menuCamera->setTitle(QApplication::translate("ECVSClass", "\347\233\270\346\234\272", 0));
     } // retranslateUi
 
 };

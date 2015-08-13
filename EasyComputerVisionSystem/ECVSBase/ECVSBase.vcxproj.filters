@@ -86,6 +86,12 @@
     <ClCompile Include="GeneratedFiles\Release\moc_InputSet.cpp">
       <Filter>Generated Files\Release</Filter>
     </ClCompile>
+    <ClCompile Include="说明文档.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ECVSCamera.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ecvsbase_global.h">
@@ -127,6 +133,9 @@
     <ClInclude Include="GeneratedFiles\ui_InputSet.h">
       <Filter>Generated Files</Filter>
     </ClInclude>
+    <ClInclude Include="ECVSCamera.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="ShowImageWnd.h">
@@ -141,5 +150,10 @@
     <CustomBuild Include="InputSet.ui">
       <Filter>Form Files</Filter>
     </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ECVSBase.def">
+      <Filter>Source Files</Filter>
+    </None>
   </ItemGroup>
 </Project>

@@ -21,6 +21,7 @@ CBilateralFilter::CBilateralFilter() :CAlgrithmBase()
 	CToolInput* pInputImg = new CToolInput(DataType::TYPE_IMAGE);
 	pInputImg->SetStringInfo("ÊäÈëÍ¼Ïñ");
 	m_vectInput.push_back(pInputImg);
+
 	m_strAlgrithmName = string("ECVS_BilateralFilter");
 	m_strClassName = string("CBilateralFilter");
 	m_strShowText = "Ë«±ßÂË²¨";
@@ -53,11 +54,18 @@ void CBilateralFilter::Run()
 		Mat imgOut;
 		//Ö´ÐÐËã·¨
 		bilateralFilter(pImgSrc, imgOut, m_nDiameter, m_dbSigmaColor, m_dbSigmaSpace);
-
+		//cv::threshold(pImgSrc, imgOut, 128, 255, cv::THRESH_BINARY);
 		//ÉèÖÃÊä³öÍ¼Ïñ
 		CInputOutputInfo info(DataType::TYPE_IMAGE);
 		info.SetImageValue(imgOut);
-		m_vectOutput[2]->SetValue(info);
+		m_vectOutput[3]->SetValue(info);
+
+
+		//ÉèÖÃÏÔÊ¾Í¼Ïñ
+
+		CInputOutputInfo infoShow(DataType::TYPE_IMAGE);
+		infoShow.SetImageValue(imgOut.clone());
+		m_vectOutput[2]->SetValue(infoShow);
 
 		CInputOutputInfo err(DataType::TYPE_INT);
 		err.SetIntValue(ECVS_ERROR_NO_ERROR);

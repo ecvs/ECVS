@@ -1,16 +1,20 @@
 #include "stdafx.h"
+
 #include "ECVSBase.h"
 #include "InputOutputInfo.h"
 #include "ToolInput.h"
 #include "ToolOutput.h"
 #include <vector>
 #include "AlgrithmBase.h"
-#include "FlowProcess.h"
-#include "InputSet.h"
-using std::vector;
 
+
+#include "InputSet.h"
+#include "FlowProcess.h"
+using std::vector;
+CShowImageWnd* CFlowProcess::m_pImgWnd = NULL;
 CFlowProcess::CFlowProcess()
 {
+/*	m_pImgWnd = NULL;*/
 }
 
 
@@ -44,7 +48,6 @@ void CFlowProcess::Copy(const CFlowProcess& rhs)
 // 	//vector< vector<AlgrithmRelateship*> >m_vecRalationSheep;  //Ëã·¨¼äµÄÏà»¥¹ØÏµ
 // 	vector<AlgrithmRelateship*> m_vecRalationSheep;  //Ëã·¨¼äµÄÏà»¥¹ØÏµ
 // 	vector< vector<CToolOutput*> >  m_pOutput; // Ö´ĞĞ¹ı³ÌÖĞÃ¿¸öËã·¨µÄÊä³öÖµ
-
 	for (int i = 0; i < rhs.m_pAlgrithms.size(); ++i)
 	{
 		CAlgrithmBase* pAlg = rhs.m_pAlgrithms[i]->Clone();
@@ -73,8 +76,11 @@ void CFlowProcess::DeleteMemory()
 
 	for (int i = m_pAlgrithms.size() - 1; i >= 0; --i)
 	{
-		delete m_pAlgrithms[i];
-		m_pAlgrithms[i] = NULL;
+// 		delete m_pAlgrithms[i];
+// 		m_pAlgrithms[i] = NULL;
+
+		ClearAlgrithm(m_pAlgrithms[i]);
+
 		m_pAlgrithms.pop_back();
 
 	}
@@ -92,9 +98,10 @@ void CFlowProcess::DeleteMemory()
 		{
 			delete m_pOutput[i][j];
 			m_pOutput[i][j] = NULL;
+			
 			m_pOutput[i].pop_back();
-
 		}
+		
 		m_pOutput.pop_back();
 	}
 
@@ -173,7 +180,10 @@ bool CFlowProcess::ComplierFlow(string& strError)
 
 	return (nErrorCount <= 0);
 }
-
+void CFlowProcess::SetShowImgWnd(CShowImageWnd * pWnd)
+{
+	m_pImgWnd = pWnd;
+}
 //ÔËĞĞËã·¨
 bool  CFlowProcess::Run()
 {
@@ -183,12 +193,29 @@ bool  CFlowProcess::Run()
 	{
 		return false;
 	}
+	m_imgCur.clear();
 	int nIndex = 0;
 	while (nIndex >= 0 && nIndex < m_pAlgrithms.size())
 	{
 		SetInputParam(nIndex);
 		m_pAlgrithms[nIndex]->Run();
-		m_pOutput[nIndex] = m_pAlgrithms[nIndex]->GetOutput();
+		
+		vector<CToolOutput*> pOut = m_pAlgrithms[nIndex]->GetOutput();
+		
+		//Çå¿ÕÊä³ö¿Õ¼ä
+		for (int i = 0; i < m_pOutput[nIndex].size(); ++i)
+		{
+			delete m_pOutput[nIndex][i];
+			m_pOutput[nIndex][i] = NULL;
+		}
+		m_pOutput[nIndex].clear();
+
+
+		for (int i = 0; i < pOut.size(); ++i)
+		{
+			m_pOutput[nIndex].push_back(new CToolOutput(*pOut[i]));
+		}
+
 		//Ã¿¸öÊä³ö¶¼ÒªÊÂÏÈ ¡°´íÎó´úÂë¡±ºÍ"ÔËĞĞÊ±¼ä"
 		const CToolOutput* pOutErrorCode = m_pAlgrithms[nIndex]->GetOutput("´íÎó´úÂë");
 
@@ -204,6 +231,7 @@ bool  CFlowProcess::Run()
 			}
 			else if (m_vecRalationSheep[nIndex]->m_FalidProcess == RunFaildProcess::IGNORED)
 			{
+				++nIndex; // ¼ÌĞøÖ´ĞĞÏÂÒ»´Î
 				continue;  //ºöÂÔ ¼ÌĞø½øĞĞ
 			}
 			else if (m_vecRalationSheep[nIndex]->m_FalidProcess == RunFaildProcess::STEPTO)
@@ -216,6 +244,29 @@ bool  CFlowProcess::Run()
 				break;
 			}
 		}
+		else
+		{
+			vector<CToolOutput*>pOut =  m_pAlgrithms[nIndex]->GetOutput();
+			for (int i = 3; i < pOut.size(); ++i)
+			{
+				if (pOut[i]->GetValue().GetDataType() == DataType::TYPE_IMAGE)
+				{
+					Mat img;
+					pOut[i]->GetValue().GetImageValue(img);
+					m_imgCur.push_back(img.clone());
+				}
+			}
+
+			const CToolOutput* pImgResult = m_pAlgrithms[nIndex]->GetOutput("½á¹ûÍ¼Ïñ");
+			Mat imgRet;
+			bool bOk = pImgResult->GetValue().GetImageValue(imgRet);
+			if (imgRet.data != NULL && m_pImgWnd != NULL )
+			{
+				m_pImgWnd->SetImage(imgRet);
+			}
+			++nIndex; //Ö´ĞĞÏÂÒ»´Î
+		}
+
 	
 	}
 }
@@ -227,17 +278,66 @@ void CFlowProcess::SetInputParam(int nIndex)
 {
 	//vector< vector<AlgrithmRelateship*> >m_vecRalationSheep;  //Ëã·¨¼äµÄÏà»¥¹ØÏµ
 
+
+	//Èç¹ûÃ»ÓĞÎªÊäÈë²ÎÊıÉèÖÃ²ÎÊı£¬ÄÇÃ´Èç¹ûÊÇÍ¼ÏñµÄ»°£¬¾ÍÑ¡Ôñµ±Ç°µÄÍ¼Ïñ
+	vector<CToolInput*> pInput = m_pAlgrithms[nIndex]->GetInput();
+	for (int i = 0; i < pInput.size(); ++i)
+	{
+		bool bHasSet = false;
+		for (int j = 0; j < m_vecRalationSheep[nIndex]->m_relationShip.size(); ++j)
+		{
+			if (m_vecRalationSheep[nIndex]->m_relationShip[j]->m_strWitchParam == pInput[i]->GetStringInfo())
+			{
+				bHasSet = true;
+				break;
+			}
+			
+		}
+		//Èç¹ûÊÇÍ¼ÏñµÄ»°
+		if (!bHasSet && (pInput[i]->GetValue().GetDataType() == TYPE_IMAGE))
+		{
+			if (m_imgCur.size() > 0)
+			{
+				CInputOutputInfo inout(TYPE_IMAGE);
+				inout.SetImageValue(m_imgCur[0].clone());
+
+				pInput[i]->SetValue(inout);
+			}
+		}
+	}
+
 	//Ëã·¨µÄÃ¿¸ö×Ö¶ÎÒÀ´ÎÉèÖÃÊäÈë²ÎÊı£¬µ½ÁË¸Ãº¯ÊıËùÓĞµÄ¼ì²â¶¼Íê³ÉËùÒÔ²»ÓÃ×öÈÎºÎ¼ì²â Ö»Ğè°´Ìõ¼ş¸³Öµ¾ÍĞĞ
 	for (int i = 0; i < m_vecRalationSheep[nIndex]->m_relationShip.size(); ++i)
 	{
-
 		vector<CToolOutput*> pOutput = m_pOutput[m_vecRalationSheep[nIndex]->m_relationShip[i]->nIndex];
 		CInputOutputInfo inOut(m_pAlgrithms[nIndex]->GetInput(m_vecRalationSheep[nIndex]->m_relationShip[i]->m_strWitchParam)->GetValue().GetDataType());
 		DataType dtInput = inOut.GetDataType();  //ÊäÈëµÄÀàĞÍ
+		//Èç¹ûÊÇÄ¬ÈÏ²Ù×÷,µ±Îª¸º1Ê±ÎªÄ¬ÈÏ²Ù×÷,Í¼Ïñ¾ÍÈ¡×î½üµÄÒ»ÕÅ·µ»ØÍ¼Ïñ
+		if (m_vecRalationSheep[nIndex]->m_relationShip[i]->nIndex == -1)
+		{
+			if (inOut.GetDataType() == DataType::TYPE_IMAGE || inOut.GetDataType() == DataType::TYPE_IMAGE_VECTOR)
+			{
+				if (m_imgCur.size() > 0)
+				{
+					inOut.SetImageValue(m_imgCur[0].clone());
+				}
+			
+			}
+		}
+
+	
+
+
+	
 		//»ñÈ¡ÊäÈë²ÎÊıµÄÔ´Êı¾İ
 		const CToolOutput* pSrc = m_pAlgrithms[m_vecRalationSheep[nIndex]->m_relationShip[i]->nIndex]->GetOutput(m_vecRalationSheep[nIndex]->m_relationShip[i]->m_strDestParam);
 		const CInputOutputInfo& valueSrc = pSrc->GetValue();
 		//ÉèÖÃÊäÈëµÄÖµ£¬ÕâÀïÓÉÓÚÊÇ¹¹Ôì CInputOutputInfo µÄÖµ ËùÒÔĞèÒª¶ÔËùÓĞCInputOutputInfoÄÜÖ§³ÖµÄÀàĞÍ½øĞĞÉèÖÃ
+	
+		
+		//ÎªÍ¼ÏñÉèÖÃÄ¬ÈÏµÄ²Ù×÷
+	
+
 		//ÏÂÃæµÄ´úÂë±È½Ï·±Ëö£¬
 		if (inOut.IsVector())  //Èç¹ûÊäÈëÀàĞÍÊÇĞòÁĞ
 		{
@@ -700,7 +800,10 @@ bool CFlowProcess::AddAlgrithm(CAlgrithmBase* pAlgrithm) //Íù¼¯ºÏ×îºóÌí¼ÓÒ»¸öËã·
 {
 	CAlgrithmBase* pAdd = pAlgrithm->Clone();
 	m_pAlgrithms.push_back(pAdd);  //ÖØĞÂ·ÖÅäÒ»¸öĞÂµÄ¶ÔÏó
-	m_vecRalationSheep.push_back(new AlgrithmRelateship());
+	AlgrithmRelateship *pShip = new AlgrithmRelateship();
+
+
+	m_vecRalationSheep.push_back(pShip);
 	vector<CToolOutput*> pOutput = pAdd->GetOutput();
 	vector<CToolOutput*> pOutputClone;
 	for (int i = 0; i < pOutput.size(); ++i)
@@ -787,8 +890,11 @@ bool CFlowProcess::DelAlgrithm(int nIndex) //É¾³ınIndex´¦µÄAlgorithm,Èç¹ûÏÂ±ê·Ç·
 		return false;
 	}
 
-	delete m_pAlgrithms[nIndex];
-	m_pAlgrithms[nIndex] = NULL;
+// 	delete m_pAlgrithms[nIndex];
+// 	m_pAlgrithms[nIndex] = NULL;
+
+	ClearAlgrithm(m_pAlgrithms[nIndex]);
+
 	m_pAlgrithms.erase(m_pAlgrithms.begin() + nIndex);
 
 	delete m_vecRalationSheep[nIndex];
@@ -804,7 +910,15 @@ bool CFlowProcess::DelAlgrithm(int nIndex) //É¾³ınIndex´¦µÄAlgorithm,Èç¹ûÏÂ±ê·Ç·
 	m_pOutput.erase(m_pOutput.begin() + nIndex);
 	return true;
 }
+void CFlowProcess::ClearAlgrithm(CAlgrithmBase* pAlgrithm)
+{
+	if (pAlgrithm->NeedClear())
+	{
+		delete pAlgrithm;
+		pAlgrithm = NULL;
+	}
 
+}
 bool CFlowProcess::SetAlgrithmName(int nIndex, std::string strName) //ÉèÖÃËã·¨ÏÔÊ¾Ãû×Ö
 {
 	if (nIndex >= 0 && nIndex < m_pAlgrithms.size())

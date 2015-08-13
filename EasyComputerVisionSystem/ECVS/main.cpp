@@ -18,7 +18,8 @@
 #pragma comment(lib, "ECVSBase.lib")
 //导入Fillter模块
 #pragma  comment(lib, "ECVSFilter.lib")
-
+//图像获取模块
+#pragma  comment(lib, "ECVSImgInput.lib")
 
 int main(int argc, char *argv[])
 {

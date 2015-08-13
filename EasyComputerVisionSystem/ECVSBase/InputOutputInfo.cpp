@@ -60,6 +60,7 @@ void CInputOutputInfo::CopyValue(const CInputOutputInfo& rhs)
 	case TYPE_POINT2F:
 		break;
 	case TYPE_IMAGE:
+		m_Image = rhs.m_Image;
 		break;
 	case TYPE_INT_VECTOR:
 		m_vecIntValue = rhs.m_vecIntValue;
